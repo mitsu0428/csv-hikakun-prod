@@ -56,9 +56,11 @@ const Home: NextPage = () => {
       const csv_content_col_length = ([...csvContent[0]].length)
       const csv_contetn_compare_col_length = ([...csvContentCompare[0]].length)
       if (csv_content_row_length != csv_content_compare_row_length) {
+        alert("行数が一致しません。行数と列数が同じCSVをImportしてください。")
         return
       }
       if (csv_content_col_length != csv_contetn_compare_col_length) {
+        alert("列数が一致しません。行数と列数が同じCSVをImportしてください。")
         return
       }
 
@@ -101,9 +103,11 @@ const Home: NextPage = () => {
     const csv_content_col_length = ([...csvContent[0]].length)
     const csv_contetn_compare_col_length = ([...csvContentCompare[0]].length)
     if (csv_content_row_length != csv_content_compare_row_length) {
+      alert("行数が一致しません。行数と列数が同じCSVをImportしてください。")
       return
     }
     if (csv_content_col_length != csv_contetn_compare_col_length) {
+      alert("列数が一致しません。行数と列数が同じCSVをImportしてください。")
       return
     }
 
@@ -140,56 +144,48 @@ const Home: NextPage = () => {
         <HeaderLogo />
       </header>
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          CSVひかくん
-        </h1>
-        <p>
-          <Link href={"/Description"}>
-            CSV比較比較具体的な使い方を見る
-          </Link>
-        </p>
-        <p>
-          <Link href={"/Description"}>
-            具体的な使い方を見る
-          </Link>
-        </p>
+
+        <div className={styles.grid}>
+          <h1 className={styles.title}>
+            CSVひかくん
+          </h1>
+          <p className={styles.card}>
+            <Link href={"/Description"}>
+              <a>CSVひかくんの具体的な使い方</a>
+            </Link>
+          </p>
+        </div>
 
         <div className={styles.grid}>
           <h2>
             マスターデータ -比較の際、マスターになるデータを入れます！
           </h2>
-          <input type="file" accept="text/csv" onChange={getMasterFile} />
+          <input type="file" accept="text/csv" onChange={getMasterFile} className={styles.card}/>
         </div>
 
         <div className={styles.grid}>
           <h2>
             比較データ -比較の際、マスターと比較したいデータを入れます！
           </h2>
-          <input type="file" accept="text/csv" onChange={getCompareFile} />
+          <input type="file" accept="text/csv" onChange={getCompareFile}  className={styles.card}/>
         </div>
 
-        <div className={styles.grid}>
-          <button onClick={checkRow}>
-            <h2>
-              一致しない値が含まれた行が何個あるかを検出する。
-            </h2>
-          </button>
+        <div className={styles.grid} onClick={checkRow}>
+          <p className={styles.card}>
+            一致しない値が含まれた行が何個あるかをチェックする
+          </p>
+          <div className={styles.grid}>
+            <CSVDownloader data={csvCompareRow}/>
+          </div>
         </div>
 
-        <div className={styles.grid}>
-          <CSVDownloader data={csvCompareRow}/>
-        </div>
-
-        <div className={styles.grid}>
-          <button onClick={checkRowCol}>
-            <h2>
-              一致しない値だけを検出する。
-            </h2>
-          </button>
-        </div>
-
-        <div className={styles.grid}>
-          <CSVDownloader data={csvCompareRowCol}/>
+        <div className={styles.grid} onClick={checkRowCol}>
+          <p className={styles.card}>
+            一致しない値のみが何個あるかをチェックする
+          </p>
+          <div className={styles.grid}>
+            <CSVDownloader data={csvCompareRowCol} className={styles.card}/>
+          </div>
         </div>
       </main>
 
