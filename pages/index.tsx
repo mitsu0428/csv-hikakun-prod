@@ -142,14 +142,14 @@ const Home: NextPage = () => {
 
         <div className={styles.grid}>
           <h2>
-            マスターデータ -比較の際、マスターになるデータを入れます
+            マスターデータ -比較の際、マスターになるデータを入れます！
           </h2>
           <input type="file" accept="text/csv" onChange={getMasterFile} />
         </div>
 
         <div className={styles.grid}>
           <h2>
-            比較データ -比較の際、マスターと比較したいデータを入れます
+            比較データ -比較の際、マスターと比較したいデータを入れます！
           </h2>
           <input type="file" accept="text/csv" onChange={getCompareFile} />
         </div>
