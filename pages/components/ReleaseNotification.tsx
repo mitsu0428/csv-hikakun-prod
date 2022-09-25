@@ -19,7 +19,7 @@ function ReleaseNotification() {
             <dt>~2 month.</dt>
             <dd>
                 <Link href={"/"}>
-                コンタクトフォーム（ユーザーヒアリング）
+                コンタクトフォーム
                 </Link>
             </dd>
         </dl>
