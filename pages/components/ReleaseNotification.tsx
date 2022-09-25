@@ -35,7 +35,7 @@ function ReleaseNotification() {
             <dt>~4 month.</dt>
             <dd>
                 <Link href={"/"}>
-                行数と列数が一致しないCSVを比較する
+                行数と列数が一致しないCSVも比較する
                 </Link>
             </dd>
         </dl>
