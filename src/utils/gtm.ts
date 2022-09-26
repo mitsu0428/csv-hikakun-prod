@@ -1,4 +1,4 @@
-export const googleTagManagerId = process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER_ID ?? '';
+export const googleTagManagerId = "GTM-PLNNP2G";
 
 declare global {
   interface Window {
