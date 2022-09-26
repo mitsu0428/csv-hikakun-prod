@@ -1,37 +1,45 @@
-import Document, { Head, Html, Main, NextScript } from "next/document";
-import { GA_ID } from "../lib/gtag";
-
-class MyDocument extends Document {
-    render() {
-        return (
-        <Html lang={"ja"} dir={"ltr"}>
-            <Head>
-                    {/* ... その他のコード */}
-                    {/* Google Analytics */}
-                {GA_ID && (
-                <>
-                    <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} />
-                    <script
-                    dangerouslySetInnerHTML={{
-                        __html: `
-                        window.dataLayer = window.dataLayer || [];
-                        function gtag(){dataLayer.push(arguments);}
-                        gtag('js', new Date());
-                        gtag('config', '${GA_ID}', {
-                        page_path: window.location.pathname,
-                        });`,
-                    }}
-                    />
-                </>
-                )}
-            </Head>
-            <body>
-                <Main />
-                <NextScript />
-            </body>
+import Document, {
+    DocumentContext,
+    Head,
+    Html,
+    Main,
+    NextScript,
+    DocumentInitialProps,
+  } from 'next/document';
+  import React from 'react';
+  import {googleTagManagerId} from '../utils/gtm';
+  
+  export default class CustomDocument extends Document {
+    static async getInitialProps(
+      ctx: DocumentContext,
+    ): Promise<DocumentInitialProps> {
+      const initialProps = await Document.getInitialProps(ctx);
+  
+      return {
+        ...initialProps,
+      };
+    }
+  
+    render(): JSX.Element {
+      return (
+        <Html prefix="og: https://ogp.me/ns#">
+          <Head />
+          <body>
+            <noscript
+              dangerouslySetInnerHTML={{
+                __html: `
+                <iframe
+                  src="https://www.googletagmanager.com/ns.html?id=${googleTagManagerId}"
+                  height="0"
+                  width="0"
+                  style="display:none;visibility:hidden"
+                />`,
+              }}
+            />
+            <Main />
+            <NextScript />
+          </body>
         </Html>
       );
     }
   }
-
-  export default MyDocument;

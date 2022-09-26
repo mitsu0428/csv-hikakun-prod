@@ -1,11 +1,16 @@
 import '../styles/globals.css'
-import type { AppProps } from 'next/app'
-import { usePageView } from "../hooks/usePageView";
+import { AppProps } from 'next/app';
+import { googleTagManagerId } from '../utils/gtm';
+import GoogleTagManager, {
+  GoogleTagManagerId,
+} from '../components/GoogleTagManager';
 
-function MyApp({ Component, pageProps }: AppProps) {
-  // Google Analytics の PV をカウントするイベント
-  usePageView();
-  return <Component {...pageProps} />
-}
+const App = ({ Component, pageProps }: AppProps): JSX.Element => (
+  <>
+  <GoogleTagManager
+    googleTagManagerId={googleTagManagerId as GoogleTagManagerId} />
+  <Component {...pageProps} />
+  </>
+);
 
-export default MyApp
+export default App;
