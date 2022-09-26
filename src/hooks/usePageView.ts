@@ -9,7 +9,7 @@ export const usePageView = () => {
       return;
     }
 
-    /* eslint-disable  @TypeScript-eslint/no-explicit-any */
+
     const handleRouteChange = (url: string, { shallow }: any) => {
       if (!shallow) {
         pageview(url);
