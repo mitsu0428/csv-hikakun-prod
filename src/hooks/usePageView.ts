@@ -3,7 +3,6 @@ import { useEffect } from "react";
 import { GA_ID, pageview } from "../lib/gtag";
 
 export const usePageView = () => {
-  const router = Router();
   useEffect(() => {
     if (!GA_ID) {
       return;
@@ -16,9 +15,9 @@ export const usePageView = () => {
       }
     };
 
-    router.events.on("routeChangeComplete", handleRouteChange);
+    Router.events.on("routeChangeComplete", handleRouteChange);
     return () => {
-      router.events.off("routeChangeComplete", handleRouteChange);
+      Router.events.off("routeChangeComplete", handleRouteChange);
     };
-  }, [router.events]);
+  }, [Router.events]);
 };
