@@ -6,6 +6,7 @@ function HeaderLogo() {
     <div>
         <Image src="/images/csvhikakun_logo_ver0.2.png" width={75} height={75} alt="csvhikrakunのロゴ" />
     </div>
+    
   )
 }
 
