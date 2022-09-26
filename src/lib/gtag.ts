@@ -1,4 +1,4 @@
-export const GA_ID = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID || "";
+export const GA_ID = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID ?? "";
 
 // https://developers.google.com/analytics/devguides/collection/gtagjs/pages
 // PV 数の計測

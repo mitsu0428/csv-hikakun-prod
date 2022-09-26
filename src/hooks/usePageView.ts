@@ -9,9 +9,9 @@ export const usePageView = () => {
     }
 
 
-    const handleRouteChange = (url: string, { shallow }: any) => {
+    const handleRouteChange = (path: string, { shallow }: any) => {
       if (!shallow) {
-        pageview(url);
+        pageview(path);
       }
     };
 
