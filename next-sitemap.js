@@ -1,5 +1,6 @@
-// sitemap.config.js
-
-export const siteUrl = 'https://csvhikakun.com';
-export const generateRobotsTxt = true;
-export const outDir = './out';
+/** @type {import('next-sitemap').IConfig} */
+module.exports = {
+    siteUrl: process.env.SITE_URL || 'https://csvhikakun.com',
+    generateRobotsTxt: true, // (optional)
+    // ...other options
+  }
