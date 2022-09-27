@@ -1,7 +1,6 @@
 import { GetServerSidePropsContext } from 'next';
 
-export const getServerSideProps = async ({ res }: GetServerSidePropsContext) => {
-  async function generateSitemapXml() {
+async function generateSitemapXml() {
     let xml = `
     <?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
@@ -19,8 +18,10 @@ export const getServerSideProps = async ({ res }: GetServerSidePropsContext) => 
     `
     return xml;
   }
+
+export const getServerSideProps = async ({ res }: GetServerSidePropsContext) => {
   const xml = await generateSitemapXml(); // xmlコードを生成する処理（後で書く）
-  
+
   res.statusCode = 200;
   res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate'); // 24時間のキャッシュ
   res.setHeader('Content-Type', 'text/xml');
