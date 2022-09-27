@@ -1,12 +1,13 @@
-import React from 'react'
+import styles from '../styles/Home.module.css'
 
 function Description() {
   return (
-    <div>
-        <h2>
-            CSV比較ツールの使い方
-        </h2>
-    </div>
+    <div className={styles.grid}>
+      <h2 className={styles.description}>
+        CSV比較ツールの使い方
+        <hr />
+      </h2>
+  </div>
   )
 }
 
