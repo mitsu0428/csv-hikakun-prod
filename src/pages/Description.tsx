@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import styles from '../styles/Home.module.css'
 
 function Description() {
@@ -8,6 +9,11 @@ function Description() {
           CSV比較ツールの使い方
           <hr />
         </h2>
+        <p className={styles.card}>
+          <Link href={"/"}>
+            <a>CSV比較ツールに戻る</a>
+          </Link>
+        </p>
       </div>
       <div className={styles.grid}>
         <ul>
