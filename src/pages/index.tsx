@@ -219,14 +219,26 @@ const Home: NextPage = () => {
             <CSVDownloader data={csvCompareRowCol} className={styles.card}/>
           </div>
         </div>
-        <Menu title="Q & A" withIcon={true}>
+        <Menu title="参考情報">
           <Menu title="CSVとは??">
+              <p>
+              comma separated valuesファイルです。カンマによって値が分けられているものを指します。
+              </p>
           </Menu>
           <Menu title="CSVの行だけの差分を調べたい。">
+              <p>
+              比較したいCSVを二つ選択し、行だけを比較するを押下することで比較することができます。
+              </p>
           </Menu>
           <Menu title="CSVの値だけの差分を調べたい。">
+              <p>
+              比較したいCSVを二つ選択し、値だけを比較するを押下することで比較することができます。
+              </p>
           </Menu>
           <Menu title="比較したCSVの差分をダウンロードしたい。">
+              <p>
+              ファイルを選択した後に比較し、ダウンロードボタンを押すことでCSV出力が可能です。
+              </p>
           </Menu>
         </Menu>
       </main>
