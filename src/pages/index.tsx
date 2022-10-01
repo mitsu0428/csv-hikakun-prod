@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useState } from 'react'
 import { readString } from 'react-papaparse'
 import styles from '../styles/Home.module.css'
+import { Menu } from './components/QuestionAndAnswer'
 import ReleaseNotification from './components/ReleaseNotification'
 import CSVDownloader from './CsvDownloader'
 import HeaderLogo from './HeaderLogo'
@@ -218,7 +219,16 @@ const Home: NextPage = () => {
             <CSVDownloader data={csvCompareRowCol} className={styles.card}/>
           </div>
         </div>
-
+        <Menu title="Q & A" withIcon={true}>
+          <Menu title="CSVとは??">
+          </Menu>
+          <Menu title="CSVの行だけの差分を調べたい。">
+          </Menu>
+          <Menu title="CSVの値だけの差分を調べたい。">
+          </Menu>
+          <Menu title="比較したCSVの差分をダウンロードしたい。">
+          </Menu>
+        </Menu>
       </main>
 
       <footer className={styles.footer}>
