@@ -23,7 +23,9 @@ import Document, {
     render(): JSX.Element {
       return (
         <Html prefix="og: https://ogp.me/ns#">
-          <Head />
+          <Head>
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=xxx" crossOrigin="anonymous"></script>
+          </Head>
           <body>
             <noscript
               dangerouslySetInnerHTML={{
