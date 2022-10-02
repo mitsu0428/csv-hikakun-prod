@@ -3,10 +3,10 @@
   margin-top: 2rem;
   margin-left: auto;
   margin-right: auto;
-  border: 1px solid #dbeafe;
+  border: 1px solid #EEA9A9;
 }
 .disclosures > * + * {
-  border-top: 1px solid #dbeafe;
+  border-top: 1px solid #EEA9A9;
 }
 .summary {
   position: relative;
@@ -19,11 +19,11 @@
   display: none;
 }
 .details[open] .summary {
-  background-color: #dbeafe;
+  background-color: #EEA9A9;
 }
 @media (hover: hover) {
   .summary:hover {
-    background-color: #dbeafe;
+    background-color: #EEA9A9;
   }
 }
 .icon {
@@ -34,7 +34,7 @@
   width: 10px;
   height: 10px;
   margin: auto;
-  border: solid #dbeafe;
+  border: solid #EEA9A9;
   border-width: 2px 2px 0 0;
   transform: rotate(135deg);
 }
