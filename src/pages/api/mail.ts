@@ -1,7 +1,6 @@
 import { createTransport } from 'nodemailer';
 
 const mailApi =  async (req: any, res: any) => {
-  require('dotenv').config();
   const transporter = createTransport({
     service: 'gmail',
     port: 465,

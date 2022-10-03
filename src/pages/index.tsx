@@ -282,6 +282,11 @@ const Home: NextPage = () => {
           </div>
         </div>
         <Accordion />
+        <p className={styles.card}>
+            <Link href={"/mail"}>
+              <a>お問い合わせはこちら</a>
+            </Link>
+          </p>
       </main>
 
       <footer className={styles.footer}>
