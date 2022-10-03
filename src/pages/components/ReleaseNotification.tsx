@@ -8,14 +8,6 @@ function ReleaseNotification() {
         <h2>今後のリリース予定情報</h2>
         <hr />
         <dl>
-            <dt>~1 month.</dt>
-            <dd>
-                <Link href={"/"}>
-                  操作方法の説明
-                </Link>
-            </dd>
-        </dl>
-        <dl>
             <dt>~2 month.</dt>
             <dd>
                 <Link href={"/"}>
