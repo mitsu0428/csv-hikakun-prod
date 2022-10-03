@@ -1,6 +1,6 @@
 import { createTransport } from 'nodemailer';
 
-export default async (req: any, res: any) => {
+const mailApi =  async (req: any, res: any) => {
   require('dotenv').config();
   const transporter = createTransport({
     service: 'gmail',
@@ -22,3 +22,5 @@ export default async (req: any, res: any) => {
     success: true,
   });
 };
+
+export default mailApi
