@@ -1,8 +1,16 @@
-import useMail from './hooks/useMail';
+import { useState } from 'react';
 import styles from '../styles/Home.module.css'
 
 export default function Mail() {
-  const { setName, setMessage, send } = useMail();
+  const [name, setName] = useState('');
+  const [message, setMessage] = useState('');
+  
+  const sendMail = async () => {
+    await fetch('/api/mail', {
+      method: 'POST',
+      body: `名前: ${name} \nお問い合わせ内容: ${message}`,
+    });
+  }
 
   return (
     <div>
@@ -24,7 +32,7 @@ export default function Mail() {
         <textarea onChange={(e) => setMessage(e.target.value)} />
       </div>
       <div className={styles.contact}>
-        <button type="button" onClick={send}>送信</button>
+        <button type="button" onClick={sendMail}>送信</button>
       </div>
     </div>
   );
