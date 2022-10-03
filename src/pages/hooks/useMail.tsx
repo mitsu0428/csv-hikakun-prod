@@ -11,7 +11,7 @@ const useMail = () => {
     });
   };
   return {
-    setName, setMessage, send,
+    setName, setMessage, send
   };
 };
 
