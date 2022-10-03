@@ -12,7 +12,9 @@ import HeaderLogo from './HeaderLogo'
 const Home: NextPage = () => {
   const [csvContent, setCsvContent] = useState<Array<any>>([]);
   const [csvContentCompare, setCsvContentCompare] = useState<Array<any>>([]);
+
   const [csvCompareRow, setCsvCompareRow] = useState<Array<any>>([]);
+  const [csvCompareRowOutputWithIndex, setCsvCompareRowOutputWithIndex] = useState<Array<any>>([]);
   const [csvCompareRowCol, setCsvCompareRowCol] = useState<Array<any>>([]);
 
   const getMasterFile = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -97,7 +99,58 @@ const Home: NextPage = () => {
       )
       setCsvCompareRow(diff_list_row);
   }
-  
+
+  const checkRowOutputWithIndex = () => {
+    const csv_content_row_length = ([...csvContent].length)
+    const csv_content_compare_row_length = ([...csvContentCompare].length)
+    const csv_content_col_length = ([...csvContent[0]].length)
+    const csv_contetn_compare_col_length = ([...csvContentCompare[0]].length)
+
+    if (csv_content_row_length != csv_content_compare_row_length) {
+      alert("行数が一致しません。行数と列数が同じCSVをImportしてください。")
+      return
+    }
+    if (csv_content_col_length != csv_contetn_compare_col_length) {
+      alert("列数が一致しません。行数と列数が同じCSVをImportしてください。")
+      return
+    }
+
+    // 重複した行が出力されてしまう可能性があるので一旦、Index番号単位で辞書
+    let diff_list_dict = Object()
+    for (let count=0; count<csv_content_row_length; count++) {
+      for (let sub_count=0; sub_count<csv_content_col_length; sub_count++) {
+        let content = [...csvContent[count]][sub_count]
+        let compare = [...csvContentCompare[count]][sub_count]
+        if (content != compare) {
+          diff_list_dict[Number(count)] = sub_count
+        }
+      }
+    };
+
+    // 差分のあったIndex番号ベースでリスト化ける
+    let diff_list_row = []
+    let object_keys = Object.keys(diff_list_dict)
+    console.log(object_keys)
+    let loop_count = 1
+    for (let count_row of object_keys) {
+      diff_list_row.push(
+        [
+          Number(loop_count),
+          ...csvContentCompare[Number(count_row)],
+          ...csvContent[Number(count_row)]
+        ]
+      )
+      loop_count += 1
+    }
+
+    alert(
+      `
+      一致しない値があった行は、${diff_list_row.length}行でした。
+      `
+    )
+    setCsvCompareRowOutputWithIndex(diff_list_row);
+}
+
   const checkRowCol = () => {
     const csv_content_row_length = ([...csvContent].length)
     const csv_content_compare_row_length = ([...csvContentCompare].length)
@@ -204,10 +257,19 @@ const Home: NextPage = () => {
 
         <div className={styles.grid} onClick={checkRow}>
           <h3 className={styles.card}>
-            一致しない値が含まれた行が何個あるかをチェックする
+            一致しない値が含まれた行をチェックする
           </h3>
           <div className={styles.grid}>
             <CSVDownloader data={csvCompareRow}/>
+          </div>
+        </div>
+
+        <div className={styles.grid} onClick={checkRowOutputWithIndex}>
+          <h3 className={styles.card}>
+            一致しない値が含まれた行を番号と一緒に出力する
+          </h3>
+          <div className={styles.grid}>
+            <CSVDownloader data={csvCompareRowOutputWithIndex} className={styles.card}/>
           </div>
         </div>
 
