@@ -8,7 +8,7 @@ function ReleaseNotification() {
         <h2>今後のリリース予定情報</h2>
         <hr />
         <dl>
-            <dt>~2 month.</dt>
+            <dt>近日中...</dt>
             <dd>
                 <Link href={"/"}>
                   コンタクトフォーム
@@ -16,7 +16,7 @@ function ReleaseNotification() {
             </dd>
         </dl>
         <dl>
-            <dt>~3 month.</dt>
+            <dt>近日中...</dt>
             <dd>
                 <Link href={"/"}>
                   比較したデータをブラウザにテーブル表示
@@ -24,7 +24,7 @@ function ReleaseNotification() {
             </dd>
         </dl>
         <dl>
-            <dt>~4 month.</dt>
+            <dt>近日中...</dt>
             <dd>
                 <Link href={"/"}>
                   行数と列数が一致しないCSVも比較する

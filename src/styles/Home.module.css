@@ -132,6 +132,24 @@
   }
 }
 
-.contact {
+.contactRoot {
   width: 100%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+.contactParent {
+  width: 100%;
+}
+.contactChild {
+  width: 100%;
+}
+
+.contactChild > input {
+  width: 300px;
+  height: 30px;
+}
+.contactChild > textarea {
+  width: 300px;
+  height: 70px;
 }

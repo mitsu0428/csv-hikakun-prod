@@ -41,33 +41,36 @@ export default function Mail() {
   }
 
   return (
-    <div>
-      <div className={styles.contact}>
-        <h2>
-          Contact
-        </h2>
-      </div>
-      <div className={styles.contact}>
-        <h2>
-          名前：
-        </h2>
-        <input type="text" onChange={(e) => setName(e.target.value)} />
-      </div>
-      <div className={styles.contact}>
-        <h2>
-          メールアドレス：
-        </h2>
-        <input type="text" onChange={(e) => setMail(e.target.value)} />
-      </div>
-      <div className={styles.contact}>
-        <h2>
-          内容：
-        </h2>
-        <textarea onChange={(e) => setMessage(e.target.value)} />
-      </div>
-      <div className={styles.contact}>
-        <button type="button" onClick={sendMail}>送信</button>
+    <div className={styles.contactRoot}>
+      <div className={styles.contactParent}>
+        <div className={styles.contactChild}>
+          <h2>
+            Contact
+          </h2>
+        </div>
+        <div className={styles.contactChild}>
+          <h2>
+            名前：
+          </h2>
+          <input type="text" onChange={(e) => setName(e.target.value)} />
+        </div>
+        <div className={styles.contactChild}>
+          <h2>
+            メールアドレス：
+          </h2>
+          <input type="text" onChange={(e) => setMail(e.target.value)} />
+        </div>
+        <div className={styles.contactChild}>
+          <h2>
+            内容：
+          </h2>
+          <textarea onChange={(e) => setMessage(e.target.value)} />
+        </div>
+        <div className={styles.contactChild}>
+          <button type="button" onClick={sendMail}>送信</button>
+        </div>
       </div>
     </div>
+
   );
 }
