@@ -1,8 +1,9 @@
 import React from 'react'
+import styles from '../styles/Home.module.css'
 
 function PrivacyPolicy() {
   return (
-    <div>
+    <div className={styles.privacyPolicyParent}>
         <div>
           <h2>
             プライバシーポリシー

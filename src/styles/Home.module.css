@@ -152,4 +152,7 @@
 .contactChild > textarea {
   width: 300px;
   height: 70px;
+} 
+.privacyPolicyParent {
+  width: 100%;
 }
