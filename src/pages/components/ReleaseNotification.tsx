@@ -10,25 +10,19 @@ function ReleaseNotification() {
         <dl>
             <dt>近日中...</dt>
             <dd>
-                <Link href={"/"}>
-                  コンタクトフォーム
-                </Link>
+              コンタクトフォーム
             </dd>
         </dl>
         <dl>
             <dt>近日中...</dt>
             <dd>
-                <Link href={"/"}>
-                  比較したデータをブラウザにテーブル表示
-                </Link>
+              比較したデータをブラウザにテーブル表示
             </dd>
         </dl>
         <dl>
             <dt>近日中...</dt>
             <dd>
-                <Link href={"/"}>
-                  行数と列数が一致しないCSVも比較する
-                </Link>
+              行数と列数が一致しないCSVも比較する
             </dd>
         </dl>
     </div>
