@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 import styles from '../styles/Home.module.css'
 
 function PrivacyPolicy() {
@@ -8,6 +9,13 @@ function PrivacyPolicy() {
           <h2>
             プライバシーポリシー
           </h2>
+          <p>
+            <Link href={"/"}>
+              <button>CSV比較ツールに戻る</button>
+            </Link>
+          </p>
+        </div>
+        <div>
           <p>
             csvひかくんは、本ウェブサイト上で提供するサービス（以下、「本サービス」といいます。）における、ユーザーの個人情報の取扱いについて、以下のとおりプライバシーポリシー（以下、「本ポリシー」といいます。）を定めます。
           </p>

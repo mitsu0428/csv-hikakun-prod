@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Link from 'next/link'
 import styles from '../styles/Home.module.css'
 
 export default function Mail() {
@@ -68,6 +69,13 @@ export default function Mail() {
         </div>
         <div className={styles.contactChild}>
           <button type="button" onClick={sendMail}>送信</button>
+        </div>
+        <div className={styles.contactChild}>
+          <p>
+            <Link href={"/"}>
+              <button>CSV比較ツールに戻る</button>
+            </Link>
+          </p>
         </div>
       </div>
     </div>
