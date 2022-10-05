@@ -71,11 +71,12 @@ export default function Mail() {
           <button type="button" onClick={sendMail}>送信</button>
         </div>
         <div className={styles.contactChild}>
-          <p>
+          <br />
+          <button>
             <Link href={"/"}>
-              <button>CSV比較ツールに戻る</button>
+              CSV比較ツールに戻る
             </Link>
-          </p>
+          </button>
         </div>
       </div>
     </div>

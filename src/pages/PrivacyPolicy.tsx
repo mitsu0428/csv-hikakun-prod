@@ -9,11 +9,12 @@ function PrivacyPolicy() {
           <h2>
             プライバシーポリシー
           </h2>
-          <p>
+          <br />
+          <button>
             <Link href={"/"}>
-              <button>CSV比較ツールに戻る</button>
+              CSV比較ツールに戻る
             </Link>
-          </p>
+          </button>
         </div>
         <div>
           <p>
