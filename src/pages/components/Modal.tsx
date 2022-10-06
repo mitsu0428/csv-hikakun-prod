@@ -31,7 +31,7 @@ const Modal: React.FC<Props> = props => {
       >
         <div>
           {React.cloneElement(props.children as React.ReactElement<Props>, {
-            close: props.close
+            close: props?.close
           })}
         </div>
       </div>
