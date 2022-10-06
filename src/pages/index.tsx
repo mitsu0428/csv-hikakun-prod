@@ -8,6 +8,8 @@ import Accordion from './components/Accordion'
 import ReleaseNotification from './components/ReleaseNotification'
 import CSVDownloader from './CsvDownloader'
 import HeaderLogo from './HeaderLogo'
+import Modal from "./components/Modal";
+import Panel from "./components/Panel";
 
 const Home: NextPage = () => {
   const [csvContent, setCsvContent] = useState<Array<any>>([]);
@@ -17,6 +19,14 @@ const Home: NextPage = () => {
   const [csvCompareRowOutputWithIndex, setCsvCompareRowOutputWithIndex] = useState<Array<any>>([]);
   const [csvCompareRowCol, setCsvCompareRowCol] = useState<Array<any>>([]);
 
+  const [isOpenModal, setIsOpenModal] = useState(false);
+
+  const toggleModal = (e: { target: any; currentTarget: any }) => {
+    if (e.target === e.currentTarget) {
+      setIsOpenModal(!isOpenModal);
+    }
+  };
+  
   const getMasterFile = async (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!(e.target instanceof HTMLInputElement)) return
     if (!e.target.files) return
@@ -200,7 +210,7 @@ const Home: NextPage = () => {
         <HeaderLogo />
       </header>
 
-      <main className={styles.main}>
+      <main className={styles.main} id="main">
         <div className={styles.grid}>
           <h1 className={styles.title}>
             CSVひかくん
@@ -292,6 +302,16 @@ const Home: NextPage = () => {
             <a>プライバシーポリシーはこちら</a>
           </Link>
         </p>
+        <div className="App">
+          <button type="button" onClick={toggleModal}>
+            Open!
+          </button>
+            {isOpenModal && (
+              <Modal close={toggleModal}>
+                <Panel />
+              </Modal>
+            )}
+        </div>
       </main>
 
       <footer className={styles.footer}>
