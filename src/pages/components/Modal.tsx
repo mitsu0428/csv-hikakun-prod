@@ -30,7 +30,7 @@ const Modal: React.FC<Props> = props => {
         onMouseUp={onMouseUp}
       >
         <div>
-          {React.cloneElement(props.children as any, {
+          {React.cloneElement(props.children as React.ReactElement<Props>, {
             close: props.close
           })}
         </div>
