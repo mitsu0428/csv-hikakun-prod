@@ -7,7 +7,7 @@ const Portal = ( { children }: {children: any} ) => {
   useEffect(() => {
     const elem: any = document.querySelector("#main");
     setElement(elem)
-  });
+  }, []);
 
   return element ? ReactDOM.createPortal(children, element) : null;
 };
