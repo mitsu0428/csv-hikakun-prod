@@ -6,10 +6,9 @@ import { readString } from 'react-papaparse'
 import styles from '../styles/Home.module.css'
 import Accordion from './components/Accordion'
 import ReleaseNotification from './components/ReleaseNotification'
-import CSVDownloader from './CsvDownloader'
+import CSVDownloader from './components/CsvDownloader'
 import HeaderLogo from './HeaderLogo'
-import Modal from "./components/Modal";
-import Panel from "./components/Panel";
+import { ModalExample } from "./components/Modal";
 
 const Home: NextPage = () => {
   const [csvContent, setCsvContent] = useState<Array<any>>([]);
@@ -19,13 +18,8 @@ const Home: NextPage = () => {
   const [csvCompareRowOutputWithIndex, setCsvCompareRowOutputWithIndex] = useState<Array<any>>([]);
   const [csvCompareRowCol, setCsvCompareRowCol] = useState<Array<any>>([]);
 
-  const [isOpenModal, setIsOpenModal] = useState(false);
+  const [isOpenModal, setIsOpenModal] = useState<any>(false);
 
-  const toggleModal = (e: { target: any; currentTarget: any }) => {
-    if (e.target === e.currentTarget) {
-      setIsOpenModal(!isOpenModal);
-    }
-  };
   
   const getMasterFile = async (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!(e.target instanceof HTMLInputElement)) return
@@ -302,16 +296,7 @@ const Home: NextPage = () => {
             <a>プライバシーポリシーはこちら</a>
           </Link>
         </p>
-        <div className="App">
-          <button type="button" onClick={toggleModal}>
-            Open!
-          </button>
-            {isOpenModal && (
-              <Modal close={toggleModal}>
-                <Panel />
-              </Modal>
-            )}
-        </div>
+        <ModalExample />
       </main>
 
       <footer className={styles.footer}>

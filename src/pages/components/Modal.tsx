@@ -1,42 +1,56 @@
-import React, { useState } from "react";
-import Portal from "./Portal";
+import React, { useState } from 'react'
+import Modal from 'react-modal'
 
-type Props = {
-  close: (e: any) => void;
-  children: React.ReactNode;
-};
+const customStyles = {
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+  },
+}
 
-const Modal: React.FC<Props> = props => {
-  const [isMouseDown, setIsMouseDown] = useState(false);
+Modal.setAppElement('#main')
 
-  const onMouseDown = (e: { target: any; currentTarget: any; }) => {
-    if (e.target === e.currentTarget) {
-      setIsMouseDown(true);
-    }
-  };
+export const ModalExample: React.FC = () => {
+  let subtitle: HTMLHeadingElement | null
+  const [modalIsOpen, setIsOpen] = useState<boolean>(false)
 
-  const onMouseUp = (e: any) => {
-    if (isMouseDown) {
-      props.close(e);
-    }
-    setIsMouseDown(false);
-  };
+  function openModal() {
+    setIsOpen(true)
+  }
+
+  function afterOpenModal() {
+    if (subtitle) subtitle.style.color = '#f00'
+  }
+
+  function closeModal() {
+    setIsOpen(false)
+  }
 
   return (
-    <Portal>
-      <div
-        className="modal"
-        onMouseDown={onMouseDown}
-        onMouseUp={onMouseUp}
+    <div>
+      <button onClick={openModal}>Open Modal</button>
+      <Modal
+        contentLabel="Example Modal"
+        isOpen={modalIsOpen}
+        style={customStyles}
+        onAfterOpen={afterOpenModal}
+        onRequestClose={closeModal}
       >
-        <div>
-          {React.cloneElement(props.children as React.ReactElement<Props>, {
-            close: props?.close
-          })}
-        </div>
-      </div>
-    </Portal>
-  );
-};
-
-export default Modal;
+        <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Hello</h2>
+        <button onClick={closeModal}>close</button>
+        <div>I am a modal</div>
+        <form>
+          <input />
+          <button>tab navigation</button>
+          <button>stays</button>
+          <button>inside</button>
+          <button>the modal</button>
+        </form>
+      </Modal>
+    </div>
+  )
+}
