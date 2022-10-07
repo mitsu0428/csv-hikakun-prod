@@ -4,11 +4,11 @@ import Link from 'next/link'
 import { useState } from 'react'
 import { readString } from 'react-papaparse'
 import styles from '../styles/Home.module.css'
-import Accordion from './components/Accordion'
-import ReleaseNotification from './components/ReleaseNotification'
-import CSVDownloader from './components/CsvDownloader'
+import Accordion from '../components/Accordion'
+import ReleaseNotification from '../components/ReleaseNotification'
+import CSVDownloader from '../components/CsvDownloader'
 import HeaderLogo from './HeaderLogo'
-import { ModalComponents } from "./components/Modal";
+import { ModalComponents } from "../components/Modal";
 
 const Home: NextPage = () => {
   const [csvContent, setCsvContent] = useState<Array<any>>([]);
