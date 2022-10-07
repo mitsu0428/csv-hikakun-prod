@@ -14,7 +14,7 @@ const customStyles = {
 
 Modal.setAppElement('#main')
 
-export const ModalExample: React.FC = () => {
+export const ModalComponents: React.FC = () => {
   let subtitle: HTMLHeadingElement | null
   const [modalIsOpen, setIsOpen] = useState<boolean>(false)
 

@@ -8,7 +8,7 @@ import Accordion from './components/Accordion'
 import ReleaseNotification from './components/ReleaseNotification'
 import CSVDownloader from './components/CsvDownloader'
 import HeaderLogo from './HeaderLogo'
-import { ModalExample } from "./components/Modal";
+import { ModalComponents } from "./components/Modal";
 
 const Home: NextPage = () => {
   const [csvContent, setCsvContent] = useState<Array<any>>([]);
@@ -18,9 +18,6 @@ const Home: NextPage = () => {
   const [csvCompareRowOutputWithIndex, setCsvCompareRowOutputWithIndex] = useState<Array<any>>([]);
   const [csvCompareRowCol, setCsvCompareRowCol] = useState<Array<any>>([]);
 
-  const [isOpenModal, setIsOpenModal] = useState<any>(false);
-
-  
   const getMasterFile = async (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!(e.target instanceof HTMLInputElement)) return
     if (!e.target.files) return
@@ -296,7 +293,7 @@ const Home: NextPage = () => {
             <a>プライバシーポリシーはこちら</a>
           </Link>
         </p>
-        <ModalExample />
+        <ModalComponents />
       </main>
 
       <footer className={styles.footer}>
