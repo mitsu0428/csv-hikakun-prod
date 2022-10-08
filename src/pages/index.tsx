@@ -8,7 +8,7 @@ import Accordion from './components/Accordion'
 import ReleaseNotification from './components/ReleaseNotification'
 import CSVDownloader from './CsvDownloader'
 import HeaderLogo from './HeaderLogo'
-import { ModalComponents } from "./components/Modal";
+import  ModalComponents  from "./components/Modal";
 
 const Home: NextPage = () => {
   const [csvContent, setCsvContent] = useState<Array<any>>([]);
