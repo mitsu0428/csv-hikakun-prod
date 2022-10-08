@@ -13,31 +13,57 @@ function Accordion() {
         <h3>CSVとは??<span className={styles.icon}></span></h3>
       </summary>
       <p className={styles.text}>
-        comma separated valuesファイルです。カンマによって値が分けられているものを指します。
+        Comma Separated Valuesの略称。
+      </p>
+      <p className={styles.text}>
+        項目と項目の間が区切られたデータを指す。
+      </p>
+      <p className={styles.text}>
+        hoge.csvという拡張子のファイルになる。
       </p>
     </details>
     <details className={styles.details}>
       <summary className={styles.summary}>
-        <h3>CSVの行だけの差分を調べたい。<span className={styles.icon}></span></h3>
+        <h3>csv比較ツール【csvひかくん】について<span className={styles.icon}></span></h3>
       </summary>
       <p className={styles.text}>
-        比較したいCSVを二つ選択し、行だけを比較するを押下することで比較することができます。
+      インデックスとカラムが一致したCSVにおいて、行単位もしくは、列単位でCSVファイルを比較することができます。
       </p>
     </details>
     <details className={styles.details}>
       <summary className={styles.summary}>
-        <h3>CSVの値だけの差分を調べたい。<span className={styles.icon}></span></h3>
+        <h3>csvファイルの行を比較する<span className={styles.icon}></span></h3>
       </summary>
       <p className={styles.text}>
-        比較したいCSVを二つ選択し、値だけを比較するを押下することで比較することができます。
+      インデックスとカラムの値が一致しているCSVにおいて、
+      </p>
+      <p className={styles.text}>
+      差分が見つかった行を返します。
       </p>
     </details>
     <details className={styles.details}>
       <summary className={styles.summary}>
-        <h3>比較したCSVの差分をダウンロードしたい。<span className={styles.icon}></span></h3>
+        <h3>csvファイルの値を比較する<span className={styles.icon}></span></h3>
       </summary>
       <p className={styles.text}>
-        比較を選択した後に、ダウンロードボタンを押すことでCSV出力が可能です。
+      インデックスとカラムの値が一致しているCSVにおいて、
+      </p>
+      <p className={styles.text}>
+      差分が見つかった値のみを返します。
+      </p>
+    </details>
+    <details className={styles.details}>
+      <summary className={styles.summary}>
+        <h3>csvファイルを比較した差分のみダウンロードする<span className={styles.icon}></span></h3>
+      </summary>
+      <p className={styles.text}>
+      ・比較し、差分の見つかった行だけ
+      </p>
+      <p className={styles.text}>
+      ・比較し、差分の見つかった値だけ
+      </p>
+      <p className={styles.text}>
+      の2種類で出力することができます。
       </p>
     </details>
   </div>
