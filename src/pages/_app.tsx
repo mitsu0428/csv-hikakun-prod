@@ -3,7 +3,7 @@ import { AppProps } from 'next/app';
 import { googleTagManagerId } from '../utils/gtm';
 import GoogleTagManager, {
   GoogleTagManagerId,
-} from '../components/GoogleTagManager';
+} from './components/GoogleTagManager';
 
 const App = ({ Component, pageProps }: AppProps): JSX.Element => (
   <><GoogleTagManager
