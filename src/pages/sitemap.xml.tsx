@@ -10,7 +10,7 @@ async function generateSitemapXml() {
       <priority>1.0</priority>
     </url>
     <url>
-      <loc>https://csvhikakun.com/Description</loc>
+      <loc>https://csvhikakun.com/description</loc>
       <priority>0.8</priority>
     </url>
     <url>
@@ -18,7 +18,7 @@ async function generateSitemapXml() {
       <priority>0.8</priority>
     </url>
     <url>
-      <loc>https://csvhikakun.com/PrivacyPolicy</loc>
+      <loc>https://csvhikakun.com/privacypolicy</loc>
       <priority>0.8</priority>
     </url>
     </urlset>
