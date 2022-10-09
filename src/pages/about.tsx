@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import styles from '../styles/Home.module.css'
 
-function description() {
+const About = () => {
   return (
     <div>
       <div className={styles.grid}>
@@ -35,4 +35,4 @@ function description() {
   )
 }
 
-export default description
+export default About

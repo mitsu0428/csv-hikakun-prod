@@ -237,7 +237,7 @@ const Home: NextPage = () => {
             CSVひかくん
           </h1>
           <p className={styles.card}>
-            <Link href={"/description"}>
+            <Link href={"/about"}>
               <a>CSVひかくんの具体的な使い方</a>
             </Link>
           </p>
@@ -327,7 +327,7 @@ const Home: NextPage = () => {
           </Link>
         </p>
         <p className={styles.card}>
-          <Link href={"/privacypolicy"}>
+          <Link href={"/privacy"}>
             <a>プライバシーポリシーはこちら</a>
           </Link>
         </p>
