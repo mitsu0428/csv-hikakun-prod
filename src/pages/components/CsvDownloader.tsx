@@ -54,11 +54,6 @@ const CSVDownloader = (props: any) => {
         </h2>
         <table>
           <th>
-            差分が{props_array.length}個見つかりました。
-          </th>
-        </table>
-        <table>
-          <th>
             CSV比較結果
           </th>
           <td>
