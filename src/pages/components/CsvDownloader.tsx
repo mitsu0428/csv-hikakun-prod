@@ -25,7 +25,7 @@ const CSVDownloader = (props: any) => {
   const filename = props.filenameprefix;
 
   const openModal = () => {
-    //ファイルが選択されていたらモーダルを開く
+    //ファイルが選択されておらず、0番めがUndefined もしくは、
     if (props.data[0] == undefined) {
       return
     }
