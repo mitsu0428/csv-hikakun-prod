@@ -6,8 +6,9 @@ import GoogleTagManager, {
 } from './components/GoogleTagManager';
 
 const App = ({ Component, pageProps }: AppProps): JSX.Element => (
-  <><GoogleTagManager
-    googleTagManagerId={googleTagManagerId as GoogleTagManagerId} /><Component {...pageProps} /></>
+  <>
+    <GoogleTagManager googleTagManagerId={googleTagManagerId as GoogleTagManagerId} /><Component {...pageProps} />
+  </>
 );
 
 export default App;
