@@ -74,10 +74,16 @@ const Home: NextPage = () => {
         const csv_contetn_compare_col_length = ([...csvContentCompare[0]].length)
         if (csv_content_row_length != csv_content_compare_row_length) {
             alert("行数が一致しません。行数と列数が同じCSVを選択してください。")
-            return
+            location.reload()
+            setCsvContent([])
+            setCsvContentCompare([])
+          return
         } else if (csv_content_col_length != csv_contetn_compare_col_length) {
             alert("列数が一致しません。行数と列数が同じCSVを選択してください。")
-            return
+            location.reload()
+            setCsvContent([])
+            setCsvContentCompare([])
+          return
         } else {
             // 重複した行が出力されてしまう可能性があるので一旦、Index番号単位で辞書
             let diff_list_dict = Object()
@@ -124,10 +130,16 @@ const Home: NextPage = () => {
     
         if (csv_content_row_length != csv_content_compare_row_length) {
           alert("行数が一致しません。行数と列数が同じCSVを選択してください。")
-          return
+          location.reload()
+          setCsvContent([])
+          setCsvContentCompare([])
+        return
         } else if(csv_content_col_length != csv_contetn_compare_col_length) {
           alert("列数が一致しません。行数と列数が同じCSVを選択してください。")
-          return
+          location.reload()
+          setCsvContent([])
+          setCsvContentCompare([])
+        return
         } else {
             // 重複した行が出力されてしまう可能性があるので一旦、Index番号単位で辞書
             let diff_list_dict = Object()
@@ -176,10 +188,16 @@ const Home: NextPage = () => {
         const csv_contetn_compare_col_length = ([...csvContentCompare[0]].length)
         if (csv_content_row_length != csv_content_compare_row_length) {
           alert("行数が一致しません。行数と列数が同じCSVを選択してください。")
-          return
+          location.reload()
+          setCsvContent([])
+          setCsvContentCompare([])
+        return
         } else if (csv_content_col_length != csv_contetn_compare_col_length) {
           alert("列数が一致しません。行数と列数が同じCSVを選択してください。")
-          return
+          location.reload()
+          setCsvContent([])
+          setCsvContentCompare([])
+        return
         } else {
             let diff_row_col = []
             for (let count=0; count<csv_content_row_length; count++) {
