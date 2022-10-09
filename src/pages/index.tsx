@@ -152,20 +152,18 @@ const Home: NextPage = () => {
                 }
               }
             };
-            // 差分のあったIndex番号ベースでリスト化ける
+            // 差分のあったIndex番号ベースでリスト
             let diff_list_row = []
             let object_keys = Object.keys(diff_list_dict)
             console.log(object_keys)
-            let loop_count = 1
             for (let count_row of object_keys) {
               diff_list_row.push(
                 [
-                  Number(loop_count),
+                  Number(count_row) + Number(1) + "行目",
                   ...csvContentCompare[Number(count_row)],
                   ...csvContent[Number(count_row)]
                 ]
               )
-              loop_count += 1
             }
             setCsvCompareRowOutputWithIndex(diff_list_row);
         }
