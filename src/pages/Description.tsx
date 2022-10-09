@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import styles from '../styles/Home.module.css'
 
-function Description() {
+function description() {
   return (
     <div>
       <div className={styles.grid}>
@@ -35,4 +35,4 @@ function Description() {
   )
 }
 
-export default Description
+export default description

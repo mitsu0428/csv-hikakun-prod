@@ -2,7 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import styles from '../styles/Home.module.css'
 
-function PrivacyPolicy() {
+function privacypolicy() {
   return (
     <div className={styles.privacyPolicyParent}>
         <div>
@@ -197,4 +197,4 @@ function PrivacyPolicy() {
   )
 }
 
-export default PrivacyPolicy
+export default privacypolicy
