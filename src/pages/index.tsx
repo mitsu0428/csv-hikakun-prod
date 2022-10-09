@@ -61,9 +61,11 @@ const Home: NextPage = () => {
   const checkRow = () => {
     if (csvContent[0] == undefined) {
         alert("マスターとなるファイルを選択してください。")
+        setCsvContent([])
         return
     } else if (csvContentCompare[0] == undefined) {
         alert("比較したいファイルを選択してください。")
+        setCsvContentCompare([])
         return
     } else {
         const csv_content_row_length = ([...csvContent].length)
@@ -108,9 +110,11 @@ const Home: NextPage = () => {
   const checkRowOutputWithIndex = () => {
     if (csvContent[0] == undefined) {
         alert("マスターとなるファイルを選択してください。")
+        setCsvContent([])
         return
     } else if (csvContentCompare[0] == undefined) {
         alert("比較したいファイルを選択してください。")
+        setCsvContentCompare([])
         return
     } else {
         const csv_content_row_length = ([...csvContent].length)
@@ -159,9 +163,11 @@ const Home: NextPage = () => {
   const checkRowCol = () => {
     if (csvContent[0] == undefined) {
         alert("マスターとなるファイルを選択してください。")
+        setCsvContent([])
         return
     } else if (csvContentCompare[0] == undefined) {
         alert("比較したいファイルを選択してください。")
+        setCsvContentCompare([])
         return
     } else {
         const csv_content_row_length = ([...csvContent].length)
