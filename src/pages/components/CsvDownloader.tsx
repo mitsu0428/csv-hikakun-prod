@@ -18,12 +18,17 @@ Modal.setAppElement('#main')
 
 //CSVダウンロード関数　呼び出されるときに、パラメータとしてファイル名prefix、ボタン名、JSONデータをもらう
 const CSVDownloader = (props: any) => {
-  let subtitle: HTMLHeadingElement | null
   const [modalIsOpen, setIsOpen] = useState<boolean>(false)
   const { CSVDownloader, Type } = useCSVDownloader();
+  let subtitle: HTMLHeadingElement | null
+  let props_array = props.data
   const filename = props.filenameprefix;
 
   const openModal = () => {
+    //ファイルが選択されていたらモーダルを開く
+    if (props.data[0] == undefined) {
+      return
+    }
     setIsOpen(true)
   }
 
@@ -34,10 +39,6 @@ const CSVDownloader = (props: any) => {
   const closeModal = () => {
     setIsOpen(false)
   }
-
-  let props_array = []
-  props_array = props.data
-  console.log(props_array)
 
   return (
     <div className={styles.grid}>
