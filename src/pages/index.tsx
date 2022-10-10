@@ -1,5 +1,4 @@
 import type { NextPage } from 'next'
-import Head from './components/Head'
 import Link from 'next/link'
 import { useState } from 'react'
 import { readString } from 'react-papaparse'
@@ -8,6 +7,7 @@ import Accordion from './components/Accordion'
 import ReleaseNotification from './components/ReleaseNotification'
 import CSVDownloader from './components/CsvDownloader'
 import HeaderLogo from './components/HeaderLogo'
+import SeoSettings from './components/SeoSettings'
 
 const Home: NextPage = () => {
   //比較する MasterCSV用の配列
@@ -218,14 +218,13 @@ const Home: NextPage = () => {
   
   return (
     <div className={styles.container}>
-      <Head
-        title={'CSVひかくん｜CSV比較ツール'}
-        description={'2つのcsvファイルを簡単に比較することができるツールです。行単位、値単位で比較することができます。'}
-        keyword={'csv, csvファイル, csvファイル比較, csvファイル比較ツール'}
-        image={
-          'https://csvhikakun.com/'
-        }
-        url={'https://csvhikakun.com/'}
+      <SeoSettings
+        pageTitle={'CSVひかくん｜CSV比較ツール'}
+        pageDescription={'2つのcsvファイルを簡単に比較することができるツールです。行単位、値単位で比較することができます。'}
+        pagePath={'https://csvhikakun.com/'}
+        pageImg={'https://csvhikakun.com/'}
+        pageImgWidth={1280}
+        pageImgHeight={960}
       />
       <header>
         <HeaderLogo />
