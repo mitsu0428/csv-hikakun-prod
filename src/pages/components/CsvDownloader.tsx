@@ -17,7 +17,7 @@ const customStyles = {
 Modal.setAppElement('#main')
 
 //CSVダウンロード関数　呼び出されるときに、パラメータとしてファイル名prefix、ボタン名、JSONデータをもらう
-const CSVDownloader = (props: any) => {
+const CsvDownloadComponents = (props: any) => {
   const [modalIsOpen, setIsOpen] = useState<boolean>(false)
   const { CSVDownloader, Type } = useCSVDownloader();
   let subtitle: HTMLHeadingElement | null
@@ -70,4 +70,4 @@ const CSVDownloader = (props: any) => {
   )
 };
 
-export default CSVDownloader;
+export default CsvDownloadComponents;

@@ -5,7 +5,7 @@ import { readString } from 'react-papaparse'
 import styles from '../styles/Home.module.css'
 import Accordion from './components/Accordion'
 import ReleaseNotification from './components/ReleaseNotification'
-import CSVDownloader from './components/CsvDownloader'
+import CsvDownloadComponents from './components/CsvDownloader'
 import HeaderLogo from './components/HeaderLogo'
 import SeoSettings from './components/SeoSettings'
 
@@ -290,9 +290,9 @@ const Home: NextPage = () => {
           <h3>
             【一致しない値が含まれた行が何個あるかをチェックする】
           </h3>
-          <div className={styles.grid} onClick={checkRow}>
-            <div className={styles.grid}>
-              <CSVDownloader data={csvCompareRow} className={styles.card}/>
+          <div className={styles.grid}>
+            <div className={styles.grid} onClick={checkRow}>
+              <CsvDownloadComponents data={csvCompareRow} className={styles.card}/>
             </div>
           </div>
         </div>
@@ -301,9 +301,9 @@ const Home: NextPage = () => {
           <h3>
             【一致しない値が含まれた行があるかをチェックする　Indexつき】
           </h3>
-          <div className={styles.grid} onClick={checkRowOutputWithIndex}>
-            <div className={styles.grid}>
-              <CSVDownloader data={csvCompareRowOutputWithIndex} className={styles.card}/>
+          <div className={styles.grid}>
+            <div className={styles.grid} onClick={checkRowOutputWithIndex}>
+              <CsvDownloadComponents data={csvCompareRowOutputWithIndex} className={styles.card}/>
             </div>
           </div>
         </div>
@@ -314,7 +314,7 @@ const Home: NextPage = () => {
           </h3>
           <div className={styles.grid} onClick={checkRowCol}>
             <div className={styles.grid}>
-              <CSVDownloader data={csvCompareRowCol} className={styles.card}/>
+              <CsvDownloadComponents data={csvCompareRowCol} className={styles.card}/>
             </div>
           </div>
         </div>
