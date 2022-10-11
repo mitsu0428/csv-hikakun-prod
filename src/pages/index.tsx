@@ -1,6 +1,7 @@
 import type { NextPage } from 'next'
 import Link from 'next/link'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import Modal from 'react-modal'
 import { readString } from 'react-papaparse'
 import styles from '../styles/Home.module.css'
 import Accordion from './components/Accordion'
@@ -9,15 +10,33 @@ import CsvDownloadComponents from './components/CsvDownloader'
 import HeaderLogo from './components/HeaderLogo'
 import SeoSettings from './components/SeoSettings'
 
+const customStyles = {
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+  },
+}
+
+Modal.setAppElement('#main')
+
 const Home: NextPage = () => {
   //比較する MasterCSV用の配列
   const [csvContent, setCsvContent] = useState<Array<any>>([]);
   //比較する CompareCSV用の配列
   const [csvContentCompare, setCsvContentCompare] = useState<Array<any>>([]);
 
-  const [csvCompareRow, setCsvCompareRow] = useState<Array<any>>([]);
-  const [csvCompareRowOutputWithIndex, setCsvCompareRowOutputWithIndex] = useState<Array<any>>([]);
+  const [csvCompareRowWithoutIndex, setCsvCompareRowWithoutIndex] = useState<Array<any>>([]);
+  const [csvCompareRowWithIndex, setCsvCompareRowWithIndex] = useState<Array<any>>([]);
   const [csvCompareRowCol, setCsvCompareRowCol] = useState<Array<any>>([]);
+
+  const [displayData, setDisplayData] = useState<Array<any>>([]);
+
+  const [modalIsOpen, setIsOpen] = useState<boolean>(false)
+  let subtitle: HTMLHeadingElement | null
 
   //MasterとなるCSVを取り込む
   const getMasterFile = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -57,8 +76,8 @@ const Home: NextPage = () => {
     readString(master_file, config);
   }
 
-  //行単位で比較
-  const checkRow = () => {
+  //Index番号なしで比較する
+  const checkRowWithoutIndex = () => {
     if (csvContent[0] == undefined) {
         alert("マスターとなるファイルを選択してください。")
         setCsvContent([])
@@ -97,23 +116,24 @@ const Home: NextPage = () => {
               }
             };
             // 差分のあったIndex番号ベースでリスト化ける
-            let diff_list_row = []
+            let diff_list_withtout_index = []
             let object_keys = Object.keys(diff_list_dict)
-            console.log(object_keys)
             for (let count_row of object_keys) {
-              diff_list_row.push(
+              diff_list_withtout_index.push(
                 [
                   ...csvContentCompare[Number(count_row)],
                   ...csvContent[Number(count_row)]
                 ]
               )
             }
-            setCsvCompareRow(diff_list_row);
+            console.log(diff_list_withtout_index)
+            setCsvCompareRowWithoutIndex(diff_list_withtout_index);
+            setDisplayData(diff_list_withtout_index)
         }
     }
   }
 
-  const checkRowOutputWithIndex = () => {
+  const checkRowWithIndex = () => {
     if (csvContent[0] == undefined) {
         alert("マスターとなるファイルを選択してください。")
         setCsvContent([])
@@ -153,11 +173,10 @@ const Home: NextPage = () => {
               }
             };
             // 差分のあったIndex番号ベースでリスト
-            let diff_list_row = []
+            let diff_list_with_index = []
             let object_keys = Object.keys(diff_list_dict)
-            console.log(object_keys)
             for (let count_row of object_keys) {
-              diff_list_row.push(
+              diff_list_with_index.push(
                 [
                   Number(count_row) + Number(1) + "行目",
                   ...csvContentCompare[Number(count_row)],
@@ -165,7 +184,9 @@ const Home: NextPage = () => {
                 ]
               )
             }
-            setCsvCompareRowOutputWithIndex(diff_list_row);
+            console.log(diff_list_with_index)
+            setCsvCompareRowWithIndex(diff_list_with_index);
+            setDisplayData(diff_list_with_index)
         }
     }
 }
@@ -197,13 +218,13 @@ const Home: NextPage = () => {
           setCsvContentCompare([])
         return
         } else {
-            let diff_row_col = []
+            let diff_list_row_col = []
             for (let count=0; count<csv_content_row_length; count++) {
               for (let sub_count=0; sub_count<csv_content_col_length; sub_count++) {
                 let content = [...csvContent[count]][sub_count]
                 let compare = [...csvContentCompare[count]][sub_count]
                 if (content != compare) {
-                  diff_row_col.push(
+                  diff_list_row_col.push(
                     [
                       compare
                     ]
@@ -211,9 +232,75 @@ const Home: NextPage = () => {
                 }
               }
             }
-            setCsvCompareRowCol(diff_row_col);       
+            console.log(diff_list_row_col)
+            setCsvCompareRowCol(diff_list_row_col);   
+            setDisplayData(diff_list_row_col)   
         } 
     }
+  }
+
+  const openModalCheckWithoutIndex = () => {
+    if (csvContent[0] == undefined) {
+      alert("マスターとなるファイルを選択してください。")
+      setCsvContent([])
+      return
+    } else if (csvContentCompare[0] == undefined) {
+      alert("比較したいファイルを選択してください。")
+      setCsvContentCompare([])
+      return
+    } else {
+      checkRowWithoutIndex()
+      setIsOpen(true)
+    }
+  }
+  const afterOpenModalWithoutIndex = () => {
+    if (subtitle) subtitle.style.color = '#000'
+  }
+  const closeModalWithoutIndex = () => {
+    setIsOpen(false)
+  }
+  
+  const openModalCheckWithIndex = () => {
+    if (csvContent[0] == undefined) {
+      alert("マスターとなるファイルを選択してください。")
+      setCsvContent([])
+      return
+    } else if (csvContentCompare[0] == undefined) {
+      alert("比較したいファイルを選択してください。")
+      setCsvContentCompare([])
+      return
+    } else {
+      checkRowWithIndex()
+      setIsOpen(true)
+    }
+  }
+  const afterOpenModalWithIndex = () => {
+    if (subtitle) subtitle.style.color = '#000'
+  }
+  const closeModalWithIndex = () => {
+    setIsOpen(false)
+  }
+
+
+  const openModalRowCol = () => {
+    if (csvContent[0] == undefined) {
+      alert("マスターとなるファイルを選択してください。")
+      setCsvContent([])
+      return
+    } else if (csvContentCompare[0] == undefined) {
+      alert("比較したいファイルを選択してください。")
+      setCsvContentCompare([])
+      return
+    } else {
+      checkRowCol();
+      setIsOpen(true)
+    }
+  }
+  const afterOpenModalRowCol = () => {
+    if (subtitle) subtitle.style.color = '#000'
+  }
+  const closeModalRowCol = () => {
+    setIsOpen(false)
   }
   
   return (
@@ -291,8 +378,31 @@ const Home: NextPage = () => {
             【一致しない値が含まれた行が何個あるかをチェックする】
           </h3>
           <div className={styles.grid}>
-            <div className={styles.grid} onClick={checkRow}>
-              <CsvDownloadComponents data={csvCompareRow} className={styles.card}/>
+            <div>
+              <button onClick={openModalCheckWithoutIndex}>CSVを比較した結果を見る</button>
+              <Modal
+                contentLabel="CSVを比較した結果を見る"
+                isOpen={modalIsOpen}
+                style={customStyles}
+                onAfterOpen={afterOpenModalWithoutIndex}
+                onRequestClose={closeModalWithoutIndex}
+              >
+                <h2 ref={(_subtitle) => (subtitle = _subtitle)}>
+                  CSVを比較する
+                </h2>
+                <table id='table'>
+                  <th>
+                    CSV比較結果
+                  </th>
+                  <td>
+                    {displayData}
+                  </td>
+                </table>
+                <button onClick={closeModalWithoutIndex}>close</button>
+              </Modal>
+            </div>
+            <div className={styles.grid} onClick={checkRowWithoutIndex}>
+              <CsvDownloadComponents data={csvCompareRowWithoutIndex} className={styles.card}/>
             </div>
           </div>
         </div>
@@ -302,8 +412,31 @@ const Home: NextPage = () => {
             【一致しない値が含まれた行があるかをチェックする　Indexつき】
           </h3>
           <div className={styles.grid}>
-            <div className={styles.grid} onClick={checkRowOutputWithIndex}>
-              <CsvDownloadComponents data={csvCompareRowOutputWithIndex} className={styles.card}/>
+            <div className={styles.grid}>
+                <button onClick={openModalCheckWithIndex}>CSVを比較した結果を見る</button>
+                <Modal
+                  contentLabel="CSVを比較した結果を見る"
+                  isOpen={modalIsOpen}
+                  style={customStyles}
+                  onAfterOpen={afterOpenModalWithIndex}
+                  onRequestClose={closeModalWithIndex}
+                >
+                  <h2 ref={(_subtitle) => (subtitle = _subtitle)}>
+                    CSVを比較する
+                  </h2>
+                  <table>
+                    <th>
+                      CSV比較結果
+                    </th>
+                    <td>
+                      {displayData}
+                    </td>
+                  </table>
+                  <button onClick={closeModalWithIndex}>close</button>
+                </Modal>
+            </div>
+            <div className={styles.grid} onClick={checkRowWithIndex}>
+              <CsvDownloadComponents data={csvCompareRowWithIndex} className={styles.card}/>
             </div>
           </div>
         </div>
@@ -312,7 +445,30 @@ const Home: NextPage = () => {
           <h3>
             【一致しない値のみが何個あるかをチェックする】
           </h3>
-          <div className={styles.grid} onClick={checkRowCol}>
+          <div className={styles.grid}>
+            <div className={styles.grid}>
+              <button onClick={openModalRowCol}>CSVを比較した結果を見る</button>
+              <Modal
+                contentLabel="CSVを比較した結果を見る"
+                isOpen={modalIsOpen}
+                style={customStyles}
+                onAfterOpen={afterOpenModalRowCol}
+                onRequestClose={closeModalRowCol}
+              >
+                <h2 ref={(_subtitle) => (subtitle = _subtitle)}>
+                  CSVを比較する
+                </h2>
+                <table>
+                  <th>
+                    CSV比較結果
+                  </th>
+                  <td>
+                    {displayData}
+                  </td>
+                </table>
+                <button onClick={closeModalRowCol}>close</button>
+              </Modal>
+            </div>
             <div className={styles.grid}>
               <CsvDownloadComponents data={csvCompareRowCol} className={styles.card}/>
             </div>
