@@ -10,14 +10,14 @@ interface MetaData {
   pageImgHeight?: number
 }
 
-const SeoSettings: VFC<MetaData> = ({
+const SeoSettings = ({
     pageTitle,
     pageDescription,
     pagePath,
     pageImg,
     pageImgWidth,
     pageImgHeight
-  }) => {
+  }: Partial<MetaData>) => {
   const defaultTitle = "CSVひかくん｜CSV比較ツール"
   const defaultDescription = "2つのcsvファイルを簡単に比較することができるツールです。行単位、値単位で比較することができます。"
 

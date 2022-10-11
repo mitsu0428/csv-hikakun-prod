@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import Modal from 'react-modal'
 import { readString } from 'react-papaparse'
 import styles from '../styles/Home.module.css'
