@@ -7,7 +7,7 @@ const Privacy = () => {
   return (
     <div className={styles.privacyPolicyParent}>
       <SeoSettings
-        pageTitle={'CSVひかくん｜プライバシーポリシー'}
+        pageTitle={'プライバシーポリシー'}
         pageDescription={'csvひかくんのプライバシーポリシーです。ご利用前にご確認ください。'}
         pagePath={'https://csvhikakun.com/about'}
         pageImg={'https://csvhikakun.com/about'}

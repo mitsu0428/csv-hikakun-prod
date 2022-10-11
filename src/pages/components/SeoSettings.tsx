@@ -18,7 +18,7 @@ const SeoSettings = ({
     pageImgWidth,
     pageImgHeight
   }: Partial<MetaData>) => {
-  const defaultTitle = "CSVひかくん｜CSV比較ツール"
+  const defaultTitle = "CSVひかくん｜CSVファイル比較ツール"
   const defaultDescription = "2つのcsvファイルを簡単に比較することができるツールです。行単位、値単位で比較することができます。"
 
   const title = pageTitle ? `${pageTitle} | ${defaultTitle}` : defaultTitle
@@ -31,7 +31,7 @@ const SeoSettings = ({
   return (
     <Head>
       <title>{title}</title>
-      <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+      <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no" />
       <meta name="description" content={description} />
       <meta property="og:url" content={url} />
       <meta property="og:title" content={title} />

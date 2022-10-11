@@ -6,7 +6,7 @@ const About = () => {
   return (
     <div>
       <SeoSettings
-        pageTitle={'CSVひかくん｜CSVファイル比較ツールの使い方'}
+        pageTitle={'CSVファイル比較ツールの使い方'}
         pageDescription={'CSVファイル比較ツールの使い方を簡単に紹介します。'}
         pagePath={'https://csvhikakun.com/about'}
         pageImg={'https://csvhikakun.com/about'}
