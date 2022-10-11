@@ -22,9 +22,9 @@ import Document, {
   
     render(): JSX.Element {
       return (
-        <Html prefix="og: https://ogp.me/ns#">
+        <Html lang="ja" prefix="og: https://ogp.me/ns#">
           <Head>
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=xxx" crossOrigin="anonymous"></script>
+          <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2936938077561359" crossOrigin="anonymous"></script>
           </Head>
           <body>
             <noscript

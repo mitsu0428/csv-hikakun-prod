@@ -1,9 +1,18 @@
 import Link from 'next/link'
 import styles from '../styles/Home.module.css'
+import SeoSettings from './components/SeoSettings'
 
 const About = () => {
   return (
     <div>
+      <SeoSettings
+        pageTitle={'CSVひかくん｜CSVファイル比較ツールの使い方'}
+        pageDescription={'CSVファイル比較ツールの使い方を簡単に紹介します。'}
+        pagePath={'https://csvhikakun.com/about'}
+        pageImg={'https://csvhikakun.com/about'}
+        pageImgWidth={1280}
+        pageImgHeight={960}
+      />
       <div className={styles.grid}>
         <h2 className={styles.description}>
           CSV比較ツールの使い方

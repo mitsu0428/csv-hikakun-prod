@@ -1,10 +1,19 @@
 import React from 'react'
 import Link from 'next/link'
 import styles from '../styles/Home.module.css'
+import SeoSettings from './components/SeoSettings'
 
 const Privacy = () => {
   return (
     <div className={styles.privacyPolicyParent}>
+      <SeoSettings
+        pageTitle={'CSVひかくん｜プライバシーポリシー'}
+        pageDescription={'csvひかくんのプライバシーポリシーです。ご利用前にご確認ください。'}
+        pagePath={'https://csvhikakun.com/about'}
+        pageImg={'https://csvhikakun.com/about'}
+        pageImgWidth={1280}
+        pageImgHeight={960}
+      />
         <div>
           <h2>
             プライバシーポリシー

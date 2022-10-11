@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Link from 'next/link'
 import styles from '../styles/Home.module.css'
+import SeoSettings from './components/SeoSettings';
 
 export default function Mail() {
   const [name, setName] = useState('');
@@ -43,6 +44,14 @@ export default function Mail() {
 
   return (
     <div className={styles.contactRoot}>
+      <SeoSettings
+        pageTitle={'CSVひかくん｜お問い合わせ'}
+        pageDescription={'こんなCSVファイルの比較機能が欲しい！バグが出て利用できない！等、ご気軽にお問い合わせください。'}
+        pagePath={'https://csvhikakun.com/about'}
+        pageImg={'https://csvhikakun.com/about'}
+        pageImgWidth={1280}
+        pageImgHeight={960}
+      />
       <div className={styles.contactParent}>
         <div className={styles.contactChild}>
           <h2>

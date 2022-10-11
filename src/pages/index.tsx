@@ -306,7 +306,7 @@ const Home: NextPage = () => {
   return (
     <div className={styles.container}>
       <SeoSettings
-        pageTitle={'CSVひかくん｜CSV比較ツール'}
+        pageTitle={'CSVひかくん｜CSVファイル比較ツール'}
         pageDescription={'2つのcsvファイルを簡単に比較することができるツールです。行単位、値単位で比較することができます。'}
         pagePath={'https://csvhikakun.com/'}
         pageImg={'https://csvhikakun.com/'}
