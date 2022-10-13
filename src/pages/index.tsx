@@ -9,6 +9,7 @@ import ReleaseNotification from './components/ReleaseNotification'
 import CsvDownloadComponents from './components/CsvDownloader'
 import HeaderLogo from './components/HeaderLogo'
 import SeoSettings from './components/SeoSettings'
+import { useLocale } from '../hooks/useLocale'
 
 const customStyles = {
   content: {
@@ -24,6 +25,8 @@ const customStyles = {
 Modal.setAppElement('#main')
 
 const Home: NextPage = () => {
+  const { t } = useLocale()
+
   //比較する MasterCSV用の配列
   const [csvContent, setCsvContent] = useState<Array<any>>([]);
   //比較する CompareCSV用の配列
@@ -320,11 +323,13 @@ const Home: NextPage = () => {
       <main className={styles.main} id="main">
         <div className={styles.grid}>
           <h1 className={styles.title}>
-            CSVひかくん
+            { t.TEXT_TOP_TITLE }
           </h1>
           <p className={styles.card}>
             <Link href={"/about"}>
-              <a>CSVひかくんの具体的な使い方</a>
+              <a>
+                { t.TEXT_HOW_TO_USE_HIKAKUN }
+              </a>
             </Link>
           </p>
           <hr />
@@ -334,14 +339,14 @@ const Home: NextPage = () => {
 
         <div className={styles.grid}>
           <h2 className={styles.description}>
-            - ファイルを選択 -
+            - { t.TEXT_SELECT_FILE } -
             <hr />
           </h2>
         </div>
 
         <div className={styles.grid}>
           <h3>
-            オリジナルデータを選択
+            { t.TEXT_SELECT_MASTER_FILE }
           </h3>
           <input type="file" accept="text/csv" onChange={getMasterFile} className={styles.card}/>
         </div>
@@ -354,7 +359,7 @@ const Home: NextPage = () => {
 
         <div className={styles.grid}>
           <h3>
-            比較したいデータを選択
+            { t.TEXT_SELECT_COMPARE_FILE }
           </h3>
           <input type="file" accept="text/csv" onChange={getCompareFile}  className={styles.card}/>
         </div>
@@ -368,18 +373,20 @@ const Home: NextPage = () => {
 
         <div className={styles.grid}>
           <h2 className={styles.description}>
-            - ファイルを操作 -
+            - { t.TEXT_MANIPULATE_FILE } -
             <hr />
           </h2>
         </div>
 
         <div>
           <h3>
-            【一致しない値が含まれた行が何個あるかをチェックする】
+            【{ t.TEXT_COMPARE_ROW_WITHOUT_INDEX }】
           </h3>
           <div className={styles.grid}>
             <div>
-              <button onClick={openModalCheckWithoutIndex}>CSVを比較した結果を見る</button>
+              <button onClick={openModalCheckWithoutIndex}>
+                { t.CHECK_COMPARE_FILE }
+              </button>
               <Modal
                 contentLabel="CSVを比較した結果を見る"
                 isOpen={modalIsOpen}
@@ -388,11 +395,11 @@ const Home: NextPage = () => {
                 onRequestClose={closeModalWithoutIndex}
               >
                 <h2 ref={(_subtitle) => (subtitle = _subtitle)}>
-                  CSVを比較する
+                  { t.DO_COMPARE_FILE }
                 </h2>
                 <table id='table'>
                   <th>
-                    CSV比較結果
+                    { t.RESULT_COMPARE }
                   </th>
                   <td>
                     {displayData}
@@ -409,11 +416,13 @@ const Home: NextPage = () => {
 
         <div>
           <h3>
-            【一致しない値が含まれた行があるかをチェックする　Indexつき】
+            【{ t.TEXT_COMPARE_ROW_WITH_INDEX }】
           </h3>
           <div className={styles.grid}>
             <div className={styles.grid}>
-                <button onClick={openModalCheckWithIndex}>CSVを比較した結果を見る</button>
+                <button onClick={openModalCheckWithIndex}>
+                  { t.CHECK_COMPARE_FILE }
+                </button>
                 <Modal
                   contentLabel="CSVを比較した結果を見る"
                   isOpen={modalIsOpen}
@@ -422,11 +431,11 @@ const Home: NextPage = () => {
                   onRequestClose={closeModalWithIndex}
                 >
                   <h2 ref={(_subtitle) => (subtitle = _subtitle)}>
-                    CSVを比較する
+                    { t.DO_COMPARE_FILE }
                   </h2>
                   <table>
                     <th>
-                      CSV比較結果
+                      { t.RESULT_COMPARE }
                     </th>
                     <td>
                       {displayData}
@@ -443,11 +452,13 @@ const Home: NextPage = () => {
 
         <div>
           <h3>
-            【一致しない値のみが何個あるかをチェックする】
+            【{ t.TEXT_COMPARE_ROW_WITH_INDEX }】
           </h3>
           <div className={styles.grid}>
             <div className={styles.grid}>
-              <button onClick={openModalRowCol}>CSVを比較した結果を見る</button>
+              <button onClick={openModalRowCol}>
+                { t.CHECK_COMPARE_FILE }
+              </button>
               <Modal
                 contentLabel="CSVを比較した結果を見る"
                 isOpen={modalIsOpen}
@@ -456,11 +467,11 @@ const Home: NextPage = () => {
                 onRequestClose={closeModalRowCol}
               >
                 <h2 ref={(_subtitle) => (subtitle = _subtitle)}>
-                  CSVを比較する
+                  { t.DO_COMPARE_FILE }
                 </h2>
                 <table>
                   <th>
-                    CSV比較結果
+                    { t.RESULT_COMPARE }
                   </th>
                   <td>
                     {displayData}
@@ -478,12 +489,16 @@ const Home: NextPage = () => {
         <Accordion />
         <p className={styles.card}>
           <Link href={"/mail"}>
-            <a>お問い合わせはこちら</a>
+            <a>
+              { t.TEXT_MOVE_TO_CONTACT_PAGE }
+            </a>
           </Link>
         </p>
         <p className={styles.card}>
           <Link href={"/privacy"}>
-            <a>プライバシーポリシーはこちら</a>
+            <a>
+              { t.TEXT_MOVE_TO_PRIVACY_PAGE }
+            </a>
           </Link>
         </p>
       </main>
