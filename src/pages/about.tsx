@@ -1,10 +1,11 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import styles from '../styles/Home.module.css'
 import SeoSettings from './components/SeoSettings'
 
 const About = () => {
   return (
-    <div>
+    <div className={styles.main}>
       <SeoSettings
         pageTitle={'CSVファイル比較ツールの使い方'}
         pageDescription={'CSVファイル比較ツールの使い方を簡単に紹介します。'}
@@ -25,20 +26,54 @@ const About = () => {
         </p>
       </div>
       <div className={styles.grid}>
-        <ul>
-          <li>
-            1 : 比較したいCSVを選択します。
-          </li>
-          <li>
-            2 : 最初にCSVを比較し、差分があるかどうかをチェックします。
-          </li>
-          <li>
-            3 : 状況に応じて（行を比較したい場合と値のみを比較したい場合）比較をします。
-          </li>
-          <li>
-            4 : 差分のデータが必要な場合は、CSVをダウンロードすることもできます。
-          </li>
-        </ul>
+        <h3>
+          【比較したいCSVファイルを準備】
+        </h3>
+        <p>
+          一つ目のファイルは、マスターになるCSVファイルを準備します。
+        </p>
+        <Image src="/images/page-one.png" width={2880} height={1800} />
+      </div>
+      <div className={styles.grid}>
+        <h3>
+          【比較したいファイルを準備　02】
+        </h3>
+        <p>
+          二つ目のファイルには、比較したいCSVファイルを準備します。
+        </p>
+        <Image src="/images/page-two.png" width={2880} height={1800} />
+      </div>
+      <div className={styles.grid}>
+        <h3>
+           【CSVファイルを操作する】
+        </h3>
+        <p>
+          オリジナルデータを選択にマスターとなるCSVファイルを選択してデータを読み込みます。
+        </p>
+      </div>
+      <div className={styles.grid}>
+        <h3>
+           【CSVファイルを操作する 02】
+        </h3>
+        <p>
+          比較したいデータを選択に比較したいCSVファイルを選択してデータを読み込みます。
+        </p>
+      </div>
+      <div className={styles.grid}>
+        <h3>
+           【結果を確認する】
+        </h3>
+        <p>
+          CSVファイルを比較し、結果を確認したい場合は「CSVを比較した結果をみる」ボタンを押下することで確認ができます。
+        </p>
+      </div>
+      <div className={styles.grid}>
+        <h3>
+           【結果を確認す　02】
+        </h3>
+        <p>
+          CSVファイルを比較し、結果をダウンロードしたい場合は「CSVをダウンロードする」ボタンを押下することで取得することができます。
+        </p>
       </div>
     </div>
   )
