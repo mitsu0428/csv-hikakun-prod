@@ -7,9 +7,9 @@ import styles from '../styles/Home.module.css'
 import Accordion from './components/Accordion'
 import ReleaseNotification from './components/ReleaseNotification'
 import CsvDownloadComponents from './components/CsvDownloader'
-import HeaderLogo from './components/HeaderLogo'
 import SeoSettings from './components/SeoSettings'
 import { useLocale } from '../hooks/useLocale'
+import HeaderComponents from './components/HeaderComponents'
 
 const customStyles = {
   content: {
@@ -317,7 +317,7 @@ const Home: NextPage = () => {
         pageImgHeight={960}
       />
       <header>
-        <HeaderLogo />
+        <HeaderComponents />
       </header>
 
       <main className={styles.main} id="main">

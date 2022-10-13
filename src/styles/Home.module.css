@@ -12,6 +12,17 @@
   align-items: center;
 }
 
+.headerParent {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.headerChild a {
+  margin-right: 10px;
+}
+
 .footer {
   display: flex;
   flex: 1;
