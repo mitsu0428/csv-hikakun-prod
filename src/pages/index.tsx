@@ -452,7 +452,7 @@ const Home: NextPage = () => {
 
         <div>
           <h3>
-            【{ t.TEXT_COMPARE_ROW_WITH_INDEX }】
+            【{ t.TEXT_COMPARE_VALUES }】
           </h3>
           <div className={styles.grid}>
             <div className={styles.grid}>
