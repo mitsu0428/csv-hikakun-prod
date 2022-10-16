@@ -4,24 +4,24 @@ import styles from '../../styles/Home.module.css'
 function ReleaseNotification() {
   return (
     <div  className={styles.gridnotification}>
-        <h2>今後のリリース予定情報</h2>
+        <h2>具体的な利用事例</h2>
         <hr />
         <dl>
-            <dt>近日中...</dt>
+            <dt>Google Spread Sheetを比較</dt>
             <dd>
-              コンタクトフォーム
+              スプレッドシート（Google Spread Sheet）において、2つのシートを比較して差分を知りたい時に利用することができます。
             </dd>
         </dl>
         <dl>
-            <dt>近日中...</dt>
+            <dt>CSVファイルを比較</dt>
             <dd>
-              比較したデータをブラウザにテーブル表示
+              2つのCSVファイルにおける差分を確認したり、比較をしたい時に簡単に調べることができるツールです。
             </dd>
         </dl>
         <dl>
-            <dt>近日中...</dt>
+            <dt>CSVファイルでダブルチェックをする</dt>
             <dd>
-              行数と列数が一致しないCSVも比較する
+              AとBのファイルを用意して、前後で異なる値を準備できているかどうかを調べることができます。
             </dd>
         </dl>
     </div>
