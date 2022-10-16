@@ -66,6 +66,14 @@ function Accordion() {
       の2種類で出力することができます。
       </p>
     </details>
+    <details className={styles.details}>
+      <summary className={styles.summary}>
+        <h3>csvファイルはサーバーに保存されますか？？<span className={styles.icon}></span></h3>
+      </summary>
+      <p className={styles.text}>
+        完全にブラウザ上で処理を行うため、CSVひかくんにおいてデータベースやサーバーに情報が保存されることはありません。
+      </p>
+    </details>
   </div>
 </div>
   )
