@@ -7,8 +7,8 @@ const About = () => {
   return (
     <div className={styles.main}>
       <SeoSettings
-        pageTitle={'CSVファイル比較ツールの使い方'}
-        pageDescription={'CSVファイル比較ツールの使い方を簡単に紹介します。'}
+        pageTitle={'CSVファイル比較ツールの具体的な使い方'}
+        pageDescription={'CSVファイルを比較する具体的な使い方・事例などを紹介しています。簡単に差分を抽出し、結果を得ることができます。'}
         pagePath={'https://csvhikakun.com/about'}
         pageImg={'https://csvhikakun.com/about'}
         pageImgWidth={1280}

@@ -45,8 +45,8 @@ export default function Mail() {
   return (
     <div className={styles.contactRoot}>
       <SeoSettings
-        pageTitle={'お問い合わせ'}
-        pageDescription={'こんなCSVファイルの比較機能が欲しい！バグが出て利用できない！等、ご気軽にお問い合わせください。'}
+        pageTitle={'CSVひかくんへのお問い合わせ'}
+        pageDescription={'こんなCSVファイルの差分比較の機能が欲しい！バグが出て利用できない！等、ご気軽にお問い合わせください。'}
         pagePath={'https://csvhikakun.com/about'}
         pageImg={'https://csvhikakun.com/about'}
         pageImgWidth={1280}
