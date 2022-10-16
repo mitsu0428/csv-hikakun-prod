@@ -19,7 +19,6 @@ Modal.setAppElement('#main')
 const CsvDownloadComponents = (props: any) => {
   const { CSVDownloader, Type } = useCSVDownloader();
   const filename = props.filenameprefix;
-  
   return (
     <div className={styles.grid}>
       <CSVDownloader type={Type.Button} filename={filename} bom={true} config={{delimiter:","}} data={props.data}>

@@ -480,7 +480,7 @@ const Home: NextPage = () => {
                 <button onClick={closeModalRowCol}>close</button>
               </Modal>
             </div>
-            <div className={styles.grid}>
+            <div className={styles.grid} onClick={checkRowCol}>
               <CsvDownloadComponents data={csvCompareRowCol} className={styles.card}/>
             </div>
           </div>
