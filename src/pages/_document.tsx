@@ -1,43 +1,47 @@
 import Document, {
-    DocumentContext,
-    Head,
-    Html,
-    Main,
-    NextScript,
-    DocumentInitialProps,
-  } from 'next/document';
-  import React from 'react';
-  import {googleTagManagerId} from '../utils/gtm';
-  
-  export default class CustomDocument extends Document {
-    static async getInitialProps(
-      ctx: DocumentContext,
-    ): Promise<DocumentInitialProps> {
-      const initialProps = await Document.getInitialProps(ctx);
-  
-      return {
-        ...initialProps,
-      };
-    }
-  
-    render(): JSX.Element {
-      return (
-        <Html lang="ja" prefix="og: https://ogp.me/ns#">
-          <Head>
-          <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2936938077561359" crossOrigin="anonymous"></script>
-          </Head>
-          <body>
-            <noscript
-              dangerouslySetInnerHTML={{
-                __html: `
+  DocumentContext,
+  Head,
+  Html,
+  Main,
+  NextScript,
+  DocumentInitialProps,
+} from "next/document";
+import React from "react";
+import { googleTagManagerId } from "../utils/gtm";
+
+export default class CustomDocument extends Document {
+  static async getInitialProps(
+    ctx: DocumentContext
+  ): Promise<DocumentInitialProps> {
+    const initialProps = await Document.getInitialProps(ctx);
+
+    return {
+      ...initialProps,
+    };
+  }
+
+  render(): JSX.Element {
+    return (
+      <Html lang="ja" prefix="og: https://ogp.me/ns#">
+        <Head>
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2936938077561359"
+            crossOrigin="anonymous"
+          ></script>
+        </Head>
+        <body>
+          <noscript
+            dangerouslySetInnerHTML={{
+              __html: `
                 <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PLNNP2G"
                 height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
-              }}
-            />
-            <Main />
-            <NextScript />
-          </body>
-        </Html>
-      );
-    }
+            }}
+          />
+          <Main />
+          <NextScript />
+        </body>
+      </Html>
+    );
   }
+}
