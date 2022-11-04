@@ -13,7 +13,7 @@ export default function Mail() {
   const sendMail = async () => {
     // 名前が入力されているか
     if (name == "") {
-      alert("名前を入力してください。");
+      alert("名前を入力してください！");
       return;
     }
     // メールアドレスが入力されているかと正しいフォーマットか
