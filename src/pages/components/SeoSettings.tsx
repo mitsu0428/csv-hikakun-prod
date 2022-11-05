@@ -1,37 +1,42 @@
-import Head from 'next/head'
-import { VFC } from 'react'
+/* eslint-disable react/react-in-jsx-scope */
+import Head from "next/head";
+import { VFC } from "react";
 
 interface MetaData {
-  pageTitle?: string
-  pageDescription?: string
-  pagePath?: string
-  pageImg?: string
-  pageImgWidth?: number
-  pageImgHeight?: number
+  pageTitle?: string;
+  pageDescription?: string;
+  pagePath?: string;
+  pageImg?: string;
+  pageImgWidth?: number;
+  pageImgHeight?: number;
 }
 
 const SeoSettings = ({
-    pageTitle,
-    pageDescription,
-    pagePath,
-    pageImg,
-    pageImgWidth,
-    pageImgHeight
-  }: Partial<MetaData>) => {
-  const defaultTitle = "CSVひかくん｜CSVファイル比較ツール"
-  const defaultDescription = "2つのcsvファイルを簡単に比較することができるツールです。行単位、値単位で比較することができます。"
+  pageTitle,
+  pageDescription,
+  pagePath,
+  pageImg,
+  pageImgWidth,
+  pageImgHeight,
+}: Partial<MetaData>) => {
+  const defaultTitle = "CSVひかくん｜CSVファイル比較ツール";
+  const defaultDescription =
+    "2つのcsvファイルを簡単に比較することができるツールです。行単位、値単位で比較することができます。";
 
-  const title = pageTitle ? `${pageTitle} | ${defaultTitle}` : defaultTitle
-  const description = pageDescription ? pageDescription : defaultDescription
-  const url = pagePath
-  const imgUrl = pageImg
-  const imgWidth = pageImgWidth ? pageImgWidth : 1280
-  const imgHeight = pageImgHeight ? pageImgHeight : 640
+  const title = pageTitle ? `${pageTitle} | ${defaultTitle}` : defaultTitle;
+  const description = pageDescription ? pageDescription : defaultDescription;
+  const url = pagePath;
+  const imgUrl = pageImg;
+  const imgWidth = pageImgWidth ? pageImgWidth : 1280;
+  const imgHeight = pageImgHeight ? pageImgHeight : 640;
 
   return (
     <Head>
       <title>{title}</title>
-      <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no" />
+      <meta
+        name="viewport"
+        content="width=device-width,initial-scale=1.0,user-scalable=no"
+      />
       <meta name="description" content={description} />
       <meta property="og:url" content={url} />
       <meta property="og:title" content={title} />
@@ -48,7 +53,7 @@ const SeoSettings = ({
       />
       <link rel="canonical" href={url} />
     </Head>
-  )
-}
+  );
+};
 
-export default SeoSettings
+export default SeoSettings;

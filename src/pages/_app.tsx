@@ -1,13 +1,17 @@
-import '../styles/globals.css'
-import { AppProps } from 'next/app';
-import { googleTagManagerId } from '../utils/gtm';
+/* eslint-disable react/react-in-jsx-scope */
+import "../styles/globals.css";
+import { AppProps } from "next/app";
+import { googleTagManagerId } from "../utils/gtm";
 import GoogleTagManager, {
   GoogleTagManagerId,
-} from './components/GoogleTagManager';
+} from "./components/GoogleTagManager";
 
 const App = ({ Component, pageProps }: AppProps): JSX.Element => (
   <>
-    <GoogleTagManager googleTagManagerId={googleTagManagerId as GoogleTagManagerId} /><Component {...pageProps} />
+    <GoogleTagManager
+      googleTagManagerId={googleTagManagerId as GoogleTagManagerId}
+    />
+    <Component {...pageProps} />
   </>
 );
 
