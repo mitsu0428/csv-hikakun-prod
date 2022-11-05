@@ -429,6 +429,39 @@ const Home: NextPage = () => {
                 {t.CHECK_COMPARE_FILE}
               </button>
               <Modal
+                //
+                contentLabel="CSVを比較した結果を見る"
+                isOpen={modalIsOpen}
+                style={customStyles}
+                onAfterOpen={afterOpenModalWithIndex}
+                onRequestClose={closeModalWithIndex}
+              >
+                <h2 ref={(_subtitle) => (subtitle = _subtitle)}>
+                  {t.DO_COMPARE_FILE}
+                </h2>
+                <table>
+                  <th>{t.RESULT_COMPARE}</th>
+                  <td>{displayData}</td>
+                </table>
+                <button onClick={closeModalWithIndex}>close</button>
+              </Modal>
+            </div>
+            <div className={styles.grid} onClick={checkRowWithIndex}>
+              <CsvDownloadComponents
+                data={csvCompareRowWithIndex}
+                className={styles.card}
+              />
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h3>【{t.TEXT_COMPARE_VALUES}】</h3>
+          <div className={styles.grid}>
+            <div className={styles.grid}>
+              <button onClick={openModalRowCol}>{t.CHECK_COMPARE_FILE}</button>
+              <Modal
+                //
                 contentLabel="CSVを比較した結果を見る"
                 isOpen={modalIsOpen}
                 style={customStyles}
