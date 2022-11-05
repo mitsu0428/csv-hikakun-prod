@@ -395,6 +395,7 @@ const Home: NextPage = () => {
                 {t.CHECK_COMPARE_FILE}
               </button>
               <Modal
+                //
                 contentLabel="CSVを比較した結果を見る"
                 isOpen={modalIsOpen}
                 style={customStyles}
@@ -428,6 +429,7 @@ const Home: NextPage = () => {
                 {t.CHECK_COMPARE_FILE}
               </button>
               <Modal
+                //
                 contentLabel="CSVを比較した結果を見る"
                 isOpen={modalIsOpen}
                 style={customStyles}
@@ -459,6 +461,7 @@ const Home: NextPage = () => {
             <div className={styles.grid}>
               <button onClick={openModalRowCol}>{t.CHECK_COMPARE_FILE}</button>
               <Modal
+                //
                 contentLabel="CSVを比較した結果を見る"
                 isOpen={modalIsOpen}
                 style={customStyles}
