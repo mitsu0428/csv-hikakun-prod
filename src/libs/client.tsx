@@ -1,4 +1,4 @@
-import { createClient } from "microcms-js-sdk"; // CommonJS
+import { createClient } from "microcms-js-sdk"; //ES6
 // Initialize Client SDK.
 const client = createClient({
   serviceDomain: "csvhikakun", // YOUR_DOMAIN is the XXXX part of XXXX.microcms.io
