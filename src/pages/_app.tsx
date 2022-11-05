@@ -1,3 +1,4 @@
+/* eslint-disable react/react-in-jsx-scope */
 import "../styles/globals.css";
 import { AppProps } from "next/app";
 import { googleTagManagerId } from "../utils/gtm";

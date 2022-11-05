@@ -1,18 +1,8 @@
-import React, { useEffect, useState } from "react";
+/* eslint-disable react/react-in-jsx-scope */
 import Modal from "react-modal";
 import { useCSVDownloader } from "react-papaparse";
 import styles from "../../styles/Home.module.css";
 
-const customStyles = {
-  content: {
-    top: "50%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    marginRight: "-50%",
-    transform: "translate(-50%, -50%)",
-  },
-};
 Modal.setAppElement("#main");
 
 //CSVダウンロード関数呼び出されるときに、パラメータとしてファイル名prefix、ボタン名、JSONデータをもらう

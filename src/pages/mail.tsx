@@ -1,3 +1,4 @@
+/* eslint-disable react/react-in-jsx-scope */
 import { useState } from "react";
 import Link from "next/link";
 import styles from "../styles/Home.module.css";
@@ -8,7 +9,8 @@ export default function Mail() {
   const [mail, setMail] = useState("");
   const [message, setMessage] = useState("");
   // 指定秒を待機する関数
-  const _sleep = (ms: any) => new Promise((resolve) => setTimeout(resolve, ms));
+  const _sleep = (ms: number) =>
+    new Promise((resolve) => setTimeout(resolve, ms));
   // メール送信関数
   const sendMail = async () => {
     // 名前が入力されているか
@@ -47,7 +49,7 @@ export default function Mail() {
       <SeoSettings
         pageTitle={"CSVひかくんへのお問い合わせ"}
         pageDescription={
-          "こんなCSVファイルの差分比較の機能が欲しい！バグが出て利用できない！等、ご気軽にお問い合わせください。"
+          "こんなCSVファイルの差分比較の機能が欲しい!バグが出て利用できない!等、ご気軽にお問い合わせください。"
         }
         pagePath={"https://csvhikakun.com/about"}
         pageImg={"https://csvhikakun.com/about"}
