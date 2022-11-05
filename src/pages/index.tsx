@@ -390,7 +390,7 @@ const Home: NextPage = () => {
                 //
                 contentLabel="CSVを比較した結果を見る"
                 isOpen={modalIsOpen}
-                style={styles.modalResult}
+                className={styles.modalResult}
                 onAfterOpen={afterOpenModalWithoutIndex}
                 onRequestClose={closeModalWithoutIndex}
               >
@@ -424,7 +424,7 @@ const Home: NextPage = () => {
                 //
                 contentLabel="CSVを比較した結果を見る"
                 isOpen={modalIsOpen}
-                style={styles.modalResult}
+                className={styles.modalResult}
                 onAfterOpen={afterOpenModalWithIndex}
                 onRequestClose={closeModalWithIndex}
               >
@@ -456,7 +456,7 @@ const Home: NextPage = () => {
                 //
                 contentLabel="CSVを比較した結果を見る"
                 isOpen={modalIsOpen}
-                style={styles.modalResult}
+                className={styles.modalResult}
                 onAfterOpen={afterOpenModalWithIndex}
                 onRequestClose={closeModalWithIndex}
               >
@@ -488,7 +488,7 @@ const Home: NextPage = () => {
                 //
                 contentLabel="CSVを比較した結果を見る"
                 isOpen={modalIsOpen}
-                style={styles.modalResult}
+                className={styles.modalResult}
                 onAfterOpen={afterOpenModalRowCol}
                 onRequestClose={closeModalRowCol}
               >
