@@ -3,7 +3,11 @@ import React from "react";
 
 export type GoogleTagManagerId = `GTM-${string}`;
 
-const GoogleTagManager = () => (
+type Props = {
+  googleTagManagerId: GoogleTagManagerId;
+};
+
+const GoogleTagManager: React.FC<Props> = ({ googleTagManagerId }) => (
   <Script
     id="gtm"
     strategy="afterInteractive"
