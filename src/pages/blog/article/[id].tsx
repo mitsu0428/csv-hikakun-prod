@@ -1,10 +1,25 @@
 /* eslint-disable react/react-in-jsx-scope */
 import { GetServerSideProps } from "next";
-import type { Article } from "../../types/article";
 import client from "../../../libs/client";
 
 type Props = {
   article: Article;
+};
+
+type Article = {
+  id: string;
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
+  revisedAt: string;
+  title: string;
+  body: string;
+  eye_catch: {
+    url: string;
+    height: number;
+    width: number;
+  };
+  tag: string;
 };
 
 export default function Article({ article }: Props) {
