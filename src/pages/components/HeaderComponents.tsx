@@ -21,6 +21,9 @@ function HeaderComponents() {
         <Link href="/about">
           <a>About</a>
         </Link>
+        <Link href="/blog">
+          <a>blog</a>
+        </Link>
         <Link href="/mail">
           <a>Mail</a>
         </Link>
