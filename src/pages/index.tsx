@@ -12,14 +12,6 @@ import SeoSettings from "./components/SeoSettings";
 import { useLocale } from "../hooks/useLocale";
 import HeaderComponents from "./components/HeaderComponents";
 
-const customStyles = {
-  content: {
-    widdth: "100%",
-    maxwidth: "100%",
-    maxheight: "50%",
-  },
-};
-
 Modal.setAppElement("#main");
 
 const Home: NextPage = () => {
@@ -398,7 +390,7 @@ const Home: NextPage = () => {
                 //
                 contentLabel="CSVを比較した結果を見る"
                 isOpen={modalIsOpen}
-                style={customStyles}
+                style={styles.modalResult}
                 onAfterOpen={afterOpenModalWithoutIndex}
                 onRequestClose={closeModalWithoutIndex}
               >
@@ -432,7 +424,7 @@ const Home: NextPage = () => {
                 //
                 contentLabel="CSVを比較した結果を見る"
                 isOpen={modalIsOpen}
-                style={customStyles}
+                style={styles.modalResult}
                 onAfterOpen={afterOpenModalWithIndex}
                 onRequestClose={closeModalWithIndex}
               >
@@ -464,7 +456,7 @@ const Home: NextPage = () => {
                 //
                 contentLabel="CSVを比較した結果を見る"
                 isOpen={modalIsOpen}
-                style={customStyles}
+                style={styles.modalResult}
                 onAfterOpen={afterOpenModalWithIndex}
                 onRequestClose={closeModalWithIndex}
               >
@@ -496,7 +488,7 @@ const Home: NextPage = () => {
                 //
                 contentLabel="CSVを比較した結果を見る"
                 isOpen={modalIsOpen}
-                style={customStyles}
+                style={styles.modalResult}
                 onAfterOpen={afterOpenModalRowCol}
                 onRequestClose={closeModalRowCol}
               >

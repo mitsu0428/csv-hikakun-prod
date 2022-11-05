@@ -27,7 +27,7 @@
   display: flex;
   flex: 1;
   padding: 2rem 0;
-  border-top: 1px solid #EEA9A9;
+  border-top: 1px solid #eea9a9;
   justify-content: center;
   align-items: center;
 }
@@ -68,7 +68,7 @@
 }
 
 .code {
-  background: #EEA9A9;
+  background: #eea9a9;
   border-radius: 5px;
   padding: 0.75rem;
   font-size: 1.1rem;
@@ -94,7 +94,7 @@
   text-align: left;
   color: inherit;
   text-decoration: none;
-  border: 1px solid #EEA9A9;
+  border: 1px solid #eea9a9;
   border-radius: 10px;
   transition: color 0.15s ease, border-color 0.15s ease;
   max-width: 300px;
@@ -133,10 +133,10 @@
 @media (prefers-color-scheme: dark) {
   .card,
   .footer {
-    border-color: #EEA9A9;
+    border-color: #eea9a9;
   }
   .code {
-    background: #EEA9A9;
+    background: #eea9a9;
   }
   .logo img {
     filter: invert(1);
@@ -163,7 +163,13 @@
 .contactChild > textarea {
   width: 300px;
   height: 70px;
-} 
+}
 .privacyPolicyParent {
   width: 100%;
+}
+
+.modalResult {
+  width: "100%";
+  max-width: "100%";
+  max-height: "50%";
 }
