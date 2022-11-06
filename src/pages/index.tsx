@@ -10,13 +10,11 @@ import ReleaseNotification from "./components/ReleaseNotification";
 import CsvDownloadComponents from "./components/CsvDownloader";
 import SeoSettings from "./components/SeoSettings";
 import { useLocale } from "../hooks/useLocale";
-import HeaderComponents from "./components/HeaderComponents";
-
-Modal.setAppElement("#main");
 
 const Home: NextPage = () => {
-  const { t } = useLocale();
+  Modal.setAppElement("#main");
 
+  const { t } = useLocale();
   //比較する MasterCSV用の配列
   const [csvContent, setCsvContent] = useState<Array<any>>([]);
   //比較する CompareCSV用の配列
