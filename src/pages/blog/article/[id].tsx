@@ -1,6 +1,5 @@
 /* eslint-disable react/react-in-jsx-scope */
 import { GetServerSideProps } from "next";
-import Image from "next/image";
 import client from "../../../libs/client";
 import styles from "../../../styles/Home.module.css";
 
@@ -30,7 +29,6 @@ export default function Article({ article }: Props) {
     <div className={styles.grid}>
       <div className={styles.grid}>
         <div>
-          <Image src={article.eye_catch?.url} />
           <div className={styles.title}>
             <div>{article?.title}</div>
           </div>
@@ -50,7 +48,6 @@ export default function Article({ article }: Props) {
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const id = ctx.params?.id;
-  console.log(id);
   const idExceptArray = id instanceof Array ? id[0] : id;
   const data = await client.get({
     endpoint: "blogs",

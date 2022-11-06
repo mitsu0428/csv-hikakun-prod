@@ -11,9 +11,8 @@ import CsvDownloadComponents from "./components/CsvDownloader";
 import SeoSettings from "./components/SeoSettings";
 import { useLocale } from "../hooks/useLocale";
 
+Modal.setAppElement("#main");
 const Home: NextPage = () => {
-  Modal.setAppElement("#main");
-
   const { t } = useLocale();
   //比較する MasterCSV用の配列
   const [csvContent, setCsvContent] = useState<Array<any>>([]);
