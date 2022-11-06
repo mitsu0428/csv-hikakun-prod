@@ -11,7 +11,6 @@ import CsvDownloadComponents from "./components/CsvDownloader";
 import SeoSettings from "./components/SeoSettings";
 import { useLocale } from "../hooks/useLocale";
 
-Modal.setAppElement("#main");
 const Home: NextPage = () => {
   const { t } = useLocale();
   //比較する MasterCSV用の配列
@@ -425,7 +424,7 @@ const Home: NextPage = () => {
                 <h2 ref={(_subtitle) => (subtitle = _subtitle)}>
                   {t.DO_COMPARE_FILE}
                 </h2>
-                <table>
+                <table id="table">
                   <th>{t.RESULT_COMPARE}</th>
                   <td>{displayData}</td>
                 </table>
@@ -457,7 +456,7 @@ const Home: NextPage = () => {
                 <h2 ref={(_subtitle) => (subtitle = _subtitle)}>
                   {t.DO_COMPARE_FILE}
                 </h2>
-                <table>
+                <table id="table">
                   <th>{t.RESULT_COMPARE}</th>
                   <td>{displayData}</td>
                 </table>
@@ -489,7 +488,7 @@ const Home: NextPage = () => {
                 <h2 ref={(_subtitle) => (subtitle = _subtitle)}>
                   {t.DO_COMPARE_FILE}
                 </h2>
-                <table>
+                <table id="table">
                   <th>{t.RESULT_COMPARE}</th>
                   <td>{displayData}</td>
                 </table>
