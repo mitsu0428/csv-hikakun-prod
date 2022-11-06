@@ -42,11 +42,6 @@ export default function Home({ articles }: any) {
           }) => (
             <div className="rounded overflow-hidden shadow-lg" key={article.id}>
               <div className="px-6 py-4">
-                <Image
-                  className="w-full"
-                  src={article.eye_catch?.url}
-                  alt="Article eye catch"
-                />
                 <Link href={`/blog/article/${article.id}`} passHref>
                   <a>{article.title}</a>
                 </Link>
