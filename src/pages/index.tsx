@@ -316,9 +316,6 @@ const Home: NextPage = () => {
         pageImgWidth={1280}
         pageImgHeight={960}
       />
-      <header>
-        <HeaderComponents />
-      </header>
 
       <main className={styles.main} id="main">
         <div className={styles.grid}>

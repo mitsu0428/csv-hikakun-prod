@@ -5,12 +5,14 @@ import { googleTagManagerId } from "../utils/gtm";
 import GoogleTagManager, {
   GoogleTagManagerId,
 } from "./components/GoogleTagManager";
+import HeaderComponents from "./components/HeaderComponents";
 
 const App = ({ Component, pageProps }: AppProps): JSX.Element => (
   <>
     <GoogleTagManager
       googleTagManagerId={googleTagManagerId as GoogleTagManagerId}
     />
+    <HeaderComponents />
     <Component {...pageProps} />
   </>
 );

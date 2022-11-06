@@ -7,6 +7,8 @@ import {
   ReactFragment,
   ReactPortal,
 } from "react";
+import Link from "next/link";
+import Image from "next/image";
 
 export default function Home({ articles }: any) {
   return (
@@ -18,7 +20,7 @@ export default function Home({ articles }: any) {
         {articles.map(
           (article: {
             id: Key | null | undefined;
-            eye_catch: { url: string | undefined };
+            eye_catch: { url: string };
             title:
               | string
               | number
@@ -39,7 +41,16 @@ export default function Home({ articles }: any) {
               | undefined;
           }) => (
             <div className="rounded overflow-hidden shadow-lg" key={article.id}>
-              <div className="px-6 py-4">{article.title}</div>
+              <div className="px-6 py-4">
+                <Image
+                  className="w-full"
+                  src={article.eye_catch?.url}
+                  alt="Article eye catch"
+                />
+                <Link href={`/blog/article/${article.id}`} passHref>
+                  <a>{article.title}</a>
+                </Link>
+              </div>
               <div className="px-6 pt-4 pb-2">
                 {article.tag && (
                   <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
@@ -57,6 +68,7 @@ export default function Home({ articles }: any) {
 
 export const getServerSideProps = async () => {
   const data = await client.get({ endpoint: "blogs" });
+  console.log(data.displayImage);
   return {
     props: {
       articles: data.contents,

@@ -1,5 +1,6 @@
 /* eslint-disable react/react-in-jsx-scope */
 import { GetServerSideProps } from "next";
+import Image from "next/image";
 import client from "../../../libs/client";
 
 type Props = {
@@ -14,6 +15,7 @@ type Article = {
   revisedAt: string;
   title: string;
   body: string;
+  content: string;
   eye_catch: {
     url: string;
     height: number;
@@ -27,25 +29,25 @@ export default function Article({ article }: Props) {
     <div className="bg-gray-50">
       <div className="px-10 py-6 mx-auto">
         <div className="max-w-6xl px-10 py-6 mx-auto bg-gray-50">
-          <img
+          <Image
             className="object-cover w-full shadow-sm h-full"
-            src={article.eye_catch.url}
+            src={article.eye_catch?.url}
           />
           <div className="mt-2">
             <div className="sm:text-3xl md:text-3xl lg:text-3xl xl:text-4xl font-bold text-blue-500">
-              {article.title}
+              {article?.title}
             </div>
           </div>
           {article.tag && (
             <div className="flex items-center justify-start mt-4 mb-4">
               <div className="px-2 py-1 font-bold bg-red-400 text-white rounded-lg">
-                #{article.tag}
+                #{article?.tag}
               </div>
             </div>
           )}
           <div className="mt-2">
             <div className="text-2xl text-gray-700 mt-4 rounded ">
-              {article.body}
+              {article?.body}
             </div>
           </div>
         </div>
@@ -56,6 +58,7 @@ export default function Article({ article }: Props) {
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const id = ctx.params?.id;
+  console.log(id);
   const idExceptArray = id instanceof Array ? id[0] : id;
   const data = await client.get({
     endpoint: "blogs",
