@@ -58,18 +58,18 @@ export default function Mail() {
       />
       <div className={styles.contactParent}>
         <div className={styles.contactChild}>
-          <h2>Contact</h2>
+          <h2>お問い合わせ</h2>
         </div>
         <div className={styles.contactChild}>
-          <h2>名前：</h2>
+          <h2>名前</h2>
           <input type="text" onChange={(e) => setName(e.target.value)} />
         </div>
         <div className={styles.contactChild}>
-          <h2>メールアドレス：</h2>
+          <h2>メールアドレス</h2>
           <input type="text" onChange={(e) => setMail(e.target.value)} />
         </div>
         <div className={styles.contactChild}>
-          <h2>内容：</h2>
+          <h2>内容</h2>
           <textarea onChange={(e) => setMessage(e.target.value)} />
         </div>
         <div className={styles.contactChild}>

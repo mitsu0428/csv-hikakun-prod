@@ -328,7 +328,7 @@ const Home: NextPage = () => {
 
         <div className={styles.grid}>
           <h2 className={styles.description}>
-            - {t.TEXT_SELECT_FILE} -
+            {t.TEXT_SELECT_FILE}
             <hr />
           </h2>
         </div>
@@ -367,7 +367,7 @@ const Home: NextPage = () => {
 
         <div className={styles.grid}>
           <h2 className={styles.description}>
-            - {t.TEXT_MANIPULATE_FILE} -
+            {t.TEXT_MANIPULATE_FILE}
             <hr />
           </h2>
         </div>

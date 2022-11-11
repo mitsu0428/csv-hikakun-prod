@@ -8,8 +8,7 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: left;
 }
 
 .headerParent {
@@ -79,7 +78,7 @@
 .grid {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: left;
   flex-wrap: wrap;
   max-width: 800px;
 }
@@ -157,12 +156,12 @@
 }
 
 .contactChild > input {
-  width: 300px;
+  width: 400px;
   height: 30px;
 }
 .contactChild > textarea {
-  width: 300px;
-  height: 70px;
+  width: 400px;
+  height: 150px;
 }
 .privacyPolicyParent {
   width: 100%;
