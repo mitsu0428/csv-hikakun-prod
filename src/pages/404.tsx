@@ -1,5 +1,5 @@
 /* eslint-disable react/react-in-jsx-scope */
-export default function Custom404() {
+export default function Custom404(): JSX.Element {
   return (
     <main className="main">
       <p>ページがありません。</p>

@@ -3,8 +3,6 @@ import Modal from "react-modal";
 import { useCSVDownloader } from "react-papaparse";
 import styles from "../../styles/Home.module.css";
 
-Modal.setAppElement("#main");
-
 //CSVダウンロード関数呼び出されるときに、パラメータとしてファイル名prefix、ボタン名、JSONデータをもらう
 const CsvDownloadComponents = (props: any) => {
   const { CSVDownloader, Type } = useCSVDownloader();

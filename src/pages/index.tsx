@@ -390,10 +390,10 @@ const Home: NextPage = () => {
                 <h2 ref={(_subtitle) => (subtitle = _subtitle)}>
                   {t.DO_COMPARE_FILE}
                 </h2>
-                <table id="table">
-                  <th>{t.RESULT_COMPARE}</th>
-                  <td>{displayData}</td>
-                </table>
+                <div className="table">
+                  <h3>{t.RESULT_COMPARE}</h3>
+                  <p>{displayData}</p>
+                </div>
                 <button onClick={closeModalWithoutIndex}>close</button>
               </Modal>
             </div>
@@ -409,7 +409,7 @@ const Home: NextPage = () => {
         <div>
           <h3>【{t.TEXT_COMPARE_ROW_WITH_INDEX}】</h3>
           <div className={styles.grid}>
-            <div className={styles.grid}>
+            <div>
               <button onClick={openModalCheckWithIndex}>
                 {t.CHECK_COMPARE_FILE}
               </button>
@@ -424,14 +424,14 @@ const Home: NextPage = () => {
                 <h2 ref={(_subtitle) => (subtitle = _subtitle)}>
                   {t.DO_COMPARE_FILE}
                 </h2>
-                <table id="table">
-                  <th>{t.RESULT_COMPARE}</th>
-                  <td>{displayData}</td>
-                </table>
+                <div className="table">
+                  <h3>{t.RESULT_COMPARE}</h3>
+                  <p>{displayData}</p>
+                </div>
                 <button onClick={closeModalWithIndex}>close</button>
               </Modal>
             </div>
-            <div className={styles.grid} onClick={checkRowWithIndex}>
+            <div onClick={checkRowWithIndex}>
               <CsvDownloadComponents
                 data={csvCompareRowWithIndex}
                 className={styles.card}
@@ -443,7 +443,7 @@ const Home: NextPage = () => {
         <div>
           <h3>【{t.TEXT_COMPARE_VALUES}】</h3>
           <div className={styles.grid}>
-            <div className={styles.grid}>
+            <div>
               <button onClick={openModalRowCol}>{t.CHECK_COMPARE_FILE}</button>
               <Modal
                 //
@@ -456,14 +456,14 @@ const Home: NextPage = () => {
                 <h2 ref={(_subtitle) => (subtitle = _subtitle)}>
                   {t.DO_COMPARE_FILE}
                 </h2>
-                <table id="table">
-                  <th>{t.RESULT_COMPARE}</th>
-                  <td>{displayData}</td>
-                </table>
+                <div className="table">
+                  <h3>{t.RESULT_COMPARE}</h3>
+                  <p>{displayData}</p>
+                </div>
                 <button onClick={closeModalWithIndex}>close</button>
               </Modal>
             </div>
-            <div className={styles.grid} onClick={checkRowWithIndex}>
+            <div onClick={checkRowWithIndex}>
               <CsvDownloadComponents
                 data={csvCompareRowWithIndex}
                 className={styles.card}
@@ -475,7 +475,7 @@ const Home: NextPage = () => {
         <div>
           <h3>【{t.TEXT_COMPARE_VALUES}】</h3>
           <div className={styles.grid}>
-            <div className={styles.grid}>
+            <div>
               <button onClick={openModalRowCol}>{t.CHECK_COMPARE_FILE}</button>
               <Modal
                 //
@@ -488,14 +488,14 @@ const Home: NextPage = () => {
                 <h2 ref={(_subtitle) => (subtitle = _subtitle)}>
                   {t.DO_COMPARE_FILE}
                 </h2>
-                <table id="table">
-                  <th>{t.RESULT_COMPARE}</th>
-                  <td>{displayData}</td>
-                </table>
+                <div className="table">
+                  <h3>{t.RESULT_COMPARE}</h3>
+                  <p>{displayData}</p>
+                </div>
                 <button onClick={closeModalRowCol}>close</button>
               </Modal>
             </div>
-            <div className={styles.grid} onClick={checkRowCol}>
+            <div onClick={checkRowCol}>
               <CsvDownloadComponents
                 data={csvCompareRowCol}
                 className={styles.card}
