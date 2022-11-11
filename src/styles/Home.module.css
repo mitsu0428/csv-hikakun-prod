@@ -156,11 +156,11 @@
 }
 
 .contactChild > input {
-  width: 400px;
+  width: 300px;
   height: 30px;
 }
 .contactChild > textarea {
-  width: 400px;
+  width: 300px;
   height: 150px;
 }
 .privacyPolicyParent {
