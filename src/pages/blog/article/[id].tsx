@@ -1,6 +1,10 @@
 /* eslint-disable react/react-in-jsx-scope */
 import { GetServerSideProps } from "next";
 import client from "../../../libs/client";
+import { renderToc } from "../../../libs/render-toc";
+import { renderContent } from "../../../libs/render-content";
+import { TableOfContents } from "../../components/TalbleOfContent";
+import { RichAirticleContent } from "../../components/RichArticleContent";
 import styles from "../../../styles/Home.module.css";
 
 type Props = {
@@ -14,7 +18,6 @@ type Article = {
   publishedAt: string;
   revisedAt: string;
   title: string;
-  body: string;
   content: string;
   eye_catch: {
     url: string;
@@ -22,11 +25,15 @@ type Article = {
     width: number;
   };
   tag: string;
+  toc_visible: boolean;
 };
 
 export default function Article({ article }: Props) {
+  const toc = renderToc(article.content);
+  const con = renderContent(article.content);
   return (
     <div className={styles.grid}>
+      {article.toc_visible && <TableOfContents toc={toc} />}
       <div className={styles.grid}>
         <div>
           <div className={styles.title}>
@@ -38,7 +45,7 @@ export default function Article({ article }: Props) {
             </div>
           )}
           <div className={styles.code}>
-            <div>{article?.body}</div>
+            <RichAirticleContent con={con} />
           </div>
         </div>
       </div>
