@@ -9,7 +9,7 @@ import {
   ReactPortal,
 } from "react";
 
-export const TableOfContents = ({ toc }: { toc: any }) => {
+const TableOfContents = ({ toc }: { toc: any }) => {
   return (
     <div>
       <p>目次</p>
@@ -36,3 +36,5 @@ export const TableOfContents = ({ toc }: { toc: any }) => {
     </div>
   );
 };
+
+export default TableOfContents;

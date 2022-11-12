@@ -3,8 +3,8 @@ import { GetServerSideProps } from "next";
 import client from "../../../libs/client";
 import { renderToc } from "../../../libs/render-toc";
 import { renderContent } from "../../../libs/render-content";
-import { TableOfContents } from "../../components/TalbleOfContent";
-import { RichAirticleContent } from "../../components/RichArticleContent";
+import TableOfContents from "../../components/TalbleOfContent";
+import RichAirticleContent from "../../components/RichArticleContent";
 import styles from "../../../styles/Home.module.css";
 
 type Props = {

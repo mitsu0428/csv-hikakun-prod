@@ -9,7 +9,7 @@ import {
   ReactPortal,
 } from "react";
 
-export const RichAirticleContent = ({ con }: { con: any }) => {
+const RichAirticleContent = ({ con }: { con: any }) => {
   return (
     <div>
       <ul>
@@ -35,3 +35,5 @@ export const RichAirticleContent = ({ con }: { con: any }) => {
     </div>
   );
 };
+
+export default RichAirticleContent;
