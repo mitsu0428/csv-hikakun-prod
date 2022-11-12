@@ -13,7 +13,7 @@ const RichAirticleContent = ({ con }: { con: any }) => {
   return (
     <div>
       <ul>
-        {con.map(
+        {con?.map(
           (data: {
             id: Key | null | undefined;
             text:

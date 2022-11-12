@@ -14,7 +14,7 @@ const TableOfContents = ({ toc }: { toc: any }) => {
     <div>
       <p>目次</p>
       <ul>
-        {toc.map(
+        {toc?.map(
           (data: {
             id: Key | null | undefined;
             text:
