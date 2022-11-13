@@ -312,7 +312,6 @@ const Home: NextPage = () => {
         pageImgWidth={1280}
         pageImgHeight={960}
       />
-
       <main className={styles.main} id="main">
         <div className={styles.grid}>
           <h1 className={styles.title}>{t.TEXT_TOP_TITLE}</h1>
@@ -323,16 +322,13 @@ const Home: NextPage = () => {
           </p>
           <hr />
         </div>
-
         <ReleaseNotification />
-
         <div className={styles.grid}>
           <h2 className={styles.description}>
             {t.TEXT_SELECT_FILE}
             <hr />
           </h2>
         </div>
-
         <div className={styles.grid}>
           <h3>{t.TEXT_SELECT_MASTER_FILE}</h3>
           <input
@@ -413,38 +409,6 @@ const Home: NextPage = () => {
               <button onClick={openModalCheckWithIndex}>
                 {t.CHECK_COMPARE_FILE}
               </button>
-              <Modal
-                //
-                contentLabel="CSVを比較した結果を見る"
-                isOpen={modalIsOpen}
-                className={styles.modalResult}
-                onAfterOpen={afterOpenModalWithIndex}
-                onRequestClose={closeModalWithIndex}
-              >
-                <h2 ref={(_subtitle) => (subtitle = _subtitle)}>
-                  {t.DO_COMPARE_FILE}
-                </h2>
-                <div className="table">
-                  <h3>{t.RESULT_COMPARE}</h3>
-                  <p>{displayData}</p>
-                </div>
-                <button onClick={closeModalWithIndex}>close</button>
-              </Modal>
-            </div>
-            <div onClick={checkRowWithIndex}>
-              <CsvDownloadComponents
-                data={csvCompareRowWithIndex}
-                className={styles.card}
-              />
-            </div>
-          </div>
-        </div>
-
-        <div>
-          <h3>【{t.TEXT_COMPARE_VALUES}】</h3>
-          <div className={styles.grid}>
-            <div>
-              <button onClick={openModalRowCol}>{t.CHECK_COMPARE_FILE}</button>
               <Modal
                 //
                 contentLabel="CSVを比較した結果を見る"

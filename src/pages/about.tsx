@@ -19,7 +19,7 @@ const About = () => {
       />
       <div className={styles.grid}>
         <h2 className={styles.description}>
-          CSV比較ツールの使い方
+          CSVファイル比較ツールの具体的な使い方
           <hr />
         </h2>
         <p className={styles.card}>

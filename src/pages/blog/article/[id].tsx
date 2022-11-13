@@ -44,7 +44,7 @@ export default function Article({ article }: Props) {
               <div>#{article?.tag}</div>
             </div>
           )}
-          <div className={styles.code}>
+          <div className={styles.grid}>
             <RichAirticleContent con={con} />
           </div>
         </div>
