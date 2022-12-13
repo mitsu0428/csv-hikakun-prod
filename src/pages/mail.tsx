@@ -1,7 +1,7 @@
 /* eslint-disable react/react-in-jsx-scope */
 import { useState } from "react";
 import Link from "next/link";
-import styles from "../styles/Home.module.css";
+import styled from "styled-components";
 import SeoSettings from "./components/SeoSettings";
 
 export default function Mail() {
@@ -45,7 +45,7 @@ export default function Mail() {
   };
 
   return (
-    <div className={styles.contactRoot}>
+    <BasicContainer>
       <SeoSettings
         pageTitle={"CSVひかくんへのお問い合わせ"}
         pageDescription={
@@ -56,34 +56,122 @@ export default function Mail() {
         pageImgWidth={1280}
         pageImgHeight={960}
       />
-      <div className={styles.contactParent}>
-        <div className={styles.contactChild}>
-          <h2>お問い合わせ</h2>
-        </div>
-        <div className={styles.contactChild}>
-          <h2>名前</h2>
-          <input type="text" onChange={(e) => setName(e.target.value)} />
-        </div>
-        <div className={styles.contactChild}>
-          <h2>メールアドレス</h2>
-          <input type="text" onChange={(e) => setMail(e.target.value)} />
-        </div>
-        <div className={styles.contactChild}>
-          <h2>内容</h2>
-          <textarea onChange={(e) => setMessage(e.target.value)} />
-        </div>
-        <div className={styles.contactChild}>
-          <button type="button" onClick={sendMail}>
-            送信
-          </button>
-        </div>
-        <div className={styles.contactChild}>
-          <br />
-          <button>
-            <Link href={"/"}>CSV比較ツールに戻る</Link>
-          </button>
-        </div>
-      </div>
-    </div>
+      <BasicSubContainer>
+        <BasicSubTitle>お問い合わせ</BasicSubTitle>
+        <BasicButton>
+          <Link href={"/"}>CSV比較ツールに戻る</Link>
+        </BasicButton>
+      </BasicSubContainer>
+      <BasicSubContainer>
+        <BasicSubTitle>名前</BasicSubTitle>
+        <BasicInputField
+          type="text"
+          onChange={(e) => setName(e.target.value)}
+        />
+      </BasicSubContainer>
+      <BasicSubContainer>
+        <BasicSubTitle>メールアドレス</BasicSubTitle>
+        <BasicInputField
+          type="text"
+          onChange={(e) => setMail(e.target.value)}
+        />
+      </BasicSubContainer>
+      <BasicSubContainer>
+        <BasicSubTitle>内容</BasicSubTitle>
+        <BasicTextArea onChange={(e) => setMessage(e.target.value)} />
+      </BasicSubContainer>
+      <BasicSubContainer>
+        <BasicButton type="button" onClick={sendMail}>
+          送信
+        </BasicButton>
+      </BasicSubContainer>
+    </BasicContainer>
   );
 }
+
+const BasicContainer = styled.div`
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+`;
+
+const BasicSubContainer = styled.div`
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+`;
+
+const BasicSubTitle = styled.h2`
+  position: relative;
+  padding: 1.5rem 1rem;
+
+  :after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    max-width: 600px;
+    height: 10px;
+    content: "";
+    background-image: -webkit-repeating-linear-gradient(
+      135deg,
+      #000,
+      #000 1px,
+      transparent 2px,
+      transparent 5px
+    );
+    background-image: repeating-linear-gradient(
+      -45deg,
+      #000,
+      #000 1px,
+      transparent 2px,
+      transparent 5px
+    );
+    background-size: 7px 7px;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+`;
+
+const BasicInputField = styled.input`
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+`;
+
+const BasicTextArea = styled.textarea`
+  width: 100%;
+  height: 150px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  resize: none;
+`;
+
+const BasicButton = styled.button`
+  display: inline-block;
+  width: 100%;
+  max-width: 350px;
+  height: 2rem;
+  padding: 0.3em 1em;
+  margin: 0 0.3em 0.3em 0;
+  text-decoration: none;
+  color: #eea9a9;
+  background: none;
+  border: solid 1px #eea9a9;
+  border-radius: 3px;
+  transition: 0.4s;
+  :hover {
+    background: #eea9a9;
+    color: white;
+  }
+`;

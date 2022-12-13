@@ -10,13 +10,15 @@
     "lint-fix": "eslint --cache --fix src/ && prettier --write src/"
   },
   "dependencies": {
+    "@types/styled-components": "^5.1.26",
     "cheerio": "^1.0.0-rc.12",
     "csv": "^6.2.0",
     "microcms-js-sdk": "^2.3.0",
     "next": "12.3.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-papaparse": "^4.1.0"
+    "react-papaparse": "^4.1.0",
+    "styled-components": "^5.3.6"
   },
   "devDependencies": {
     "@types/gtag.js": "^0.0.11",

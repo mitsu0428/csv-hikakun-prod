@@ -4,15 +4,13 @@ import Link from "next/link";
 import { useState } from "react";
 import Modal from "react-modal";
 import { readString } from "react-papaparse";
-import styles from "../styles/Home.module.css";
+import styled from "styled-components";
 import Accordion from "./components/Accordion";
 import ReleaseNotification from "./components/ReleaseNotification";
 import CsvDownloadComponents from "./components/CsvDownloader";
 import SeoSettings from "./components/SeoSettings";
-import { useLocale } from "../hooks/useLocale";
 
 const Home: NextPage = () => {
-  const { t } = useLocale();
   //比較する MasterCSV用の配列
   const [csvContent, setCsvContent] = useState<Array<any>>([]);
   //比較する CompareCSV用の配列
@@ -300,8 +298,7 @@ const Home: NextPage = () => {
   };
 
   return (
-    // eslint-disable-next-line react/react-in-jsx-scope
-    <div className={styles.container}>
+    <BasicContainer>
       <SeoSettings
         pageTitle={"CSVファイルを比較する"}
         pageDescription={
@@ -312,181 +309,307 @@ const Home: NextPage = () => {
         pageImgWidth={1280}
         pageImgHeight={960}
       />
-      <main className={styles.main} id="main">
-        <div className={styles.grid}>
-          <h1 className={styles.title}>{t.TEXT_TOP_TITLE}</h1>
-          <p className={styles.card}>
-            <Link href={"/about"}>
-              <a>{t.TEXT_HOW_TO_USE_HIKAKUN}</a>
-            </Link>
-          </p>
-          <hr />
-        </div>
-        <ReleaseNotification />
-        <div className={styles.grid}>
-          <h2 className={styles.description}>
-            {t.TEXT_SELECT_FILE}
-            <hr />
-          </h2>
-        </div>
-        <div className={styles.grid}>
-          <h3>{t.TEXT_SELECT_MASTER_FILE}</h3>
-          <input
+      <main id="main">
+        <BasicSubContainer>
+          <BasicTitle>CSVひかくん | CSV比較ツール</BasicTitle>
+          <Link href={"/about"}>
+            <BasicButtonArea>
+              CSVひかくんの具体的な使い方はこちら
+            </BasicButtonArea>
+          </Link>
+        </BasicSubContainer>
+        <BasicCard>
+          <ReleaseNotification />
+        </BasicCard>
+        <BasicSubContainer>
+          <BasicSubTitle>ファイルを選択</BasicSubTitle>
+        </BasicSubContainer>
+        <BasicSubContainer>
+          <BasicSubTitle>オリジナルデータを選択</BasicSubTitle>
+          <BasicInputField
             type="file"
             accept="text/csv"
             onChange={getMasterFile}
-            className={styles.card}
           />
-        </div>
-
-        <div className={styles.grid}>
-          <p>
+        </BasicSubContainer>
+        <BasicSubContainer>
+          <BasicText>
             上で選択したデータは、オリジナルデータとして参照先のみとして使われます。
-          </p>
-        </div>
-
-        <div className={styles.grid}>
-          <h3>{t.TEXT_SELECT_COMPARE_FILE}</h3>
-          <input
+          </BasicText>
+        </BasicSubContainer>
+        <BasicSubContainer>
+          <BasicSubTitle>比較したいデータを選択</BasicSubTitle>
+          <BasicInputField
             type="file"
             accept="text/csv"
             onChange={getCompareFile}
-            className={styles.card}
           />
-        </div>
-
-        <div className={styles.grid}>
-          <p>
+        </BasicSubContainer>
+        <BasicSubContainer>
+          <BasicText>
             上で選択したデータは、比較するデータとして比較後はCSVにも出力されます。
-          </p>
-        </div>
+          </BasicText>
+        </BasicSubContainer>
+        <BasicSubContainer>
+          <BasicSubTitle>ファイルを操作</BasicSubTitle>
+        </BasicSubContainer>
 
-        <div className={styles.grid}>
-          <h2 className={styles.description}>
-            {t.TEXT_MANIPULATE_FILE}
-            <hr />
-          </h2>
-        </div>
+        <BasicSubContainer>
+          <BasicSubTitle>
+            【一致しない値が含まれた行が何個あるかをチェックする 行数なし】
+          </BasicSubTitle>
+          <BasicSubContainerComponent>
+            <BasicButtonArea onClick={openModalCheckWithoutIndex}>
+              【CSVを比較した結果を見る】
+            </BasicButtonArea>
+          </BasicSubContainerComponent>
+          <BasicSubContainerComponent>
+            <Modal
+              contentLabel="CSVを比較した結果を見る"
+              isOpen={modalIsOpen}
+              onAfterOpen={afterOpenModalWithoutIndex}
+              onRequestClose={closeModalWithoutIndex}
+            >
+              <BasicSubTitle ref={(_subtitle) => (subtitle = _subtitle)}>
+                【CSVを比較する】
+              </BasicSubTitle>
+              <BasicSubTitle>【CSV比較結果を確認する】</BasicSubTitle>
+              <BasicText>{displayData}</BasicText>
+              <BasicButtonArea onClick={closeModalWithoutIndex}>
+                close
+              </BasicButtonArea>
+            </Modal>
+          </BasicSubContainerComponent>
+          <BasicSubContainerComponent>
+            <BasicButtonArea onClick={checkRowWithoutIndex}>
+              <CsvDownloadComponents data={csvCompareRowWithoutIndex} />
+            </BasicButtonArea>
+          </BasicSubContainerComponent>
+        </BasicSubContainer>
 
-        <div>
-          <h3>【{t.TEXT_COMPARE_ROW_WITHOUT_INDEX}】</h3>
-          <div className={styles.grid}>
-            <div>
-              <button onClick={openModalCheckWithoutIndex}>
-                {t.CHECK_COMPARE_FILE}
-              </button>
+        <BasicSubContainer>
+          <BasicSubTitle>
+            【一致しない値が含まれた行があるかをチェックする 行数付き】
+          </BasicSubTitle>
+          <BasicSubContainerComponent>
+            <BasicSubContainerComponent>
+              <BasicButtonArea onClick={openModalCheckWithIndex}>
+                【CSVを比較した結果を見る】
+              </BasicButtonArea>
+            </BasicSubContainerComponent>
+            <BasicSubContainerComponent>
               <Modal
-                //
                 contentLabel="CSVを比較した結果を見る"
                 isOpen={modalIsOpen}
-                className={styles.modalResult}
-                onAfterOpen={afterOpenModalWithoutIndex}
-                onRequestClose={closeModalWithoutIndex}
-              >
-                <h2 ref={(_subtitle) => (subtitle = _subtitle)}>
-                  {t.DO_COMPARE_FILE}
-                </h2>
-                <div className="table">
-                  <h3>{t.RESULT_COMPARE}</h3>
-                  <p>{displayData}</p>
-                </div>
-                <button onClick={closeModalWithoutIndex}>close</button>
-              </Modal>
-            </div>
-            <div className={styles.grid} onClick={checkRowWithoutIndex}>
-              <CsvDownloadComponents
-                data={csvCompareRowWithoutIndex}
-                className={styles.card}
-              />
-            </div>
-          </div>
-        </div>
-
-        <div>
-          <h3>【{t.TEXT_COMPARE_ROW_WITH_INDEX}】</h3>
-          <div className={styles.grid}>
-            <div>
-              <button onClick={openModalCheckWithIndex}>
-                {t.CHECK_COMPARE_FILE}
-              </button>
-              <Modal
-                //
-                contentLabel="CSVを比較した結果を見る"
-                isOpen={modalIsOpen}
-                className={styles.modalResult}
                 onAfterOpen={afterOpenModalWithIndex}
                 onRequestClose={closeModalWithIndex}
               >
-                <h2 ref={(_subtitle) => (subtitle = _subtitle)}>
-                  {t.DO_COMPARE_FILE}
-                </h2>
-                <div className="table">
-                  <h3>{t.RESULT_COMPARE}</h3>
-                  <p>{displayData}</p>
-                </div>
-                <button onClick={closeModalWithIndex}>close</button>
+                <BasicSubTitle ref={(_subtitle) => (subtitle = _subtitle)}>
+                  【CSVを比較する】
+                </BasicSubTitle>
+                <BasicSubTitle>【CSV比較結果を確認する】</BasicSubTitle>
+                <BasicText>{displayData}</BasicText>
+                <BasicButtonArea onClick={closeModalWithIndex}>
+                  close
+                </BasicButtonArea>
               </Modal>
-            </div>
-            <div onClick={checkRowWithIndex}>
-              <CsvDownloadComponents
-                data={csvCompareRowWithIndex}
-                className={styles.card}
-              />
-            </div>
-          </div>
-        </div>
+            </BasicSubContainerComponent>
+            <BasicSubContainerComponent>
+              <BasicButtonArea onClick={checkRowWithIndex}>
+                <CsvDownloadComponents data={csvCompareRowWithIndex} />
+              </BasicButtonArea>
+            </BasicSubContainerComponent>
+          </BasicSubContainerComponent>
+        </BasicSubContainer>
 
-        <div>
-          <h3>【{t.TEXT_COMPARE_VALUES}】</h3>
-          <div className={styles.grid}>
-            <div>
-              <button onClick={openModalRowCol}>{t.CHECK_COMPARE_FILE}</button>
+        <BasicSubContainer>
+          <BasicSubTitle>
+            【一致しない値を値単位で一つずつチェックする】
+          </BasicSubTitle>
+          <BasicSubContainerComponent>
+            <BasicSubContainerComponent>
+              <BasicButtonArea onClick={openModalRowCol}>
+                【CSVを比較した結果を見る】
+              </BasicButtonArea>
+            </BasicSubContainerComponent>
+            <BasicSubContainerComponent>
               <Modal
-                //
                 contentLabel="CSVを比較した結果を見る"
                 isOpen={modalIsOpen}
-                className={styles.modalResult}
                 onAfterOpen={afterOpenModalRowCol}
                 onRequestClose={closeModalRowCol}
               >
-                <h2 ref={(_subtitle) => (subtitle = _subtitle)}>
-                  {t.DO_COMPARE_FILE}
-                </h2>
-                <div className="table">
-                  <h3>{t.RESULT_COMPARE}</h3>
-                  <p>{displayData}</p>
-                </div>
-                <button onClick={closeModalRowCol}>close</button>
+                <BasicSubTitle ref={(_subtitle) => (subtitle = _subtitle)}>
+                  【CSVを比較する】
+                </BasicSubTitle>
+                <BasicSubTitle>【CSV比較結果を確認する】</BasicSubTitle>
+                <BasicText>{displayData}</BasicText>
+                <BasicButtonArea onClick={closeModalRowCol}>
+                  close
+                </BasicButtonArea>
               </Modal>
-            </div>
-            <div onClick={checkRowCol}>
-              <CsvDownloadComponents
-                data={csvCompareRowCol}
-                className={styles.card}
-              />
-            </div>
-          </div>
-        </div>
-
+            </BasicSubContainerComponent>
+            <BasicSubContainerComponent>
+              <BasicButtonArea onClick={checkRowCol}>
+                <CsvDownloadComponents data={csvCompareRowCol} />
+              </BasicButtonArea>
+            </BasicSubContainerComponent>
+          </BasicSubContainerComponent>
+        </BasicSubContainer>
         <Accordion />
-        <p className={styles.card}>
-          <Link href={"/mail"}>
-            <a>{t.TEXT_MOVE_TO_CONTACT_PAGE}</a>
-          </Link>
-        </p>
-        <p className={styles.card}>
-          <Link href={"/privacy"}>
-            <a>{t.TEXT_MOVE_TO_PRIVACY_PAGE}</a>
-          </Link>
-        </p>
+        <BasicSubContainer>
+          <BasicText>
+            <BasicButtonArea>
+              <Link href={"/mail"}>お問い合わせはこちら</Link>
+            </BasicButtonArea>
+          </BasicText>
+          <BasicText>
+            <BasicButtonArea>
+              <Link href={"/privacy"}>プライバシーポリシーはこちら</Link>
+            </BasicButtonArea>
+          </BasicText>
+        </BasicSubContainer>
       </main>
-      <footer className={styles.footer}>
-        <div>
-          <p>©2022 Mitsuhiro Okada</p>
-        </div>
-      </footer>
-    </div>
+      <BasicFooter>
+        <BasicText>©2022 Mitsuhiro Okada</BasicText>
+      </BasicFooter>
+    </BasicContainer>
   );
 };
 
 export default Home;
+
+const BasicContainer = styled.div`
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+`;
+
+const BasicSubContainer = styled.div`
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+`;
+
+const BasicSubContainerComponent = styled.div`
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+`;
+
+const BasicCard = styled.div`
+  width: 100%;
+  max-width: 1200px;
+  display: inline-block;
+  text-align: left;
+  border-radius: 3px;
+`;
+
+const BasicTitle = styled.h1`
+  position: relative;
+  padding: 1.5rem 1rem;
+
+  :after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    max-width: 600px;
+    height: 10px;
+    content: "";
+    background-image: -webkit-repeating-linear-gradient(
+      135deg,
+      #000,
+      #000 1px,
+      transparent 2px,
+      transparent 5px
+    );
+    background-image: repeating-linear-gradient(
+      -45deg,
+      #000,
+      #000 1px,
+      transparent 2px,
+      transparent 5px
+    );
+    background-size: 7px 7px;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+`;
+
+const BasicSubTitle = styled.h2`
+  position: relative;
+  padding: 1.5rem 1rem;
+
+  :after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    max-width: 600px;
+    height: 10px;
+    content: "";
+    background-image: -webkit-repeating-linear-gradient(
+      135deg,
+      #000,
+      #000 1px,
+      transparent 2px,
+      transparent 5px
+    );
+    background-image: repeating-linear-gradient(
+      -45deg,
+      #000,
+      #000 1px,
+      transparent 2px,
+      transparent 5px
+    );
+    background-size: 7px 7px;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+`;
+
+const BasicText = styled.span`
+  font-size: 1rem;
+`;
+
+const BasicButtonArea = styled.div`
+  display: inline-block;
+  width: 100%;
+  max-width: 350px;
+  height: 2rem;
+  padding: 0.3em 1em;
+  margin: 0 0.3em 0.3em 0;
+  text-decoration: none;
+  color: #eea9a9;
+  background: none;
+  border: solid 1px #eea9a9;
+  border-radius: 3px;
+  transition: 0.4s;
+  :hover {
+    background: #eea9a9;
+    color: white;
+  }
+`;
+
+const BasicInputField = styled.input`
+  width: 100%;
+  max-width: 350px;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+`;
+
+const BasicFooter = styled.footer`
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+`;

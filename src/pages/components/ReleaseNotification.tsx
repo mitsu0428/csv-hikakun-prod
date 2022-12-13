@@ -1,32 +1,89 @@
 import React from "react";
-import styles from "../../styles/Home.module.css";
+import styled from "styled-components";
 
 function ReleaseNotification() {
   return (
-    <div className={styles.gridnotification}>
-      <h2>具体的な利用事例</h2>
-      <hr />
-      <dl>
-        <dt>Google Spread Sheetを比較</dt>
-        <dd>
+    <BasicContainer>
+      <BasicSubTitle>具体的な利用事例</BasicSubTitle>
+      <BasicHr />
+      <BasicSubContainer>
+        <BasicText>Google Spread Sheetを比較</BasicText>
+        <BasicText>
           スプレッドシート（Google Spread
           Sheet）において、2つのシートを比較して差分を知りたい時に利用することができます。
-        </dd>
-      </dl>
-      <dl>
-        <dt>CSVファイルを比較</dt>
-        <dd>
+        </BasicText>
+      </BasicSubContainer>
+      <BasicSubContainer>
+        <BasicText>CSVファイルを比較</BasicText>
+        <BasicText>
           2つのCSVファイルにおける差分を確認したり、比較をしたい時に簡単に調べることができるツールです。
-        </dd>
-      </dl>
-      <dl>
-        <dt>CSVファイルでダブルチェックをする</dt>
-        <dd>
+        </BasicText>
+      </BasicSubContainer>
+      <BasicSubContainer>
+        <BasicText>CSVファイルでダブルチェックをする</BasicText>
+        <BasicText>
           AとBのファイルを用意して、前後で異なる値を準備できているかどうかを調べることができます。
-        </dd>
-      </dl>
-    </div>
+        </BasicText>
+      </BasicSubContainer>
+    </BasicContainer>
   );
 }
 
 export default ReleaseNotification;
+
+const BasicContainer = styled.div`
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+`;
+
+const BasicSubContainer = styled.div`
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+`;
+
+const BasicSubTitle = styled.h2`
+  position: relative;
+  padding: 1.5rem 1rem;
+
+  :after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    max-width: 600px;
+    height: 10px;
+    content: "";
+    background-image: -webkit-repeating-linear-gradient(
+      135deg,
+      #000,
+      #000 1px,
+      transparent 2px,
+      transparent 5px
+    );
+    background-image: repeating-linear-gradient(
+      -45deg,
+      #000,
+      #000 1px,
+      transparent 2px,
+      transparent 5px
+    );
+    background-size: 7px 7px;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+`;
+
+const BasicText = styled.p`
+  font-size: 1rem;
+`;
+
+const BasicHr = styled.hr`
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+`;

@@ -1,49 +1,66 @@
 /* eslint-disable react/react-in-jsx-scope */
-import Link from "next/link";
 import React from "react";
 import Image from "next/image";
-import styles from "../../styles/Home.module.css";
+import Link from "next/link";
+import styled from "styled-components";
 
 export default function HeaderComponents() {
   return (
-    <header className="text-gray-600 body-font bg-blue-500">
-      <div className={styles.headerParent}>
-        <div>
+    <header>
+      <HeaderMenu>
+        <HeaderMenuContainer>
           <Image
             src="/images/csvhikakun_logo_ver0.2.png"
             width={75}
             height={75}
             alt="csvhikrakunのロゴ"
           />
-        </div>
-        <div className={styles.headerChild}>
+        </HeaderMenuContainer>
+        <HeaderMenuContainer>
           <Link href="/">
-            <a className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
-              <span className="ml-3 text-xl text-white">Home</span>
-            </a>
+            <HeaderMenuLink>Home</HeaderMenuLink>
           </Link>
           <Link href="/about">
-            <a className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
-              <span className="ml-3 text-xl text-white">About</span>
-            </a>
+            <HeaderMenuLink>About</HeaderMenuLink>
           </Link>
           <Link href="/blog">
-            <a className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
-              <span className="ml-3 text-xl text-white">Blog</span>
-            </a>
+            <HeaderMenuLink>Blog</HeaderMenuLink>
           </Link>
           <Link href="/mail">
-            <a className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
-              <span className="ml-3 text-xl text-white">Mail</span>
-            </a>
+            <HeaderMenuLink>Mail</HeaderMenuLink>
           </Link>
           <Link href="/privacy">
-            <a className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
-              <span className="ml-3 text-xl text-white">PrivacyPolicy</span>
-            </a>
+            <HeaderMenuLink>PrivacyPolicy</HeaderMenuLink>
           </Link>
-        </div>
-      </div>
+        </HeaderMenuContainer>
+      </HeaderMenu>
     </header>
   );
 }
+
+const HeaderMenu = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  height: 4rem;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+`;
+
+const HeaderMenuContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const HeaderMenuLink = styled.a`
+  padding: 0 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+`;
