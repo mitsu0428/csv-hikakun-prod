@@ -9,6 +9,7 @@ import Accordion from "./components/Accordion";
 import ReleaseNotification from "./components/ReleaseNotification";
 import CsvDownloadComponents from "./components/CsvDownloader";
 import SeoSettings from "./components/SeoSettings";
+import Image from "next/image";
 
 const Home: NextPage = () => {
   //比較する MasterCSV用の配列
@@ -310,13 +311,21 @@ const Home: NextPage = () => {
         pageImgHeight={960}
       />
       <main id="main">
+        <LogoContainer>
+          <Image
+            src="/images/csvhikakun_logo_ver0.2.png"
+            width={100}
+            height={100}
+            alt="csvhikrakunのロゴ"
+          />
+        </LogoContainer>
         <BasicSubContainer>
           <BasicTitle>CSVひかくん | CSV比較ツール</BasicTitle>
-          <Link href={"/about"}>
-            <BasicButtonArea>
-              CSVひかくんの具体的な使い方はこちら
-            </BasicButtonArea>
-          </Link>
+          <BasicButton>
+            <Link href={"/about"}>
+              <a>CSVひかくんの具体的な使い方はこちら</a>
+            </Link>
+          </BasicButton>
         </BasicSubContainer>
         <BasicCard>
           <ReleaseNotification />
@@ -359,9 +368,9 @@ const Home: NextPage = () => {
             【一致しない値が含まれた行が何個あるかをチェックする 行数なし】
           </BasicSubTitle>
           <BasicSubContainerComponent>
-            <BasicButtonArea onClick={openModalCheckWithoutIndex}>
+            <BasicButton onClick={openModalCheckWithoutIndex}>
               【CSVを比較した結果を見る】
-            </BasicButtonArea>
+            </BasicButton>
           </BasicSubContainerComponent>
           <BasicSubContainerComponent>
             <Modal
@@ -375,15 +384,13 @@ const Home: NextPage = () => {
               </BasicSubTitle>
               <BasicSubTitle>【CSV比較結果を確認する】</BasicSubTitle>
               <BasicText>{displayData}</BasicText>
-              <BasicButtonArea onClick={closeModalWithoutIndex}>
-                close
-              </BasicButtonArea>
+              <BasicButton onClick={closeModalWithoutIndex}>close</BasicButton>
             </Modal>
           </BasicSubContainerComponent>
           <BasicSubContainerComponent>
-            <BasicButtonArea onClick={checkRowWithoutIndex}>
+            <BasicButton onClick={checkRowWithoutIndex}>
               <CsvDownloadComponents data={csvCompareRowWithoutIndex} />
-            </BasicButtonArea>
+            </BasicButton>
           </BasicSubContainerComponent>
         </BasicSubContainer>
 
@@ -393,9 +400,9 @@ const Home: NextPage = () => {
           </BasicSubTitle>
           <BasicSubContainerComponent>
             <BasicSubContainerComponent>
-              <BasicButtonArea onClick={openModalCheckWithIndex}>
+              <BasicButton onClick={openModalCheckWithIndex}>
                 【CSVを比較した結果を見る】
-              </BasicButtonArea>
+              </BasicButton>
             </BasicSubContainerComponent>
             <BasicSubContainerComponent>
               <Modal
@@ -409,15 +416,13 @@ const Home: NextPage = () => {
                 </BasicSubTitle>
                 <BasicSubTitle>【CSV比較結果を確認する】</BasicSubTitle>
                 <BasicText>{displayData}</BasicText>
-                <BasicButtonArea onClick={closeModalWithIndex}>
-                  close
-                </BasicButtonArea>
+                <BasicButton onClick={closeModalWithIndex}>close</BasicButton>
               </Modal>
             </BasicSubContainerComponent>
             <BasicSubContainerComponent>
-              <BasicButtonArea onClick={checkRowWithIndex}>
+              <BasicButton onClick={checkRowWithIndex}>
                 <CsvDownloadComponents data={csvCompareRowWithIndex} />
-              </BasicButtonArea>
+              </BasicButton>
             </BasicSubContainerComponent>
           </BasicSubContainerComponent>
         </BasicSubContainer>
@@ -428,9 +433,9 @@ const Home: NextPage = () => {
           </BasicSubTitle>
           <BasicSubContainerComponent>
             <BasicSubContainerComponent>
-              <BasicButtonArea onClick={openModalRowCol}>
+              <BasicButton onClick={openModalRowCol}>
                 【CSVを比較した結果を見る】
-              </BasicButtonArea>
+              </BasicButton>
             </BasicSubContainerComponent>
             <BasicSubContainerComponent>
               <Modal
@@ -444,29 +449,27 @@ const Home: NextPage = () => {
                 </BasicSubTitle>
                 <BasicSubTitle>【CSV比較結果を確認する】</BasicSubTitle>
                 <BasicText>{displayData}</BasicText>
-                <BasicButtonArea onClick={closeModalRowCol}>
-                  close
-                </BasicButtonArea>
+                <BasicButton onClick={closeModalRowCol}>close</BasicButton>
               </Modal>
             </BasicSubContainerComponent>
             <BasicSubContainerComponent>
-              <BasicButtonArea onClick={checkRowCol}>
+              <BasicButton onClick={checkRowCol}>
                 <CsvDownloadComponents data={csvCompareRowCol} />
-              </BasicButtonArea>
+              </BasicButton>
             </BasicSubContainerComponent>
           </BasicSubContainerComponent>
         </BasicSubContainer>
         <Accordion />
         <BasicSubContainer>
           <BasicText>
-            <BasicButtonArea>
+            <BasicButton>
               <Link href={"/mail"}>お問い合わせはこちら</Link>
-            </BasicButtonArea>
+            </BasicButton>
           </BasicText>
           <BasicText>
-            <BasicButtonArea>
+            <BasicButton>
               <Link href={"/privacy"}>プライバシーポリシーはこちら</Link>
-            </BasicButtonArea>
+            </BasicButton>
           </BasicText>
         </BasicSubContainer>
       </main>
@@ -478,6 +481,14 @@ const Home: NextPage = () => {
 };
 
 export default Home;
+
+const LogoContainer = styled.div`
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  text-align: center;
+`;
 
 const BasicContainer = styled.div`
   width: 100%;
@@ -576,8 +587,10 @@ const BasicText = styled.span`
   font-size: 1rem;
 `;
 
-const BasicButtonArea = styled.div`
-  display: inline-block;
+const BasicButton = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   max-width: 350px;
   height: 2rem;
