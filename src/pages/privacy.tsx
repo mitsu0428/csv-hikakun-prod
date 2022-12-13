@@ -18,9 +18,13 @@ const Privacy = () => {
       />
       <BasicSubContainer>
         <BasicSubTitle>プライバシーポリシー</BasicSubTitle>
-        <BasicButton>
-          <Link href={"/"}>CSV比較ツールに戻る</Link>
-        </BasicButton>
+        <BasicText>
+          <BasicButton>
+            <Link href={"/"}>
+              <a>CSV比較ツールに戻る</a>
+            </Link>
+          </BasicButton>
+        </BasicText>
       </BasicSubContainer>
       <BasicSubContainer>
         <BasicText>

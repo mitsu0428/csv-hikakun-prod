@@ -22,11 +22,13 @@ const About = () => {
           CSVファイル比較ツールの具体的な使い方
           <BasicHr />
         </BasicSubTitle>
-        <BasicButton>
-          <Link href={"/"}>
-            <a>CSV比較ツールに戻る</a>
-          </Link>
-        </BasicButton>
+        <BasicText>
+          <BasicButton>
+            <Link href={"/"}>
+              <a>CSV比較ツールに戻る</a>
+            </Link>
+          </BasicButton>
+        </BasicText>
       </BasicSubContainer>
       <BasicSubContainer>
         <BasicSubTitle>【比較したいCSVファイルを準備 01】</BasicSubTitle>

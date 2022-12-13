@@ -56,83 +56,79 @@ export default function Mail() {
         pageImgWidth={1280}
         pageImgHeight={960}
       />
-      <BasicSubContainer>
-        <BasicSubTitle>お問い合わせ</BasicSubTitle>
-        <BasicButton>
-          <Link href={"/"}>CSV比較ツールに戻る</Link>
-        </BasicButton>
-      </BasicSubContainer>
-      <BasicSubContainer>
-        <BasicSubTitle>名前</BasicSubTitle>
-        <BasicInputField
-          type="text"
-          onChange={(e) => setName(e.target.value)}
-        />
-      </BasicSubContainer>
-      <BasicSubContainer>
-        <BasicSubTitle>メールアドレス</BasicSubTitle>
-        <BasicInputField
-          type="text"
-          onChange={(e) => setMail(e.target.value)}
-        />
-      </BasicSubContainer>
-      <BasicSubContainer>
-        <BasicSubTitle>内容</BasicSubTitle>
-        <BasicTextArea onChange={(e) => setMessage(e.target.value)} />
-      </BasicSubContainer>
-      <BasicSubContainer>
-        <BasicButton type="button" onClick={sendMail}>
-          送信
-        </BasicButton>
-      </BasicSubContainer>
+      <ContactContainer>
+        <BasicSubContainer>
+          <ContactSubTitle>お問い合わせ</ContactSubTitle>
+          <BasicText>
+            <BasicButton>
+              <Link href={"/"}>
+                <a>CSV比較ツールに戻る</a>
+              </Link>
+            </BasicButton>
+          </BasicText>
+        </BasicSubContainer>
+        <BasicSubContainer>
+          <BasicInputField
+            type="text"
+            placeholder="名前"
+            onChange={(e) => setName(e.target.value)}
+          />
+        </BasicSubContainer>
+        <BasicSubContainer>
+          <BasicInputField
+            type="text"
+            placeholder="メールアドレス"
+            onChange={(e) => setMail(e.target.value)}
+          />
+        </BasicSubContainer>
+        <BasicSubContainer>
+          <ContactTextArea
+            placeholder="お問い合わせ内容"
+            onChange={(e) => setMessage(e.target.value)}
+          />
+        </BasicSubContainer>
+        <BasicSubContainer>
+          <BasicButton type="button" onClick={sendMail}>
+            送信
+          </BasicButton>
+        </BasicSubContainer>
+      </ContactContainer>
     </BasicContainer>
   );
 }
 
 const BasicContainer = styled.div`
   width: 100%;
-  max-width: 1200px;
+  max-width: 800px;
   margin: 0 auto;
   padding: 0 1rem;
 `;
 
 const BasicSubContainer = styled.div`
   width: 100%;
-  max-width: 1200px;
+  max-width: 800px;
   margin: 0 auto;
   padding: 0 1rem;
 `;
 
-const BasicSubTitle = styled.h2`
+const ContactContainer = styled.div`
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+`;
+
+const ContactSubTitle = styled.h2`
   position: relative;
   padding: 1.5rem 1rem;
+`;
 
-  :after {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    max-width: 600px;
-    height: 10px;
-    content: "";
-    background-image: -webkit-repeating-linear-gradient(
-      135deg,
-      #000,
-      #000 1px,
-      transparent 2px,
-      transparent 5px
-    );
-    background-image: repeating-linear-gradient(
-      -45deg,
-      #000,
-      #000 1px,
-      transparent 2px,
-      transparent 5px
-    );
-    background-size: 7px 7px;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-  }
+const BasicText = styled.span`
+  font-size: 1rem;
 `;
 
 const BasicInputField = styled.input`
@@ -146,10 +142,11 @@ const BasicInputField = styled.input`
   resize: vertical;
 `;
 
-const BasicTextArea = styled.textarea`
+const ContactTextArea = styled.textarea`
   width: 100%;
-  height: 150px;
-  padding: 12px 20px;
+  height: 300px;
+  margin-top: 6px;
+  margin-bottom: 16px;
   box-sizing: border-box;
   border: 1px solid #ccc;
   border-radius: 4px;
