@@ -29,6 +29,7 @@ const HeaderMenu = styled.header`
   width: 100%;
   display: flex;
   align-items: center;
+  justify-content: center;
   height: 4rem;
   background-color: #fff;
   box-sizing: border-box;
