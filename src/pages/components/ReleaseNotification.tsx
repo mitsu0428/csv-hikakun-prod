@@ -5,7 +5,6 @@ function ReleaseNotification() {
   return (
     <BasicContainer>
       <BasicSubTitle>具体的な利用事例</BasicSubTitle>
-      <BasicHr />
       <BasicSubContainer>
         <BasicText>Google Spread Sheetを比較</BasicText>
         <BasicText>
@@ -79,11 +78,4 @@ const BasicSubTitle = styled.h2`
 
 const BasicText = styled.p`
   font-size: 1rem;
-`;
-
-const BasicHr = styled.hr`
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
 `;

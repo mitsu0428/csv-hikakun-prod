@@ -18,10 +18,7 @@ const About = () => {
         pageImgHeight={960}
       />
       <BasicSubContainer>
-        <BasicSubTitle>
-          CSVファイル比較ツールの具体的な使い方
-          <BasicHr />
-        </BasicSubTitle>
+        <BasicSubTitle>CSVファイル比較ツールの具体的な使い方</BasicSubTitle>
         <BasicText>
           <BasicButton>
             <Link href={"/"}>
@@ -82,13 +79,6 @@ const BasicContainer = styled.div`
 `;
 
 const BasicSubContainer = styled.div`
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
-`;
-
-const BasicHr = styled.hr`
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
