@@ -1,6 +1,5 @@
 /* eslint-disable react/react-in-jsx-scope */
 import Head from "next/head";
-import { VFC } from "react";
 
 interface MetaData {
   pageTitle?: string;
@@ -19,7 +18,7 @@ const SeoSettings = ({
   pageImgWidth,
   pageImgHeight,
 }: Partial<MetaData>) => {
-  const defaultTitle = "CSVひかくん｜CSVファイル比較ツール";
+  const defaultTitle = "CSVひかくん - CSVファイル比較ツール";
   const defaultDescription =
     "2つのcsvファイルを簡単に比較することができるツールです。行単位、値単位で比較することができます。";
 

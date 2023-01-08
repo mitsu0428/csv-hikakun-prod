@@ -1,7 +1,7 @@
 /* eslint-disable react/react-in-jsx-scope */
-import type { NextPage } from "next";
+import React from "react";
 import Link from "next/link";
-import { useState } from "react";
+import type { NextPage } from "next";
 import Modal from "react-modal";
 import { readString } from "react-papaparse";
 import styled from "styled-components";
@@ -9,36 +9,44 @@ import Accordion from "./components/Accordion";
 import ReleaseNotification from "./components/ReleaseNotification";
 import CsvDownloadComponents from "./components/CsvDownloader";
 import SeoSettings from "./components/SeoSettings";
-import Image from "next/image";
+import Toast from "./components/Toast";
+import Logo from "./components/Logo";
 
 const Home: NextPage = () => {
   //比較する MasterCSV用の配列
-  const [csvContent, setCsvContent] = useState<Array<any>>([]);
+  const [csvContent, setCsvContent] = React.useState<Array<any>>([]);
   //比較する CompareCSV用の配列
-  const [csvContentCompare, setCsvContentCompare] = useState<Array<any>>([]);
+  const [csvContentCompare, setCsvContentCompare] = React.useState<Array<any>>(
+    []
+  );
 
-  const [csvCompareRowWithoutIndex, setCsvCompareRowWithoutIndex] = useState<
+  const [csvCompareRowWithoutIndex, setCsvCompareRowWithoutIndex] =
+    React.useState<Array<unknown>>([]);
+  const [csvCompareRowWithIndex, setCsvCompareRowWithIndex] = React.useState<
     Array<unknown>
   >([]);
-  const [csvCompareRowWithIndex, setCsvCompareRowWithIndex] = useState<
-    Array<unknown>
-  >([]);
-  const [csvCompareRowCol, setCsvCompareRowCol] = useState<Array<any>>([]);
+  const [csvCompareRowCol, setCsvCompareRowCol] = React.useState<Array<any>>(
+    []
+  );
 
-  const [displayData, setDisplayData] = useState<Array<any>>([]);
+  const [displayData, setDisplayData] = React.useState<Array<any>>([]);
 
-  const [modalIsOpen, setIsOpen] = useState<boolean>(false);
+  const [modalIsOpen, setIsOpen] = React.useState<boolean>(false);
   let subtitle: HTMLHeadingElement | null;
+
+  const [isMasterFile, setIsMasterFile] = React.useState<boolean>(true);
+  const [isCompareFile, setIsCompareFile] = React.useState<boolean>(true);
+
+  const [isMasterFileRead, setIsMasterFileRead] =
+    React.useState<boolean>(false);
+  const [isCompareFileRead, setIsCompareFileRead] =
+    React.useState<boolean>(false);
 
   //MasterとなるCSVを取り込む
   const getMasterFile = async (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!(e.target instanceof HTMLInputElement)) return;
     if (!e.target.files) return;
     const file = e.target.files[0];
-    if (!file.name.match(".csv$")) {
-      alert("CSVファイルを選択してください");
-      return;
-    }
     const master_file = await file.text();
     const config: any = {
       worker: true,
@@ -47,17 +55,16 @@ const Home: NextPage = () => {
       },
     };
     readString(master_file, config);
+    setIsMasterFile(true);
+    setIsMasterFileRead(true);
   };
 
   //Compare先となるCSVを取り込む
   const getCompareFile = async (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!(e.target instanceof HTMLInputElement)) return;
     if (!e.target.files) return;
+
     const file = e.target.files[0];
-    if (!file.name.match(".csv$")) {
-      alert("CSVファイルを選択してください");
-      return;
-    }
     const master_file = await file.text();
     const config: any = {
       worker: true,
@@ -66,16 +73,18 @@ const Home: NextPage = () => {
       },
     };
     readString(master_file, config);
+    setIsCompareFile(true);
+    setIsCompareFileRead(true);
   };
 
   //Index番号なしで比較する
   const checkRowWithoutIndex = () => {
     if (csvContent[0] == undefined) {
-      alert("マスターとなるファイルを選択してください。");
+      setIsMasterFile(false);
       setCsvContent([]);
       return;
     } else if (csvContentCompare[0] == undefined) {
-      alert("比較したいファイルを選択してください。");
+      setIsCompareFile(false);
       setCsvContentCompare([]);
       return;
     } else {
@@ -129,11 +138,11 @@ const Home: NextPage = () => {
 
   const checkRowWithIndex = () => {
     if (csvContent[0] == undefined) {
-      alert("マスターとなるファイルを選択してください。");
+      setIsMasterFile(false);
       setCsvContent([]);
       return;
     } else if (csvContentCompare[0] == undefined) {
-      alert("比較したいファイルを選択してください。");
+      setIsCompareFile(false);
       setCsvContentCompare([]);
       return;
     } else {
@@ -189,11 +198,11 @@ const Home: NextPage = () => {
 
   const checkRowCol = () => {
     if (csvContent[0] == undefined) {
-      alert("マスターとなるファイルを選択してください。");
+      setIsMasterFile(false);
       setCsvContent([]);
       return;
     } else if (csvContentCompare[0] == undefined) {
-      alert("比較したいファイルを選択してください。");
+      setIsCompareFile(false);
       setCsvContentCompare([]);
       return;
     } else {
@@ -237,17 +246,19 @@ const Home: NextPage = () => {
 
   const openModalCheckWithoutIndex = () => {
     if (csvContent[0] == undefined) {
-      alert("マスターとなるファイルを選択してください。");
+      setIsMasterFile(false);
       setCsvContent([]);
       return;
     } else if (csvContentCompare[0] == undefined) {
-      alert("比較したいファイルを選択してください。");
+      setIsCompareFile(false);
       setCsvContentCompare([]);
       return;
     } else {
       checkRowWithoutIndex();
       setIsOpen(true);
     }
+    setIsMasterFile(true);
+    setIsCompareFile(true);
   };
   const afterOpenModalWithoutIndex = () => {
     if (subtitle) subtitle.style.color = "#000";
@@ -258,11 +269,11 @@ const Home: NextPage = () => {
 
   const openModalCheckWithIndex = () => {
     if (csvContent[0] == undefined) {
-      alert("マスターとなるファイルを選択してください。");
+      setIsMasterFile(false);
       setCsvContent([]);
       return;
     } else if (csvContentCompare[0] == undefined) {
-      alert("比較したいファイルを選択してください。");
+      setIsCompareFile(false);
       setCsvContentCompare([]);
       return;
     } else {
@@ -279,11 +290,11 @@ const Home: NextPage = () => {
 
   const openModalRowCol = () => {
     if (csvContent[0] == undefined) {
-      alert("マスターとなるファイルを選択してください。");
+      setIsMasterFile(false);
       setCsvContent([]);
       return;
     } else if (csvContentCompare[0] == undefined) {
-      alert("比較したいファイルを選択してください。");
+      setIsCompareFile(false);
       setCsvContentCompare([]);
       return;
     } else {
@@ -311,16 +322,12 @@ const Home: NextPage = () => {
         pageImgHeight={960}
       />
       <main id="main">
-        <LogoContainer>
-          <Image
-            src="/images/csvhikakun_logo_ver0.2.png"
-            width={100}
-            height={100}
-            alt="csvhikrakunのロゴ"
-          />
-        </LogoContainer>
+        <Logo />
         <BasicSubContainer>
-          <BasicTitle>CSVひかくん | CSV比較ツール</BasicTitle>
+          <BasicTitle>CSVひかくん - CSV比較ツール</BasicTitle>
+          <ExtraText>
+            CSVひかくんでは、簡単に2つのファイルを比較することができます。
+          </ExtraText>
           <BasicButton>
             <Link href={"/about"}>
               <a>CSVひかくんの具体的な使い方はこちら</a>
@@ -342,6 +349,9 @@ const Home: NextPage = () => {
           />
         </BasicSubContainer>
         <BasicSubContainer>
+          {isMasterFileRead && <ExtraButton>データを表示する</ExtraButton>}
+        </BasicSubContainer>
+        <BasicSubContainer>
           <BasicText>
             上で選択したデータは、オリジナルデータとして参照先のみとして使われます。
           </BasicText>
@@ -353,6 +363,9 @@ const Home: NextPage = () => {
             accept="text/csv"
             onChange={getCompareFile}
           />
+        </BasicSubContainer>
+        <BasicSubContainer>
+          {isCompareFileRead && <ExtraButton>データを表示する</ExtraButton>}
         </BasicSubContainer>
         <BasicSubContainer>
           <BasicText>
@@ -459,6 +472,18 @@ const Home: NextPage = () => {
             </BasicSubContainerComponent>
           </BasicSubContainerComponent>
         </BasicSubContainer>
+        {!isMasterFile && (
+          <Toast
+            message={"オリジナルデータを選択してください。"}
+            type={"error"}
+          />
+        )}
+        {!isCompareFile && (
+          <Toast
+            message={"比較したいデータを選択してください。"}
+            type={"error"}
+          />
+        )}
         <Accordion />
         <BasicSubContainer>
           <BasicText>
@@ -482,14 +507,6 @@ const Home: NextPage = () => {
 
 export default Home;
 
-const LogoContainer = styled.div`
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
-  text-align: center;
-`;
-
 const BasicContainer = styled.div`
   width: 100%;
   max-width: 1200px;
@@ -502,6 +519,7 @@ const BasicSubContainer = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem;
+  margin-top: 8px;
 `;
 
 const BasicSubContainerComponent = styled.div`
@@ -516,7 +534,7 @@ const BasicCard = styled.div`
   max-width: 1200px;
   display: inline-block;
   text-align: left;
-  border-radius: 3px;
+  border-radius: 8px;
 `;
 
 const BasicTitle = styled.h1`
@@ -587,6 +605,28 @@ const BasicText = styled.span`
   font-size: 1rem;
 `;
 
+const ExtraText = styled.span`
+  font-size: 0.8rem;
+`;
+
+const ExtraButton = styled.span`
+  font-size: 0.8rem;
+  width: 100%;
+  max-width: 350px;
+  padding: 0.3em 1em;
+  margin-top: 1rem;
+  text-decoration: none;
+  color: #eea9a9;
+  background: none;
+  border: solid 1px #eea9a9;
+  border-radius: 3px;
+  transition: 0.4s;
+  :hover {
+    background: #eea9a9;
+    color: white;
+  }
+`;
+
 const BasicButton = styled.div`
   display: flex;
   justify-content: center;
@@ -616,7 +656,6 @@ const BasicInputField = styled.input`
   border-radius: 4px;
   box-sizing: border-box;
   margin-top: 6px;
-  margin-bottom: 16px;
   resize: vertical;
 `;
 

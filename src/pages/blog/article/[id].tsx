@@ -116,7 +116,6 @@ const ArticleUl = styled.ul`
 
 const ArticleList = styled.li`
   list-style: none;
-  margin-bottom: 1rem;
 `;
 const ArticleTag = styled.div`
   font-size: 0.8rem;
