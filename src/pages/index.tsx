@@ -541,6 +541,8 @@ const BasicCard = styled.div`
 const BasicTitle = styled.h1`
   position: relative;
   padding: 16px 8px;
+  font-size: 24px;
+  font-weight: 600;
 
   :after {
     position: absolute;
@@ -573,6 +575,8 @@ const BasicTitle = styled.h1`
 const BasicSubTitle = styled.h2`
   position: relative;
   padding: 16px 8px;
+  font-size: 24px;
+  font-weight: 400;
 
   :after {
     position: absolute;

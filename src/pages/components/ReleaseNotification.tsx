@@ -6,20 +6,22 @@ function ReleaseNotification() {
     <BasicContainer>
       <BasicSubTitle>具体的な利用事例</BasicSubTitle>
       <BasicSubContainer>
-        <BasicText>Google Spread Sheetを比較</BasicText>
+        <ChildTitle>
+          - スプレッドシートにおいて異なるシートとの差分を知りたい。
+        </ChildTitle>
         <BasicText>
-          スプレッドシート（Google Spread
-          Sheet）において、2つのシートを比較して差分を知りたい時に利用することができます。
+          スプレッドシート （Google
+          SpreadSheet）において、2つのシートを比較して差分を知りたい時に利用することができます。
         </BasicText>
       </BasicSubContainer>
       <BasicSubContainer>
-        <BasicText>CSVファイルを比較</BasicText>
+        <ChildTitle>- 異なるCSVファイル間の差分を知りたい</ChildTitle>
         <BasicText>
           2つのCSVファイルにおける差分を確認したり、比較をしたい時に簡単に調べることができるツールです。
         </BasicText>
       </BasicSubContainer>
       <BasicSubContainer>
-        <BasicText>CSVファイルでダブルチェックをする</BasicText>
+        <ChildTitle>- CSVファイルでダブルチェックをする</ChildTitle>
         <BasicText>
           AとBのファイルを用意して、前後で異なる値を準備できているかどうかを調べることができます。
         </BasicText>
@@ -42,11 +44,14 @@ const BasicSubContainer = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem;
+  margin-top: 32px;
 `;
 
 const BasicSubTitle = styled.h2`
   position: relative;
   padding: 1.5rem 1rem;
+  font-size: 20px;
+  font-weight: 400;
 
   :after {
     position: absolute;
@@ -76,6 +81,12 @@ const BasicSubTitle = styled.h2`
   }
 `;
 
+const ChildTitle = styled.h3`
+  position: relative;
+  font-size: 16px;
+  font-weight: 600;
+`;
+
 const BasicText = styled.p`
-  font-size: 1rem;
+  font-size: 16px;
 `;

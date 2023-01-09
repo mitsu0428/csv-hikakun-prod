@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 export default function HeaderComponents() {
   return (
-    <HeaderMenu>
+    <HeaderNav>
       <Link href="/">
         <HeaderMenuLink>Home</HeaderMenuLink>
       </Link>
@@ -21,11 +21,11 @@ export default function HeaderComponents() {
       <Link href="/privacy">
         <HeaderMenuLink>PrivacyPolicy</HeaderMenuLink>
       </Link>
-    </HeaderMenu>
+    </HeaderNav>
   );
 }
 
-const HeaderMenu = styled.header`
+const HeaderNav = styled.header`
   width: 100%;
   display: flex;
   align-items: center;
@@ -36,7 +36,7 @@ const HeaderMenu = styled.header`
 `;
 
 const HeaderMenuLink = styled.a`
-  font-size: 0.8rem;
+  font-size: 16px;
   font-weight: 600;
   margin: 0 1rem;
   text-decoration: none;

@@ -96,6 +96,7 @@ const QuestionAndAnswerSubContainer = styled.div`
 const QuestionAndAnswerSubTitle = styled.h2`
   position: relative;
   font-size: 24px;
+  font-weight: 400;
   padding: 1.5rem 2rem;
   color: #fff;
   border-radius: 10px;
@@ -117,4 +118,5 @@ const QuestionAndAnswerSubTitle = styled.h2`
 
 const QuestionAndAnswerText = styled.p`
   font-size: 16px;
+  font-weight: 200;
 `;

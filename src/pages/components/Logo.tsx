@@ -5,21 +5,21 @@ import Image from "next/image";
 const Logo = () => {
   return (
     <>
-      <LogoContainer>
+      <Container>
         <Image
           src="/images/csvhikakun_logo_ver0.2.png"
           width={100}
           height={100}
           alt="csvhikrakunのロゴ"
         />
-      </LogoContainer>
+      </Container>
     </>
   );
 };
 
 export default Logo;
 
-const LogoContainer = styled.div`
+const Container = styled.div`
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;

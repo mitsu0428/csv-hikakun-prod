@@ -39,11 +39,11 @@ export default function Home({ articles }: any) {
               | undefined;
           }) => (
             <div key={article.id}>
-              <div>
+              <BasicButton>
                 <Link href={`/blog/article/${article.id}`} passHref>
                   <a>{article.title}</a>
                 </Link>
-              </div>
+              </BasicButton>
               <div>{article.tag && <span>#{article.tag}</span>}</div>
             </div>
           )
@@ -106,5 +106,22 @@ const BasicSubTitle = styled.h2`
     background-size: 7px 7px;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
+  }
+`;
+
+const BasicButton = styled.button`
+  width: 100%;
+  max-width: 360px;
+  margin-top: 16px;
+  background-color: #000;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  :hover {
+    background-color: #fff;
+    color: #000;
   }
 `;
