@@ -12,7 +12,7 @@ export default function Custom404(): JSX.Element {
           </Link>
         </BasicButton>
       </BasicText>
-      <p>ページがありません。</p>
+      <NotificationText>ページがありません。</NotificationText>
     </main>
   );
 }
@@ -27,7 +27,8 @@ const BasicButton = styled.button`
   max-width: 350px;
   height: 2rem;
   padding: 0.3em 1em;
-  margin: 0 0.3em 0.3em 0;
+  margin: 0.5em 0.3em;
+  margin-left: 16px;
   text-decoration: none;
   color: #eea9a9;
   background: none;
@@ -38,4 +39,10 @@ const BasicButton = styled.button`
     background: #eea9a9;
     color: white;
   }
+`;
+
+const NotificationText = styled.p`
+  font-size: 16px;
+  font-weight: 600;
+  margin-left: 16px;
 `;
