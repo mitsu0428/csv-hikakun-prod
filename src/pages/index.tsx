@@ -543,6 +543,12 @@ const BasicTitle = styled.h1`
   padding: 16px 8px;
   font-size: 24px;
   font-weight: 600;
+  @media screen and (max-width: 768px) {
+    font-size: 18px;
+  }
+  @media screen and (max-width: 480px) {
+    font-size: 14px;
+  }
 
   :after {
     position: absolute;
@@ -577,6 +583,12 @@ const BasicSubTitle = styled.h2`
   padding: 16px 8px;
   font-size: 24px;
   font-weight: 400;
+  @media screen and (max-width: 768px) {
+    font-size: 18px;
+  }
+  @media screen and (max-width: 480px) {
+    font-size: 14px;
+  }
 
   :after {
     position: absolute;
@@ -608,10 +620,24 @@ const BasicSubTitle = styled.h2`
 
 const BasicText = styled.span`
   font-size: 16px;
+  font-weight: 600;
+  @media screen and (max-width: 768px) {
+    font-size: 14px;
+  }
+  @media screen and (max-width: 480px) {
+    font-size: 12px;
+  }
 `;
 
 const ExtraText = styled.span`
   font-size: 16px;
+  font-weight: 600;
+  @media screen and (max-width: 768px) {
+    font-size: 14px;
+  }
+  @media screen and (max-width: 480px) {
+    font-size: 12px;
+  }
 `;
 
 const ExtraButton = styled.span`
@@ -638,6 +664,16 @@ const BasicButton = styled.div`
   align-items: center;
   width: 100%;
   max-width: 350px;
+
+  font-size: 16px;
+  font-weight: 600;
+  @media screen and (max-width: 768px) {
+    font-size: 14px;
+  }
+  @media screen and (max-width: 480px) {
+    font-size: 12px;
+  }
+
   height: 32px;
   margin-top: 16px;
   text-decoration: none;
@@ -661,6 +697,14 @@ const BasicInputField = styled.input`
   box-sizing: border-box;
   margin-top: 6px;
   resize: vertical;
+  font-size: 16px;
+  font-weight: 600;
+  @media screen and (max-width: 768px) {
+    font-size: 14px;
+  }
+  @media screen and (max-width: 480px) {
+    font-size: 12px;
+  }
 `;
 
 const BasicFooter = styled.footer`
@@ -669,4 +713,12 @@ const BasicFooter = styled.footer`
   margin: 0 auto;
   padding: 0 1rem;
   margin-top: 16px;
+  font-size: 16px;
+  font-weight: 600;
+  @media screen and (max-width: 768px) {
+    font-size: 14px;
+  }
+  @media screen and (max-width: 480px) {
+    font-size: 12px;
+  }
 `;

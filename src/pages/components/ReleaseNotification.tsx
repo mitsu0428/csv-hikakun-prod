@@ -89,4 +89,11 @@ const ChildTitle = styled.h3`
 
 const BasicText = styled.p`
   font-size: 16px;
+  font-weight: 600;
+  @media screen and (max-width: 768px) {
+    font-size: 14px;
+  }
+  @media screen and (max-width: 480px) {
+    font-size: 12px;
+  }
 `;

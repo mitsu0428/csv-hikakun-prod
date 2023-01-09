@@ -36,11 +36,17 @@ const HeaderNav = styled.header`
 `;
 
 const HeaderMenuLink = styled.a`
-  font-size: 16px;
-  font-weight: 600;
   margin: 0 1rem;
   text-decoration: none;
   &:hover {
     text-decoration: underline;
+  }
+  font-size: 16px;
+  font-weight: 600;
+  @media screen and (max-width: 768px) {
+    font-size: 14px;
+  }
+  @media screen and (max-width: 480px) {
+    font-size: 12px;
   }
 `;

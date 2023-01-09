@@ -95,8 +95,16 @@ const QuestionAndAnswerSubContainer = styled.div`
 
 const QuestionAndAnswerSubTitle = styled.h2`
   position: relative;
+
   font-size: 24px;
-  font-weight: 400;
+  font-weight: 600;
+  @media screen and (max-width: 768px) {
+    font-size: 18px;
+  }
+  @media screen and (max-width: 480px) {
+    font-size: 14px;
+  }
+
   padding: 1.5rem 2rem;
   color: #fff;
   border-radius: 10px;
@@ -118,5 +126,11 @@ const QuestionAndAnswerSubTitle = styled.h2`
 
 const QuestionAndAnswerText = styled.p`
   font-size: 16px;
-  font-weight: 200;
+  font-weight: 600;
+  @media screen and (max-width: 768px) {
+    font-size: 14px;
+  }
+  @media screen and (max-width: 480px) {
+    font-size: 12px;
+  }
 `;
