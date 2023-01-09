@@ -512,6 +512,7 @@ const BasicContainer = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem;
+  margin-top: 8px;
 `;
 
 const BasicSubContainer = styled.div`
@@ -539,7 +540,7 @@ const BasicCard = styled.div`
 
 const BasicTitle = styled.h1`
   position: relative;
-  padding: 1.5rem 1rem;
+  padding: 16px 8px;
 
   :after {
     position: absolute;
@@ -571,7 +572,7 @@ const BasicTitle = styled.h1`
 
 const BasicSubTitle = styled.h2`
   position: relative;
-  padding: 1.5rem 1rem;
+  padding: 16px 8px;
 
   :after {
     position: absolute;
@@ -602,15 +603,15 @@ const BasicSubTitle = styled.h2`
 `;
 
 const BasicText = styled.span`
-  font-size: 1rem;
+  font-size: 16px;
 `;
 
 const ExtraText = styled.span`
-  font-size: 0.8rem;
+  font-size: 16px;
 `;
 
 const ExtraButton = styled.span`
-  font-size: 0.8rem;
+  font-size: 16px;
   width: 100%;
   max-width: 350px;
   padding: 0.3em 1em;
@@ -633,14 +634,13 @@ const BasicButton = styled.div`
   align-items: center;
   width: 100%;
   max-width: 350px;
-  height: 2rem;
-  padding: 0.3em 1em;
-  margin: 0 0.3em 0.3em 0;
+  height: 32px;
+  margin-top: 16px;
   text-decoration: none;
   color: #eea9a9;
   background: none;
   border: solid 1px #eea9a9;
-  border-radius: 3px;
+  border-radius: 4px;
   transition: 0.4s;
   :hover {
     background: #eea9a9;
@@ -664,4 +664,5 @@ const BasicFooter = styled.footer`
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem;
+  margin-top: 16px;
 `;
