@@ -1,10 +1,15 @@
 import React from "react";
 import styled from "styled-components";
+import ShareButton from "../atoms/button/ShareButton";
 
 function ReleaseNotification() {
   return (
     <BasicContainer>
       <BasicSubTitle>具体的な利用事例</BasicSubTitle>
+      <ShareButton
+        text="csvファイルを比較するサイト「csvひかくん」"
+        url="http://csvhikakun.com"
+      />
       <BasicSubContainer>
         <ChildTitle>
           - スプレッドシートにおいて異なるシートとの差分を知りたい。

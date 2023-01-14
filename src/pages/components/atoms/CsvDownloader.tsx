@@ -2,18 +2,23 @@
 import styled from "styled-components";
 import { useCSVDownloader } from "react-papaparse";
 
+type CsvDownloadComponentsProps = {
+  filenameprefix: string;
+  data: any;
+};
+
 //CSVダウンロード関数呼び出されるときに、パラメータとしてファイル名prefix、ボタン名、JSONデータをもらう
-const CsvDownloadComponents = (props: any) => {
+const CsvDownloadComponents = (props: CsvDownloadComponentsProps) => {
   const { CSVDownloader, Type } = useCSVDownloader();
   const filename = props.filenameprefix;
+
   return (
     <ExpandCsvDownloader>
       <CSVDownloader
-        type={Type.Button}
+        data={props.data}
         filename={filename}
         bom={true}
-        config={{ delimiter: "," }}
-        data={props.data}
+        type={Type.Button}
       >
         比較結果をダウンロード
       </CSVDownloader>

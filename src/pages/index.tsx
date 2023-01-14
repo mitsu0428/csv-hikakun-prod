@@ -1,16 +1,17 @@
 /* eslint-disable react/react-in-jsx-scope */
 import React from "react";
-import Link from "next/link";
-import type { NextPage } from "next";
-import Modal from "react-modal";
-import { readString } from "react-papaparse";
 import styled from "styled-components";
-import Accordion from "./components/Accordion";
-import ReleaseNotification from "./components/ReleaseNotification";
-import CsvDownloadComponents from "./components/CsvDownloader";
+import Link from "next/link";
+import Modal from "react-modal";
+import type { NextPage } from "next";
+import { readString } from "react-papaparse";
+import Accordion from "./components/templates/Accordion";
+import ReleaseNotification from "./components/organisms/ReleaseNotification";
+import CsvDownloadComponents from "./components/atoms/CsvDownloader";
 import SeoSettings from "./components/SeoSettings";
-import Toast from "./components/Toast";
-import Logo from "./components/Logo";
+import Toast from "./components/atoms/toast/Toast";
+import Logo from "./components/molecules/Logo";
+import DisplayDataButton from "./components/atoms/button/DisplayDataButton";
 
 const Home: NextPage = () => {
   //比較する MasterCSV用の配列
@@ -349,7 +350,11 @@ const Home: NextPage = () => {
           />
         </BasicSubContainer>
         <BasicSubContainer>
-          {isMasterFileRead && <ExtraButton>データを表示する</ExtraButton>}
+          {isMasterFileRead && (
+            <DisplayDataButton data={csvContent}>
+              データを表示する
+            </DisplayDataButton>
+          )}
         </BasicSubContainer>
         <BasicSubContainer>
           <BasicText>
@@ -365,7 +370,11 @@ const Home: NextPage = () => {
           />
         </BasicSubContainer>
         <BasicSubContainer>
-          {isCompareFileRead && <ExtraButton>データを表示する</ExtraButton>}
+          {isCompareFileRead && (
+            <DisplayDataButton data={csvContentCompare}>
+              データを表示する
+            </DisplayDataButton>
+          )}
         </BasicSubContainer>
         <BasicSubContainer>
           <BasicText>
@@ -402,7 +411,10 @@ const Home: NextPage = () => {
           </BasicSubContainerComponent>
           <BasicSubContainerComponent>
             <BasicButton onClick={checkRowWithoutIndex}>
-              <CsvDownloadComponents data={csvCompareRowWithoutIndex} />
+              <CsvDownloadComponents
+                filenameprefix="csvhikakun"
+                data={csvCompareRowWithoutIndex}
+              />
             </BasicButton>
           </BasicSubContainerComponent>
         </BasicSubContainer>
@@ -434,7 +446,10 @@ const Home: NextPage = () => {
             </BasicSubContainerComponent>
             <BasicSubContainerComponent>
               <BasicButton onClick={checkRowWithIndex}>
-                <CsvDownloadComponents data={csvCompareRowWithIndex} />
+                <CsvDownloadComponents
+                  filenameprefix="csvhikakun"
+                  data={csvCompareRowWithIndex}
+                />
               </BasicButton>
             </BasicSubContainerComponent>
           </BasicSubContainerComponent>
@@ -467,7 +482,10 @@ const Home: NextPage = () => {
             </BasicSubContainerComponent>
             <BasicSubContainerComponent>
               <BasicButton onClick={checkRowCol}>
-                <CsvDownloadComponents data={csvCompareRowCol} />
+                <CsvDownloadComponents
+                  filenameprefix="csvhikakun"
+                  data={csvCompareRowCol}
+                />
               </BasicButton>
             </BasicSubContainerComponent>
           </BasicSubContainerComponent>
