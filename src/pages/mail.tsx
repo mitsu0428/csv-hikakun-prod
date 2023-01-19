@@ -2,8 +2,8 @@
 import { useState } from "react";
 import Link from "next/link";
 import styled from "styled-components";
-import SeoSettings from "./components/SeoSettings";
-import Toast from "./components/atoms/toast/Toast";
+import SeoSettings from "./components/utils/SeoSettings";
+import Toast from "./components/utils/toast/Toast";
 
 export default function Mail() {
   const [name, setName] = useState("");

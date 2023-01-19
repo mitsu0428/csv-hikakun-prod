@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import styled from "styled-components";
-import SeoSettings from "./components/SeoSettings";
+import SeoSettings from "./components/utils/SeoSettings";
 
 const About = () => {
   return (

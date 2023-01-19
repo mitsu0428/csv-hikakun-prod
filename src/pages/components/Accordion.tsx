@@ -95,19 +95,17 @@ const QuestionAndAnswerSubContainer = styled.div`
 
 const QuestionAndAnswerSubTitle = styled.h2`
   position: relative;
-
   font-size: 24px;
-  font-weight: 600;
   @media screen and (max-width: 768px) {
-    font-size: 18px;
+    font-size: 22px;
   }
   @media screen and (max-width: 480px) {
-    font-size: 14px;
+    font-size: 20px;
   }
 
-  padding: 1.5rem 2rem;
+  padding: 8px 16px 8px 16px;
   color: #fff;
-  border-radius: 10px;
+  border-radius: 8px;
   background: #eea9a9;
   opacity: 0.8;
 
@@ -117,7 +115,6 @@ const QuestionAndAnswerSubTitle = styled.h2`
     left: 1em;
     width: 0;
     height: 0;
-    content: "";
     border-width: 10px 10px 0 10px;
     border-style: solid;
     border-color: #eea9a9 transparent transparent transparent;
@@ -126,11 +123,13 @@ const QuestionAndAnswerSubTitle = styled.h2`
 
 const QuestionAndAnswerText = styled.p`
   font-size: 16px;
-  font-weight: 600;
+  margin-left: 24px;
   @media screen and (max-width: 768px) {
+    margin-left: 22px;
     font-size: 14px;
   }
   @media screen and (max-width: 480px) {
+    margin-left: 20px;
     font-size: 12px;
   }
 `;

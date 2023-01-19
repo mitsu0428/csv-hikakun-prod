@@ -42,7 +42,6 @@ const HeaderMenuLink = styled.a`
     text-decoration: underline;
   }
   font-size: 16px;
-  font-weight: 600;
   @media screen and (max-width: 768px) {
     font-size: 14px;
   }

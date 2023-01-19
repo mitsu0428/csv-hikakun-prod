@@ -43,6 +43,5 @@ const BasicButton = styled.button`
 
 const NotificationText = styled.p`
   font-size: 16px;
-  font-weight: 600;
   margin-left: 16px;
 `;

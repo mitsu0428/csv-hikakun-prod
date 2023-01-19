@@ -5,13 +5,13 @@ import Link from "next/link";
 import Modal from "react-modal";
 import type { NextPage } from "next";
 import { readString } from "react-papaparse";
-import Accordion from "./components/templates/Accordion";
-import ReleaseNotification from "./components/organisms/ReleaseNotification";
-import CsvDownloadComponents from "./components/atoms/CsvDownloader";
-import SeoSettings from "./components/SeoSettings";
-import Toast from "./components/atoms/toast/Toast";
-import Logo from "./components/molecules/Logo";
-import DisplayDataButton from "./components/atoms/button/DisplayDataButton";
+import Accordion from "./components/Accordion";
+import ReleaseNotification from "./components/ReleaseNotification";
+import CsvDownloadComponents from "./components/libs/CsvDownloader";
+import SeoSettings from "./components/utils/SeoSettings";
+import Toast from "./components/utils/toast/Toast";
+import Logo from "./components/Logo";
+import DisplayDataButton from "./components/libs/button/DisplayDataButton";
 
 const Home: NextPage = () => {
   //比較する MasterCSV用の配列
@@ -558,14 +558,13 @@ const BasicCard = styled.div`
 
 const BasicTitle = styled.h1`
   position: relative;
-  padding: 16px 8px;
   font-size: 24px;
-  font-weight: 600;
+  padding: 16px 8px;
   @media screen and (max-width: 768px) {
-    font-size: 18px;
+    font-size: 22px;
   }
   @media screen and (max-width: 480px) {
-    font-size: 14px;
+    font-size: 20px;
   }
 
   :after {
@@ -598,14 +597,13 @@ const BasicTitle = styled.h1`
 
 const BasicSubTitle = styled.h2`
   position: relative;
-  padding: 16px 8px;
-  font-size: 24px;
-  font-weight: 400;
+  padding: 8px 16px 8px;
+  font-size: 20px;
   @media screen and (max-width: 768px) {
     font-size: 18px;
   }
   @media screen and (max-width: 480px) {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   :after {
@@ -638,7 +636,6 @@ const BasicSubTitle = styled.h2`
 
 const BasicText = styled.span`
   font-size: 16px;
-  font-weight: 600;
   @media screen and (max-width: 768px) {
     font-size: 14px;
   }
@@ -649,30 +646,11 @@ const BasicText = styled.span`
 
 const ExtraText = styled.span`
   font-size: 16px;
-  font-weight: 600;
   @media screen and (max-width: 768px) {
     font-size: 14px;
   }
   @media screen and (max-width: 480px) {
     font-size: 12px;
-  }
-`;
-
-const ExtraButton = styled.span`
-  font-size: 16px;
-  width: 100%;
-  max-width: 350px;
-  padding: 0.3em 1em;
-  margin-top: 1rem;
-  text-decoration: none;
-  color: #eea9a9;
-  background: none;
-  border: solid 1px #eea9a9;
-  border-radius: 3px;
-  transition: 0.4s;
-  :hover {
-    background: #eea9a9;
-    color: white;
   }
 `;
 
@@ -684,7 +662,6 @@ const BasicButton = styled.div`
   max-width: 350px;
 
   font-size: 16px;
-  font-weight: 600;
   @media screen and (max-width: 768px) {
     font-size: 14px;
   }
@@ -716,7 +693,6 @@ const BasicInputField = styled.input`
   margin-top: 6px;
   resize: vertical;
   font-size: 16px;
-  font-weight: 600;
   @media screen and (max-width: 768px) {
     font-size: 14px;
   }
@@ -732,7 +708,6 @@ const BasicFooter = styled.footer`
   padding: 0 1rem;
   margin-top: 16px;
   font-size: 16px;
-  font-weight: 600;
   @media screen and (max-width: 768px) {
     font-size: 14px;
   }

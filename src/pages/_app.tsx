@@ -4,8 +4,8 @@ import { AppProps } from "next/app";
 import { googleTagManagerId } from "../utils/gtm";
 import GoogleTagManager, {
   GoogleTagManagerId,
-} from "./components/atoms/GoogleTagManager";
-import HeaderComponents from "./components/organisms/HeaderNavigation";
+} from "./components/utils/GoogleTagManager";
+import HeaderComponents from "./components/HeaderNavigation";
 
 const App = ({ Component, pageProps }: AppProps): JSX.Element => (
   <>

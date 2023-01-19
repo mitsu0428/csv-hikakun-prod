@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import ShareButton from "../atoms/button/ShareButton";
+import ShareButton from "./libs/button/ShareButton";
 
 function ReleaseNotification() {
   return (
@@ -56,7 +56,6 @@ const BasicSubTitle = styled.h2`
   position: relative;
   padding: 1.5rem 1rem;
   font-size: 20px;
-  font-weight: 400;
 
   :after {
     position: absolute;
@@ -89,12 +88,11 @@ const BasicSubTitle = styled.h2`
 const ChildTitle = styled.h3`
   position: relative;
   font-size: 16px;
-  font-weight: 600;
 `;
 
 const BasicText = styled.p`
   font-size: 16px;
-  font-weight: 600;
+
   @media screen and (max-width: 768px) {
     font-size: 14px;
   }
