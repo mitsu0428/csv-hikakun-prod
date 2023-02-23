@@ -106,18 +106,17 @@ const QuestionAndAnswerSubTitle = styled.h2`
   padding: 8px 16px 8px 16px;
   color: #fff;
   border-radius: 8px;
-  background: #eea9a9;
-  opacity: 0.8;
-
+  background: linear-gradient(to right, #fe6b8b, #ff8e53);
+  box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.2);
   :after {
     position: absolute;
     bottom: -9px;
-    left: 1em;
+    left: 16px;
     width: 0;
     height: 0;
     border-width: 10px 10px 0 10px;
     border-style: solid;
-    border-color: #eea9a9 transparent transparent transparent;
+    border-color: #fe6b8b transparent transparent transparent;
   }
 `;
 

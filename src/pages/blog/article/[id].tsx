@@ -3,8 +3,8 @@ import { GetServerSideProps } from "next";
 import client from "../../../libs/client";
 import { renderToc } from "../../../libs/render-toc";
 import { renderContent } from "../../../libs/render-content";
-import TableOfContents from "../../components/TalbleOfContent";
-import RichAirticleContent from "../../components/RichArticleContent";
+import TableOfContents from "../../components/TableOfContent";
+import RichArticleContent from "../../components/RichArticleContent";
 import styled from "styled-components";
 
 type Props = {
@@ -32,18 +32,18 @@ export default function Article({ article }: Props) {
   const toc = renderToc(article.content);
   const con = renderContent(article.content);
   return (
-    <BasicContainer>
-      <ArticleUl>
+    <Container>
+      <LeftColumn>
         {article.toc_visible && <TableOfContents toc={toc} />}
-      </ArticleUl>
-      <BasicSubContainer>
-        <BasicSubTitle>{article?.title}</BasicSubTitle>
-        {article.tag && <ArticleTag>#{article?.tag}</ArticleTag>}
+      </LeftColumn>
+      <RightColumn>
+        <Title>{article?.title}</Title>
+        {article.tag && <Tag>#{article?.tag}</Tag>}
         <ArticleContent>
-          <RichAirticleContent con={con} />
+          <RichArticleContent contents={con} />
         </ArticleContent>
-      </BasicSubContainer>
-    </BasicContainer>
+      </RightColumn>
+    </Container>
   );
 }
 
@@ -62,67 +62,48 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   };
 };
 
-const BasicContainer = styled.div`
+const Container = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 1rem;
 `;
 
-const BasicSubContainer = styled.div`
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
+const LeftColumn = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 25%;
+  max-width: 300px;
+  margin-right: 2rem;
 `;
 
-const BasicSubTitle = styled.h2`
-  position: relative;
-  padding: 1.5rem 1rem;
-
-  :after {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    max-width: 600px;
-    height: 10px;
-    content: "";
-    background-image: -webkit-repeating-linear-gradient(
-      135deg,
-      #000,
-      #000 1px,
-      transparent 2px,
-      transparent 5px
-    );
-    background-image: repeating-linear-gradient(
-      -45deg,
-      #000,
-      #000 1px,
-      transparent 2px,
-      transparent 5px
-    );
-    background-size: 7px 7px;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-  }
+const RightColumn = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+  max-width: 800px;
 `;
 
-const ArticleUl = styled.ul`
-  list-style: none;
+const Title = styled.h2`
+  font-size: 3rem;
   margin: 0;
-  padding: 0;
 `;
 
-const ArticleList = styled.li`
-  list-style: none;
-`;
-const ArticleTag = styled.div`
-  font-size: 0.8rem;
-  color: #999;
+const Tag = styled.div`
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
 `;
 
 const ArticleContent = styled.div`
-  font-size: 1rem;
+  font-size: 1.2rem;
   line-height: 1.8;
+  color: #444;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid #ccc;
 `;
