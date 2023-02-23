@@ -9,11 +9,11 @@ import {
   ReactPortal,
 } from "react";
 
-const RichAirticleContent = ({ con }: { con: any }) => {
+const RichAirticleContent = ({ contents }: { contents: any }) => {
   return (
     <div>
       <ul>
-        {con?.map(
+        {contents?.map(
           (data: {
             id: Key | null | undefined;
             text:
