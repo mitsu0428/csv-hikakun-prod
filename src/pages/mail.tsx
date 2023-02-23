@@ -105,20 +105,13 @@ const BasicContainer = styled.div`
   padding: 0 1rem;
 `;
 
-const BasicSubContainer = styled.div`
-  width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 0 1rem;
-`;
+const BasicSubContainer = styled(BasicContainer)``;
 
 const ContactContainer = styled.div`
   width: 100%;
   max-width: 800px;
-  margin: 0 auto;
-  padding: 0 1rem;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin: 2rem auto;
+  padding: 2rem;
   border: 1px solid #ccc;
   border-radius: 4px;
 `;
@@ -126,50 +119,65 @@ const ContactContainer = styled.div`
 const ContactSubTitle = styled.h2`
   position: relative;
   padding: 1.5rem 1rem;
+  margin: 0;
+  font-size: 2rem;
+  color: #333;
+  font-weight: bold;
 `;
 
 const BasicText = styled.span`
   font-size: 1rem;
+  color: #333;
 `;
 
 const BasicInputField = styled.input`
   width: 100%;
   padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  border: none;
+  border-bottom: 1px solid #ccc;
   box-sizing: border-box;
   margin-top: 6px;
   margin-bottom: 16px;
-  resize: vertical;
+  background-color: transparent;
+  transition: border-bottom-color 0.3s;
+  :focus {
+    border-bottom-color: #eea9a9;
+    outline: none;
+  }
 `;
 
 const ContactTextArea = styled.textarea`
   width: 100%;
-  height: 300px;
+  height: 200px;
   margin-top: 6px;
   margin-bottom: 16px;
   box-sizing: border-box;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  background-color: #f8f8f8;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  background-color: transparent;
   resize: none;
+  transition: border-bottom-color 0.3s;
+  :focus {
+    border-bottom-color: #eea9a9;
+    outline: none;
+  }
 `;
 
 const BasicButton = styled.button`
   display: inline-block;
   width: 100%;
   max-width: 350px;
-  height: 2rem;
-  padding: 0.3em 1em;
-  margin: 0 0.3em 0.3em 0;
+  height: 3rem;
+  padding: 0.5rem 1.5rem;
+  margin: 1rem 0;
   text-decoration: none;
-  color: #eea9a9;
-  background: none;
-  border: solid 1px #eea9a9;
+  color: white;
+  background-color: #eea9a9;
+  border: none;
   border-radius: 3px;
   transition: 0.4s;
+  cursor: pointer;
   :hover {
-    background: #eea9a9;
-    color: white;
+    background-color: #cc5757;
   }
 `;

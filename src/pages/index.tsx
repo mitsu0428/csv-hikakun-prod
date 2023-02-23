@@ -526,11 +526,12 @@ const Home: NextPage = () => {
 export default Home;
 
 const BasicContainer = styled.div`
-  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem;
-  margin-top: 8px;
+  margin-top: 1rem; /* Update: Add box-shadow and background-color */
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
 `;
 
 const BasicSubContainer = styled.div`
@@ -538,34 +539,36 @@ const BasicSubContainer = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem;
-  margin-top: 8px;
+  margin-top: 2rem; /* Update: Add border and padding */
+  border: 1px solid #e0e0e0;
+  border-radius: 0.5rem;
+  padding: 2rem;
 `;
 
 const BasicSubContainerComponent = styled.div`
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
+  ${BasicContainer}
 `;
 
 const BasicCard = styled.div`
-  width: 100%;
-  max-width: 1200px;
-  display: inline-block;
-  text-align: left;
-  border-radius: 8px;
+  ${BasicContainer} display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem; /* Update: Change box-shadow */
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff; /* Update: Add margin and padding */
+  margin: 2rem 0;
+  padding: 2rem;
 `;
 
 const BasicTitle = styled.h1`
   position: relative;
-  font-size: 24px;
-  padding: 16px 8px;
-  @media screen and (max-width: 768px) {
-    font-size: 22px;
-  }
-  @media screen and (max-width: 480px) {
-    font-size: 20px;
-  }
+  font-size: 2rem;
+  padding: 1rem 0.5rem;
+  text-align: center;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 2rem;
 
   :after {
     position: absolute;
@@ -575,36 +578,25 @@ const BasicTitle = styled.h1`
     max-width: 600px;
     height: 10px;
     content: "";
-    background-image: -webkit-repeating-linear-gradient(
-      135deg,
-      #000,
-      #000 1px,
-      transparent 2px,
-      transparent 5px
-    );
     background-image: repeating-linear-gradient(
       -45deg,
-      #000,
-      #000 1px,
+      #333333,
+      #333333 1px,
       transparent 2px,
       transparent 5px
     );
     background-size: 7px 7px;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
+    transform: translateY(2px);
   }
 `;
 
 const BasicSubTitle = styled.h2`
   position: relative;
-  padding: 8px 16px 8px;
-  font-size: 20px;
-  @media screen and (max-width: 768px) {
-    font-size: 18px;
-  }
-  @media screen and (max-width: 480px) {
-    font-size: 16px;
-  }
+  padding: 0.5rem 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 1.5rem;
 
   :after {
     position: absolute;
@@ -614,44 +606,27 @@ const BasicSubTitle = styled.h2`
     max-width: 600px;
     height: 10px;
     content: "";
-    background-image: -webkit-repeating-linear-gradient(
-      135deg,
-      #000,
-      #000 1px,
-      transparent 2px,
-      transparent 5px
-    );
     background-image: repeating-linear-gradient(
       -45deg,
-      #000,
-      #000 1px,
+      #333333,
+      #333333 1px,
       transparent 2px,
       transparent 5px
     );
     background-size: 7px 7px;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
+    transform: translateY(2px);
   }
 `;
 
 const BasicText = styled.span`
-  font-size: 16px;
-  @media screen and (max-width: 768px) {
-    font-size: 14px;
-  }
-  @media screen and (max-width: 480px) {
-    font-size: 12px;
-  }
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #333333;
 `;
 
 const ExtraText = styled.span`
-  font-size: 16px;
-  @media screen and (max-width: 768px) {
-    font-size: 14px;
-  }
-  @media screen and (max-width: 480px) {
-    font-size: 12px;
-  }
+  font-weight: bold;
+  color: #e91e63;
 `;
 
 const BasicButton = styled.div`
@@ -660,26 +635,18 @@ const BasicButton = styled.div`
   align-items: center;
   width: 100%;
   max-width: 350px;
-
-  font-size: 16px;
-  @media screen and (max-width: 768px) {
-    font-size: 14px;
-  }
-  @media screen and (max-width: 480px) {
-    font-size: 12px;
-  }
-
-  height: 32px;
-  margin-top: 16px;
+  font-size: 1rem;
+  height: 3rem;
+  margin-top: 2rem;
   text-decoration: none;
-  color: #eea9a9;
-  background: none;
-  border: solid 1px #eea9a9;
-  border-radius: 4px;
+  color: #ffffff;
+  background-color: #e91e63;
+  border: none;
+  border-radius: 0.5rem;
   transition: 0.4s;
+
   :hover {
-    background: #eea9a9;
-    color: white;
+    background-color: #ff6f91;
   }
 `;
 
@@ -687,31 +654,14 @@ const BasicInputField = styled.input`
   width: 100%;
   max-width: 350px;
   padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  border: 1px solid #e0e0e0;
+  border-radius: 0.5rem;
   box-sizing: border-box;
-  margin-top: 6px;
+  margin-top: 0.5rem;
   resize: vertical;
-  font-size: 16px;
-  @media screen and (max-width: 768px) {
-    font-size: 14px;
-  }
-  @media screen and (max-width: 480px) {
-    font-size: 12px;
-  }
+  font-size: 1rem;
 `;
 
 const BasicFooter = styled.footer`
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
-  margin-top: 16px;
-  font-size: 16px;
-  @media screen and (max-width: 768px) {
-    font-size: 14px;
-  }
-  @media screen and (max-width: 480px) {
-    font-size: 12px;
-  }
+  ${BasicContainer}
 `;
