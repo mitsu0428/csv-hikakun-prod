@@ -106,7 +106,7 @@ const QuestionAndAnswerSubTitle = styled.h2`
   padding: 8px 16px 8px 16px;
   color: #fff;
   border-radius: 8px;
-  background: linear-gradient(to right, #fe6b8b, #ff8e53);
+  background: #eea9a9;
   box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.2);
   :after {
     position: absolute;

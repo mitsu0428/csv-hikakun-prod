@@ -1,9 +1,8 @@
 # デザイン
 
-- background #0F4C3A
 - title #fffffe
-- content #b8c1ec
-- accent #EEA9A9
+- ピンク EEA9A9
+- グレー 909090
 
 # 技術
 

@@ -567,7 +567,7 @@ const BasicTitle = styled.h1`
   padding: 1rem 0.5rem;
   text-align: center;
   font-weight: bold;
-  color: #333333;
+  color: #eea9a9;
   margin-bottom: 2rem;
 
   :after {
@@ -595,7 +595,7 @@ const BasicSubTitle = styled.h2`
   padding: 0.5rem 1rem;
   font-size: 1.5rem;
   font-weight: bold;
-  color: #333333;
+  color: #eea9a9;
   margin-bottom: 1.5rem;
 
   :after {
@@ -621,12 +621,10 @@ const BasicSubTitle = styled.h2`
 const BasicText = styled.span`
   font-size: 1rem;
   line-height: 1.5;
-  color: #333333;
 `;
 
 const ExtraText = styled.span`
   font-weight: bold;
-  color: #e91e63;
 `;
 
 const BasicButton = styled.div`
@@ -640,7 +638,7 @@ const BasicButton = styled.div`
   margin-top: 2rem;
   text-decoration: none;
   color: #ffffff;
-  background-color: #e91e63;
+  background-color: #eea9a9;
   border: none;
   border-radius: 0.5rem;
   transition: 0.4s;

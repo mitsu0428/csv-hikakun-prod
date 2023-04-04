@@ -41,8 +41,9 @@ const ExpandCsvDownloader = styled.span`
     @media screen and (max-width: 480px) {
       font-size: 12px;
     }
-    color: #eea9a9;
-    background-color: transparent;
+    color: #fff;
+    background: #eea9a9;
+    border-radius: 0.5rem;
     border: none;
     font-size: 1rem;
     cursor: pointer;

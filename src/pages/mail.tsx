@@ -174,7 +174,7 @@ const BasicButton = styled.button`
   color: white;
   background-color: #eea9a9;
   border: none;
-  border-radius: 3px;
+  border-radius: 0.5rem;
   transition: 0.4s;
   cursor: pointer;
   :hover {
