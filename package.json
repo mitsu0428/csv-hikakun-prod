@@ -10,6 +10,9 @@
     "lint-fix": "eslint --cache --fix src/ && prettier --write src/"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.0",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.13.0",
     "@types/styled-components": "^5.1.26",
     "cheerio": "^1.0.0-rc.12",
     "csv": "^6.2.0",
