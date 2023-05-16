@@ -2,14 +2,12 @@
 import React from "react";
 import styled from "styled-components";
 import Link from "next/link";
-import Modal from "react-modal";
 import type { NextPage } from "next";
 import { readString } from "react-papaparse";
 import HowToUseDescription from "./components/business/HowToUseDescription";
 import QuestionAnsewer from "./components/business/QuestionAnsewer";
 import CsvDownloadComponents from "./components/libs/CsvDownloader";
 import SeoSettings from "./components/utils/SeoSettings";
-import Toast from "./components/elements/Toast";
 import Logo from "./components/elements/Logo";
 import BasicTitle from "./components/elements/BasicTitle";
 import UpdateInformation from "./components/business/UpdateInformation";
@@ -173,17 +171,14 @@ const Home: NextPage = () => {
 
         {/* read master data */}
         <BasicSubContainer>
-          <BasicSubTitle>ファイルを選択</BasicSubTitle>
+          <BasicSubTitle>マスターとなるデータを選択</BasicSubTitle>
           <BasicInputField
             title="マスターとなるデータを選択"
             type="file"
             accept="text/csv"
             onChange={getMasterFile}
           />
-        </BasicSubContainer>
-        {/* show master data */}
-        <BasicSubContainer>
-          <BasicText>データは、マスター情報として利用されます。</BasicText>
+          {/* show master data */}
           <ShowDataWithTable
             text="データを表示する"
             array={csvValues.masterRecords}
@@ -192,16 +187,13 @@ const Home: NextPage = () => {
 
         {/* read compare data */}
         <BasicSubContainer>
-          <BasicSubTitle>比較したいデータを選択</BasicSubTitle>
+          <BasicSubTitle>比較するデータを選択</BasicSubTitle>
           <BasicInputField
             type="file"
             accept="text/csv"
             onChange={getCompareFile}
           />
-        </BasicSubContainer>
-        {/* show compare data */}
-        <BasicSubContainer>
-          <BasicText>データは、比較する情報として利用されます。</BasicText>
+          {/* show compare data */}
           <ShowDataWithTable
             text="データを表示する"
             array={csvValues.compareRecords}

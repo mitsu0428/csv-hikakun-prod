@@ -3,97 +3,70 @@ import styled from "styled-components";
 
 function QuestionAnsewer() {
   return (
-    <QuestionAndAnswerContainer>
-      <QuestionAndAnswerSubTitle>Q&A</QuestionAndAnswerSubTitle>
-      <QuestionAndAnswerSubContainer>
-        <QuestionAndAnswerSubTitle>CSVとは??</QuestionAndAnswerSubTitle>
-        <QuestionAndAnswerText>
-          Comma Separated Valuesの略称。
-        </QuestionAndAnswerText>
-        <QuestionAndAnswerText>
-          項目と項目の間が区切られたデータを指す。
-        </QuestionAndAnswerText>
-        <QuestionAndAnswerText>
-          hoge.csvという拡張子のファイルになる。
-        </QuestionAndAnswerText>
-      </QuestionAndAnswerSubContainer>
-      <QuestionAndAnswerSubContainer>
-        <QuestionAndAnswerSubTitle>
-          csv比較ツール【csvひかくん】について
-        </QuestionAndAnswerSubTitle>
+    <Container>
+      <Subtitle>よくある質問</Subtitle>
 
-        <QuestionAndAnswerText>
+      <SubContainer>
+        <BoldText>Q1. CSVとは??</BoldText>
+        <StyledText>Comma Separated Valuesの略称。</StyledText>
+        <StyledText>項目と項目の間が区切られたデータを指す。</StyledText>
+        <StyledText>hoge.csvという拡張子のファイルになる。</StyledText>
+      </SubContainer>
+
+      <SubContainer>
+        <BoldText>Q2. csv比較ツール【csvひかくん】について</BoldText>
+        <StyledText>
           インデックスとカラムが一致したCSVにおいて、行単位もしくは、列単位でCSVファイルを比較することができます。
-        </QuestionAndAnswerText>
-      </QuestionAndAnswerSubContainer>
-      <QuestionAndAnswerSubContainer>
-        <QuestionAndAnswerSubTitle>
-          csvファイルの行を比較する
-        </QuestionAndAnswerSubTitle>
-        <QuestionAndAnswerText>
+        </StyledText>
+      </SubContainer>
+
+      <SubContainer>
+        <BoldText>Q3. csvファイルの行を比較する</BoldText>
+        <StyledText>
           インデックスとカラムの値が一致しているCSVにおいて、
-        </QuestionAndAnswerText>
-        <QuestionAndAnswerText>
-          差分が見つかった行を返します。
-        </QuestionAndAnswerText>
-      </QuestionAndAnswerSubContainer>
+        </StyledText>
+        <StyledText>差分が見つかった行を返します。</StyledText>
+      </SubContainer>
 
-      <QuestionAndAnswerSubContainer>
-        <QuestionAndAnswerSubTitle>
-          csvファイルの値を比較する
-        </QuestionAndAnswerSubTitle>
-        <QuestionAndAnswerText>
+      <SubContainer>
+        <BoldText>Q4. csvファイルの値を比較する</BoldText>
+        <StyledText>
           インデックスとカラムの値が一致しているCSVにおいて、
-        </QuestionAndAnswerText>
-        <QuestionAndAnswerText>
-          差分が見つかった値のみを返します。
-        </QuestionAndAnswerText>
-      </QuestionAndAnswerSubContainer>
+        </StyledText>
+        <StyledText>差分が見つかった値のみを返します。</StyledText>
+      </SubContainer>
 
-      <QuestionAndAnswerSubContainer>
-        <QuestionAndAnswerSubTitle>
-          csvファイルを比較した差分のみダウンロードする
-        </QuestionAndAnswerSubTitle>
-        <QuestionAndAnswerText>
-          ・比較し、差分の見つかった行だけ
-        </QuestionAndAnswerText>
-        <QuestionAndAnswerText>
-          ・比較し、差分の見つかった値だけ
-        </QuestionAndAnswerText>
-        <QuestionAndAnswerText>
-          の2種類で出力することができます。
-        </QuestionAndAnswerText>
-      </QuestionAndAnswerSubContainer>
+      <SubContainer>
+        <BoldText>Q5. csvファイルを比較した差分のみダウンロードする</BoldText>
+        <StyledText>・比較し、差分の見つかった行だけ</StyledText>
+        <StyledText>・比較し、差分の見つかった値だけ</StyledText>
+        <StyledText>の2種類で出力することができます。</StyledText>
+      </SubContainer>
 
-      <QuestionAndAnswerSubContainer>
-        <QuestionAndAnswerSubTitle>
-          csvファイルはサーバーに保存されますか？？
-        </QuestionAndAnswerSubTitle>
-        <QuestionAndAnswerText>
+      <SubContainer>
+        <BoldText>Q6. csvファイルはサーバーに保存されますか？？</BoldText>
+        <StyledText>
           完全にブラウザ上で処理を行うため、CSVひかくんにおいてデータベースやサーバーに情報が保存されることはありません。
-        </QuestionAndAnswerText>
-      </QuestionAndAnswerSubContainer>
-    </QuestionAndAnswerContainer>
+        </StyledText>
+      </SubContainer>
+    </Container>
   );
 }
 
 export default QuestionAnsewer;
 
-const QuestionAndAnswerContainer = styled.div`
+const Container = styled.div`
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
+  max-width: 650px;
 `;
 
-const QuestionAndAnswerSubContainer = styled.div`
+const SubContainer = styled.div`
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
+  max-width: 650px;
+  margin-top: 64px;
 `;
 
-const QuestionAndAnswerSubTitle = styled.h2`
+const Subtitle = styled.h2`
   position: relative;
   font-size: 24px;
   @media screen and (max-width: 768px) {
@@ -120,7 +93,21 @@ const QuestionAndAnswerSubTitle = styled.h2`
   }
 `;
 
-const QuestionAndAnswerText = styled.p`
+const BoldText = styled.h3`
+  font-size: 16px;
+  font-weight: bold;
+  margin-left: 24px;
+  @media screen and (max-width: 768px) {
+    margin-left: 22px;
+    font-size: 14px;
+  }
+  @media screen and (max-width: 480px) {
+    margin-left: 20px;
+    font-size: 12px;
+  }
+`;
+
+const StyledText = styled.p`
   font-size: 16px;
   margin-left: 24px;
   @media screen and (max-width: 768px) {
