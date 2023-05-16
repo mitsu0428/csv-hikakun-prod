@@ -6,11 +6,18 @@ function UpdateInformation() {
     <BasicContainer>
       <BasicSubTitle>アップデート情報</BasicSubTitle>
       <BasicSubContainer>
+        <ChildTitle>- 2023.05.14 よくある質問の追加</ChildTitle>
+        <BasicText>本アプリを使用する際に機密情報を使用する方へ</BasicText>
+        <BasicText>
+          csvひかくんは、ブラウザで動作するアプリケーションのためサーバーにデータを保存することはありません。
+        </BasicText>
+      </BasicSubContainer>
+      <BasicSubContainer>
         <ChildTitle>
-          2023.05.16 テーブルビューで表示することが可能に。
+          - 2023.05.15 テーブルビューで表示することが可能に。
         </ChildTitle>
         <BasicText>
-          読み込みたいファイルを選択後、データを表示するボタンを押下することで、テーブルビューを表示することができるようになりました。
+          データを表示するボタンを押下することで、テーブルビューを表示することができるようになりました。
         </BasicText>
         <BasicText>
           比較する前にファイルの中身を確認する用途でご利用ください。
