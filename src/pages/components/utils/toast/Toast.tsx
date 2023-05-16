@@ -17,14 +17,27 @@ export default class Toast extends Component<Props> {
     const { message, type } = this.props;
     if (type === "success") {
       toast.success(message);
-    } else if (type === "error") {
+      return;
+    }
+
+    if (type === "error") {
       toast.error(message);
-    } else if (type === "info") {
+      return;
+    }
+
+    if (type === "info") {
       toast.info(message);
-    } else if (type === "warning") {
+      return;
+    }
+
+    if (type === "warning") {
       toast.warn(message);
-    } else {
+      return;
+    }
+
+    if (type === "default") {
       toast(message);
+      return;
     }
   }
 
