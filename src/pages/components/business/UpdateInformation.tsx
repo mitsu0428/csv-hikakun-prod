@@ -1,41 +1,26 @@
 import React from "react";
 import styled from "styled-components";
-import ShareButton from "../elements/ShareButton";
 
-function HowToUseDescription() {
+function UpdateInformation() {
   return (
     <BasicContainer>
-      <BasicSubTitle>具体的な利用事例</BasicSubTitle>
-      <ShareButton
-        text="csvファイルを比較するサイト「csvひかくん」"
-        url="http://csvhikakun.com"
-      />
+      <BasicSubTitle>アップデート情報</BasicSubTitle>
       <BasicSubContainer>
         <ChildTitle>
-          - スプレッドシートにおいて異なるシートとの差分を知りたい。
+          2023.05.16 テーブルビューで表示することが可能に。
         </ChildTitle>
         <BasicText>
-          スプレッドシート （Google
-          SpreadSheet）において、2つのシートを比較して差分を知りたい時に利用することができます。
+          読み込みたいファイルを選択後、データを表示するボタンを押下することで、テーブルビューを表示することができるようになりました。
         </BasicText>
-      </BasicSubContainer>
-      <BasicSubContainer>
-        <ChildTitle>- 異なるCSVファイル間の差分を知りたい</ChildTitle>
         <BasicText>
-          2つのCSVファイルにおける差分を確認したり、比較をしたい時に簡単に調べることができるツールです。
-        </BasicText>
-      </BasicSubContainer>
-      <BasicSubContainer>
-        <ChildTitle>- CSVファイルでダブルチェックをする</ChildTitle>
-        <BasicText>
-          AとBのファイルを用意して、前後で異なる値を準備できているかどうかを調べることができます。
+          比較する前にファイルの中身を確認する用途でご利用ください。
         </BasicText>
       </BasicSubContainer>
     </BasicContainer>
   );
 }
 
-export default HowToUseDescription;
+export default UpdateInformation;
 
 const BasicContainer = styled.div`
   width: 100%;

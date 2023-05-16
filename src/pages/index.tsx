@@ -5,327 +5,148 @@ import Link from "next/link";
 import Modal from "react-modal";
 import type { NextPage } from "next";
 import { readString } from "react-papaparse";
-import Accordion from "./components/Accordion";
-import ReleaseNotification from "./components/ReleaseNotification";
+import HowToUseDescription from "./components/business/HowToUseDescription";
+import QuestionAnsewer from "./components/business/QuestionAnsewer";
 import CsvDownloadComponents from "./components/libs/CsvDownloader";
 import SeoSettings from "./components/utils/SeoSettings";
-import Toast from "./components/utils/toast/Toast";
-import Logo from "./components/Logo";
-import DisplayDataButton from "./components/libs/button/DisplayDataButton";
+import Toast from "./components/elements/Toast";
+import Logo from "./components/elements/Logo";
+import BasicTitle from "./components/elements/BasicTitle";
+import UpdateInformation from "./components/business/UpdateInformation";
+import ShowDataWithTable from "./components/elements/ShowDataWithTable";
 
 const Home: NextPage = () => {
-  //比較する MasterCSV用の配列
-  const [csvContent, setCsvContent] = React.useState<Array<any>>([]);
-  //比較する CompareCSV用の配列
-  const [csvContentCompare, setCsvContentCompare] = React.useState<Array<any>>(
-    []
-  );
+  const [csvValues, setCsvValues] = React.useState({
+    isMasterFileUploaded: false,
+    isCompareFileUploaded: false,
+    masterRecords: Array<any>(),
+    compareRecords: Array<any>(),
+    resultWithIndex: Array<any>(),
+    resultWithoutIndex: Array<any>(),
+  });
 
-  const [csvCompareRowWithoutIndex, setCsvCompareRowWithoutIndex] =
-    React.useState<Array<unknown>>([]);
-  const [csvCompareRowWithIndex, setCsvCompareRowWithIndex] = React.useState<
-    Array<unknown>
-  >([]);
-  const [csvCompareRowCol, setCsvCompareRowCol] = React.useState<Array<any>>(
-    []
-  );
+  const [ModalSettings, setModalSettings] = React.useState({
+    isModalOpen: false,
+    isWithIndex: false,
+    isWithoutIndex: false,
+  });
 
-  const [displayData, setDisplayData] = React.useState<Array<any>>([]);
-
-  const [modalIsOpen, setIsOpen] = React.useState<boolean>(false);
-  let subtitle: HTMLHeadingElement | null;
-
-  const [isMasterFile, setIsMasterFile] = React.useState<boolean>(true);
-  const [isCompareFile, setIsCompareFile] = React.useState<boolean>(true);
-
-  const [isMasterFileRead, setIsMasterFileRead] =
-    React.useState<boolean>(false);
-  const [isCompareFileRead, setIsCompareFileRead] =
-    React.useState<boolean>(false);
-
-  //MasterとなるCSVを取り込む
   const getMasterFile = async (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!(e.target instanceof HTMLInputElement)) return;
     if (!e.target.files) return;
+
     const file = e.target.files[0];
     const master_file = await file.text();
+
     const config: any = {
       worker: true,
       complete: (results: any) => {
-        setCsvContent(results.data);
+        setCsvValues({
+          ...csvValues,
+          isMasterFileUploaded: true,
+          masterRecords: results.data,
+        });
       },
     };
+
     readString(master_file, config);
-    setIsMasterFile(true);
-    setIsMasterFileRead(true);
   };
 
-  //Compare先となるCSVを取り込む
   const getCompareFile = async (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!(e.target instanceof HTMLInputElement)) return;
     if (!e.target.files) return;
 
     const file = e.target.files[0];
     const master_file = await file.text();
+
     const config: any = {
       worker: true,
       complete: (results: any) => {
-        setCsvContentCompare(results.data);
+        setCsvValues({
+          ...csvValues,
+          isCompareFileUploaded: true,
+          compareRecords: results.data,
+        });
       },
     };
+
     readString(master_file, config);
-    setIsCompareFile(true);
-    setIsCompareFileRead(true);
   };
 
-  //Index番号なしで比較する
-  const checkRowWithoutIndex = () => {
-    if (csvContent[0] == undefined) {
-      setIsMasterFile(false);
-      setCsvContent([]);
-      return;
-    } else if (csvContentCompare[0] == undefined) {
-      setIsCompareFile(false);
-      setCsvContentCompare([]);
-      return;
-    } else {
-      const csv_content_row_length = [...csvContent].length;
-      const csv_content_compare_row_length = [...csvContentCompare].length;
-      const csv_content_col_length = [...csvContent[0]].length;
-      const csv_contetn_compare_col_length = [...csvContentCompare[0]].length;
-      if (csv_content_row_length != csv_content_compare_row_length) {
-        alert("行数が一致しません。行数と列数が同じCSVを選択してください。");
-        location.reload();
-        setCsvContent([]);
-        setCsvContentCompare([]);
-        return;
-      } else if (csv_content_col_length != csv_contetn_compare_col_length) {
-        alert("列数が一致しません。行数と列数が同じCSVを選択してください。");
-        location.reload();
-        setCsvContent([]);
-        setCsvContentCompare([]);
-        return;
-      } else {
-        // 重複した行が出力されてしまう可能性があるので一旦、Index番号単位で辞書
-        const diff_list_dict = Object();
-        for (let count = 0; count < csv_content_row_length; count++) {
-          for (
-            let sub_count = 0;
-            sub_count < csv_content_col_length;
-            sub_count++
-          ) {
-            const content = [...csvContent[count]][sub_count];
-            const compare = [...csvContentCompare[count]][sub_count];
-            if (content != compare) {
-              diff_list_dict[Number(count)] = sub_count;
-            }
-          }
+  const compareWithoutIndex = () => {
+    const result: any[][] = [];
+
+    for (const rowA of csvValues.masterRecords) {
+      const flatA = rowA.flat();
+      let found = false;
+
+      for (const rowB of csvValues.compareRecords) {
+        const flatB = rowB.flat();
+
+        if (
+          flatA.length === flatB.length &&
+          flatA.every((value: any, index: any) => value === flatB[index])
+        ) {
+          found = true;
+          break;
         }
-        // 差分のあったIndex番号ベースでリスト化ける
-        const diff_list_withtout_index = [];
-        const object_keys = Object.keys(diff_list_dict);
-        for (const count_row of object_keys) {
-          diff_list_withtout_index.push([
-            ...csvContentCompare[Number(count_row)],
-            ...csvContent[Number(count_row)],
-          ]);
-        }
-        console.log(diff_list_withtout_index);
-        setCsvCompareRowWithoutIndex(diff_list_withtout_index);
-        setDisplayData(diff_list_withtout_index);
+      }
+
+      if (!found) {
+        result.push(rowA);
       }
     }
+
+    setCsvValues({
+      ...csvValues,
+      resultWithoutIndex: result,
+    });
+
+    return result;
   };
 
   const checkRowWithIndex = () => {
-    if (csvContent[0] == undefined) {
-      setIsMasterFile(false);
-      setCsvContent([]);
-      return;
-    } else if (csvContentCompare[0] == undefined) {
-      setIsCompareFile(false);
-      setCsvContentCompare([]);
-      return;
-    } else {
-      const csv_content_row_length = [...csvContent].length;
-      const csv_content_compare_row_length = [...csvContentCompare].length;
-      const csv_content_col_length = [...csvContent[0]].length;
-      const csv_contetn_compare_col_length = [...csvContentCompare[0]].length;
+    let loopCount = 1;
+    const result: any[][] = [];
 
-      if (csv_content_row_length != csv_content_compare_row_length) {
-        alert("行数が一致しません。行数と列数が同じCSVを選択してください。");
-        location.reload();
-        setCsvContent([]);
-        setCsvContentCompare([]);
-        return;
-      } else if (csv_content_col_length != csv_contetn_compare_col_length) {
-        alert("列数が一致しません。行数と列数が同じCSVを選択してください。");
-        location.reload();
-        setCsvContent([]);
-        setCsvContentCompare([]);
-        return;
-      } else {
-        // 重複した行が出力されてしまう可能性があるので一旦、Index番号単位で辞書
-        const diff_list_dict = Object();
-        for (let count = 0; count < csv_content_row_length; count++) {
-          for (
-            let sub_count = 0;
-            sub_count < csv_content_col_length;
-            sub_count++
-          ) {
-            const content = [...csvContent[count]][sub_count];
-            const compare = [...csvContentCompare[count]][sub_count];
-            if (content != compare) {
-              diff_list_dict[Number(count)] = sub_count;
-            }
-          }
+    for (const rowA of csvValues.masterRecords) {
+      const flatA = rowA.flat();
+      let found = false;
+
+      for (const rowB of csvValues.compareRecords) {
+        const flatB = rowB.flat();
+
+        if (
+          flatA.length === flatB.length &&
+          flatA.every((value: any, index: any) => value === flatB[index])
+        ) {
+          found = true;
+          break;
         }
-        // 差分のあったIndex番号ベースでリスト
-        const diff_list_with_index = [];
-        const object_keys = Object.keys(diff_list_dict);
-        for (const count_row of object_keys) {
-          diff_list_with_index.push([
-            Number(count_row) + Number(1) + "行目",
-            ...csvContentCompare[Number(count_row)],
-            ...csvContent[Number(count_row)],
-          ]);
-        }
-        console.log(diff_list_with_index);
-        setCsvCompareRowWithIndex(diff_list_with_index);
-        setDisplayData(diff_list_with_index);
       }
-    }
-  };
 
-  const checkRowCol = () => {
-    if (csvContent[0] == undefined) {
-      setIsMasterFile(false);
-      setCsvContent([]);
-      return;
-    } else if (csvContentCompare[0] == undefined) {
-      setIsCompareFile(false);
-      setCsvContentCompare([]);
-      return;
-    } else {
-      const csv_content_row_length = [...csvContent].length;
-      const csv_content_compare_row_length = [...csvContentCompare].length;
-      const csv_content_col_length = [...csvContent[0]].length;
-      const csv_contetn_compare_col_length = [...csvContentCompare[0]].length;
-      if (csv_content_row_length != csv_content_compare_row_length) {
-        alert("行数が一致しません。行数と列数が同じCSVを選択してください。");
-        location.reload();
-        setCsvContent([]);
-        setCsvContentCompare([]);
-        return;
-      } else if (csv_content_col_length != csv_contetn_compare_col_length) {
-        alert("列数が一致しません。行数と列数が同じCSVを選択してください。");
-        location.reload();
-        setCsvContent([]);
-        setCsvContentCompare([]);
-        return;
-      } else {
-        const diff_list_row_col = [];
-        for (let count = 0; count < csv_content_row_length; count++) {
-          for (
-            let sub_count = 0;
-            sub_count < csv_content_col_length;
-            sub_count++
-          ) {
-            const content = [...csvContent[count]][sub_count];
-            const compare = [...csvContentCompare[count]][sub_count];
-            if (content != compare) {
-              diff_list_row_col.push([compare]);
-            }
-          }
-        }
-        console.log(diff_list_row_col);
-        setCsvCompareRowCol(diff_list_row_col);
-        setDisplayData(diff_list_row_col);
+      if (!found) {
+        result.push([loopCount, ...rowA]);
       }
+      loopCount++;
     }
-  };
 
-  const openModalCheckWithoutIndex = () => {
-    if (csvContent[0] == undefined) {
-      setIsMasterFile(false);
-      setCsvContent([]);
-      return;
-    } else if (csvContentCompare[0] == undefined) {
-      setIsCompareFile(false);
-      setCsvContentCompare([]);
-      return;
-    } else {
-      checkRowWithoutIndex();
-      setIsOpen(true);
-    }
-    setIsMasterFile(true);
-    setIsCompareFile(true);
-  };
-  const afterOpenModalWithoutIndex = () => {
-    if (subtitle) subtitle.style.color = "#000";
-  };
-  const closeModalWithoutIndex = () => {
-    setIsOpen(false);
-  };
-
-  const openModalCheckWithIndex = () => {
-    if (csvContent[0] == undefined) {
-      setIsMasterFile(false);
-      setCsvContent([]);
-      return;
-    } else if (csvContentCompare[0] == undefined) {
-      setIsCompareFile(false);
-      setCsvContentCompare([]);
-      return;
-    } else {
-      checkRowWithIndex();
-      setIsOpen(true);
-    }
-  };
-  const afterOpenModalWithIndex = () => {
-    if (subtitle) subtitle.style.color = "#000";
-  };
-  const closeModalWithIndex = () => {
-    setIsOpen(false);
-  };
-
-  const openModalRowCol = () => {
-    if (csvContent[0] == undefined) {
-      setIsMasterFile(false);
-      setCsvContent([]);
-      return;
-    } else if (csvContentCompare[0] == undefined) {
-      setIsCompareFile(false);
-      setCsvContentCompare([]);
-      return;
-    } else {
-      checkRowCol();
-      setIsOpen(true);
-    }
-  };
-  const afterOpenModalRowCol = () => {
-    if (subtitle) subtitle.style.color = "#000";
-  };
-  const closeModalRowCol = () => {
-    setIsOpen(false);
+    setCsvValues({
+      ...csvValues,
+      resultWithIndex: result,
+    });
   };
 
   return (
     <BasicContainer>
-      <SeoSettings
-        pageTitle={"CSVファイルを比較する"}
-        pageDescription={
-          "中身の異なる2つのcsvファイルを簡単に比較し、差分を見ることができるツールです。行単位、もしくは値単位で比較することができます。"
-        }
-        pagePath={"https://csvhikakun.com/"}
-        pageImg={"https://csvhikakun.com/"}
-        pageImgWidth={1280}
-        pageImgHeight={960}
-      />
+      <SeoSettings />
+
       <main id="main">
+        {/* ロゴ */}
         <Logo />
+
         <BasicSubContainer>
-          <BasicTitle>CSVひかくん - CSV比較ツール</BasicTitle>
+          <BasicTitle title="CSVひかくん - CSV比較ツール" />
           <ExtraText>
             CSVひかくんでは、簡単に2つのファイルを比較することができます。
           </ExtraText>
@@ -335,32 +156,41 @@ const Home: NextPage = () => {
             </Link>
           </BasicButton>
         </BasicSubContainer>
+
+        {/* サイトの更新情報 */}
         <BasicCard>
-          <ReleaseNotification />
+          <UpdateInformation />
         </BasicCard>
+
+        {/* 具体的な使い方 */}
+        <BasicCard>
+          <HowToUseDescription />
+        </BasicCard>
+
+        <BasicSubContainer>
+          <BasicSubTitle>1. 準備をする</BasicSubTitle>
+        </BasicSubContainer>
+
+        {/* read master data */}
         <BasicSubContainer>
           <BasicSubTitle>ファイルを選択</BasicSubTitle>
-        </BasicSubContainer>
-        <BasicSubContainer>
-          <BasicSubTitle>オリジナルデータを選択</BasicSubTitle>
           <BasicInputField
+            title="マスターとなるデータを選択"
             type="file"
             accept="text/csv"
             onChange={getMasterFile}
           />
         </BasicSubContainer>
+        {/* show master data */}
         <BasicSubContainer>
-          {isMasterFileRead && (
-            <DisplayDataButton data={csvContent}>
-              データを表示する
-            </DisplayDataButton>
-          )}
+          <BasicText>データは、マスター情報として利用されます。</BasicText>
+          <ShowDataWithTable
+            text="データを表示する"
+            array={csvValues.masterRecords}
+          />
         </BasicSubContainer>
-        <BasicSubContainer>
-          <BasicText>
-            上で選択したデータは、オリジナルデータとして参照先のみとして使われます。
-          </BasicText>
-        </BasicSubContainer>
+
+        {/* read compare data */}
         <BasicSubContainer>
           <BasicSubTitle>比較したいデータを選択</BasicSubTitle>
           <BasicInputField
@@ -369,140 +199,81 @@ const Home: NextPage = () => {
             onChange={getCompareFile}
           />
         </BasicSubContainer>
+        {/* show compare data */}
         <BasicSubContainer>
-          {isCompareFileRead && (
-            <DisplayDataButton data={csvContentCompare}>
-              データを表示する
-            </DisplayDataButton>
-          )}
+          <BasicText>データは、比較する情報として利用されます。</BasicText>
+          <ShowDataWithTable
+            text="データを表示する"
+            array={csvValues.compareRecords}
+          />
         </BasicSubContainer>
+
         <BasicSubContainer>
-          <BasicText>
-            上で選択したデータは、比較するデータとして比較後はCSVにも出力されます。
-          </BasicText>
-        </BasicSubContainer>
-        <BasicSubContainer>
-          <BasicSubTitle>ファイルを操作</BasicSubTitle>
+          <BasicSubTitle>2. 比較をする</BasicSubTitle>
         </BasicSubContainer>
 
         <BasicSubContainer>
           <BasicSubTitle>
-            【一致しない値が含まれた行が何個あるかをチェックする 行数なし】
+            メソッド1: 行数なしで差分レコードを抽出する
           </BasicSubTitle>
-          <BasicSubContainerComponent>
-            <BasicButton onClick={openModalCheckWithoutIndex}>
-              【CSVを比較した結果を見る】
-            </BasicButton>
-          </BasicSubContainerComponent>
-          <BasicSubContainerComponent>
-            <Modal
-              contentLabel="CSVを比較した結果を見る"
-              isOpen={modalIsOpen}
-              onAfterOpen={afterOpenModalWithoutIndex}
-              onRequestClose={closeModalWithoutIndex}
-            >
-              <BasicSubTitle ref={(_subtitle) => (subtitle = _subtitle)}>
-                【CSVを比較する】
-              </BasicSubTitle>
-              <BasicSubTitle>【CSV比較結果を確認する】</BasicSubTitle>
-              <BasicText>{displayData}</BasicText>
-              <BasicButton onClick={closeModalWithoutIndex}>close</BasicButton>
-            </Modal>
-          </BasicSubContainerComponent>
-          <BasicSubContainerComponent>
-            <BasicButton onClick={checkRowWithoutIndex}>
-              <CsvDownloadComponents
-                filenameprefix="csvhikakun"
-                data={csvCompareRowWithoutIndex}
-              />
-            </BasicButton>
-          </BasicSubContainerComponent>
-        </BasicSubContainer>
+          <ExtraText>
+            ・一致しない値が含まれた行が何行あるかをチェックする
+          </ExtraText>
+          <ExtraText>
+            ・行番号（Index番号）は出力を行わないこととする。
+          </ExtraText>
 
-        <BasicSubContainer>
-          <BasicSubTitle>
-            【一致しない値が含まれた行があるかをチェックする 行数付き】
-          </BasicSubTitle>
           <BasicSubContainerComponent>
-            <BasicSubContainerComponent>
-              <BasicButton onClick={openModalCheckWithIndex}>
-                【CSVを比較した結果を見る】
-              </BasicButton>
-            </BasicSubContainerComponent>
-            <BasicSubContainerComponent>
-              <Modal
-                contentLabel="CSVを比較した結果を見る"
-                isOpen={modalIsOpen}
-                onAfterOpen={afterOpenModalWithIndex}
-                onRequestClose={closeModalWithIndex}
-              >
-                <BasicSubTitle ref={(_subtitle) => (subtitle = _subtitle)}>
-                  【CSVを比較する】
-                </BasicSubTitle>
-                <BasicSubTitle>【CSV比較結果を確認する】</BasicSubTitle>
-                <BasicText>{displayData}</BasicText>
-                <BasicButton onClick={closeModalWithIndex}>close</BasicButton>
-              </Modal>
-            </BasicSubContainerComponent>
-            <BasicSubContainerComponent>
-              <BasicButton onClick={checkRowWithIndex}>
+            <BasicButton onClick={compareWithoutIndex}>
+              行なし比較を実行する
+            </BasicButton>
+            <ShowDataWithTable
+              text="結果を表示する"
+              array={csvValues.resultWithoutIndex}
+            />
+            {csvValues.resultWithoutIndex.length > 0 && (
+              <BasicButton>
                 <CsvDownloadComponents
                   filenameprefix="csvhikakun"
-                  data={csvCompareRowWithIndex}
+                  data={csvValues.resultWithoutIndex}
                 />
               </BasicButton>
-            </BasicSubContainerComponent>
+            )}
           </BasicSubContainerComponent>
         </BasicSubContainer>
 
         <BasicSubContainer>
           <BasicSubTitle>
-            【一致しない値を値単位で一つずつチェックする】
+            メソッド2: 行数ありで差分レコードを抽出する
           </BasicSubTitle>
+          <ExtraText>
+            ・一致しない値が含まれた行が何行あるかをチェックする
+          </ExtraText>
+          <ExtraText>・行番号（Index番号）を出力することとする。</ExtraText>
+
           <BasicSubContainerComponent>
-            <BasicSubContainerComponent>
-              <BasicButton onClick={openModalRowCol}>
-                【CSVを比較した結果を見る】
-              </BasicButton>
-            </BasicSubContainerComponent>
-            <BasicSubContainerComponent>
-              <Modal
-                contentLabel="CSVを比較した結果を見る"
-                isOpen={modalIsOpen}
-                onAfterOpen={afterOpenModalRowCol}
-                onRequestClose={closeModalRowCol}
-              >
-                <BasicSubTitle ref={(_subtitle) => (subtitle = _subtitle)}>
-                  【CSVを比較する】
-                </BasicSubTitle>
-                <BasicSubTitle>【CSV比較結果を確認する】</BasicSubTitle>
-                <BasicText>{displayData}</BasicText>
-                <BasicButton onClick={closeModalRowCol}>close</BasicButton>
-              </Modal>
-            </BasicSubContainerComponent>
-            <BasicSubContainerComponent>
-              <BasicButton onClick={checkRowCol}>
+            <BasicButton onClick={checkRowWithIndex}>
+              行あり比較を実行する
+            </BasicButton>
+            <ShowDataWithTable
+              text="結果を表示する"
+              array={csvValues.resultWithIndex}
+            />
+            {csvValues.resultWithIndex.length > 0 && (
+              <BasicButton>
                 <CsvDownloadComponents
                   filenameprefix="csvhikakun"
-                  data={csvCompareRowCol}
+                  data={csvValues.resultWithIndex}
                 />
               </BasicButton>
-            </BasicSubContainerComponent>
+            )}
           </BasicSubContainerComponent>
         </BasicSubContainer>
-        {!isMasterFile && (
-          <Toast
-            message={"オリジナルデータを選択してください。"}
-            type={"error"}
-          />
-        )}
-        {!isCompareFile && (
-          <Toast
-            message={"比較したいデータを選択してください。"}
-            type={"error"}
-          />
-        )}
-        <Accordion />
+
+        {/* よくある質問 */}
+        <QuestionAnsewer />
+
+        {/* お問い合わせ */}
         <BasicSubContainer>
           <BasicText>
             <BasicButton>
@@ -516,6 +287,7 @@ const Home: NextPage = () => {
           </BasicText>
         </BasicSubContainer>
       </main>
+      {/* フッター */}
       <BasicFooter>
         <BasicText>©2022 Mitsuhiro Okada</BasicText>
       </BasicFooter>
@@ -559,35 +331,6 @@ const BasicCard = styled.div`
   background-color: #ffffff; /* Update: Add margin and padding */
   margin: 2rem 0;
   padding: 2rem;
-`;
-
-const BasicTitle = styled.h1`
-  position: relative;
-  font-size: 2rem;
-  padding: 1rem 0.5rem;
-  text-align: center;
-  font-weight: bold;
-  color: #eea9a9;
-  margin-bottom: 2rem;
-
-  :after {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    max-width: 600px;
-    height: 10px;
-    content: "";
-    background-image: repeating-linear-gradient(
-      -45deg,
-      #333333,
-      #333333 1px,
-      transparent 2px,
-      transparent 5px
-    );
-    background-size: 7px 7px;
-    transform: translateY(2px);
-  }
 `;
 
 const BasicSubTitle = styled.h2`

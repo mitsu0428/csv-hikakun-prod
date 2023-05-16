@@ -22,7 +22,7 @@ const CsvDownloadComponents = (props: CsvDownloadComponentsProps) => {
 
   return (
     <ExpandCsvDownloader>
-      <button onClick={downloadCsvFile}>比較結果をダウンロード</button>
+      <Button onClick={downloadCsvFile}>比較結果をダウンロード</Button>
     </ExpandCsvDownloader>
   );
 };
@@ -50,5 +50,7 @@ const ExpandCsvDownloader = styled.span`
     }
   }
 }`;
+
+const Button = styled.button``;
 
 export default CsvDownloadComponents;

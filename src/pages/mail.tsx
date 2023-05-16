@@ -3,7 +3,7 @@ import { useState } from "react";
 import Link from "next/link";
 import styled from "styled-components";
 import SeoSettings from "./components/utils/SeoSettings";
-import Toast from "./components/utils/toast/Toast";
+import Toast from "./components/elements/Toast";
 
 export default function Mail() {
   const [name, setName] = useState("");

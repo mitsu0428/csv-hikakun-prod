@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-function Accordion() {
+function QuestionAnsewer() {
   return (
     <QuestionAndAnswerContainer>
       <QuestionAndAnswerSubTitle>Q&A</QuestionAndAnswerSubTitle>
@@ -77,7 +77,7 @@ function Accordion() {
   );
 }
 
-export default Accordion;
+export default QuestionAnsewer;
 
 const QuestionAndAnswerContainer = styled.div`
   width: 100%;

@@ -47,9 +47,20 @@ export default ShowDataWithTable;
 const Button = styled.button`
   display: flex;
   justify-content: center;
-  list-style: none;
+  align-items: center;
+  width: 100%;
+  max-width: 350px;
+  font-size: 1rem;
+  height: 3rem;
+  margin-top: 2rem;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #eea9a9;
+  border: none;
+  border-radius: 0.5rem;
+  transition: 0.4s;
 
-  li {
-    margin-right: 8px;
+  :hover {
+    background-color: #ff6f91;
   }
 `;
