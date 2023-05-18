@@ -9,8 +9,6 @@ export const renderContent = (body: string) => {
     const tagName = $(data).prop("tagName")?.toLowerCase();
     return { text, id, tagName };
   });
-  console.log(con);
-  const json_con = JSON.stringify(con);
 
-  return json_con;
+  return con;
 };

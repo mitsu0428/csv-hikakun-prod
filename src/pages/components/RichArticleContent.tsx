@@ -8,19 +8,9 @@ import React, {
 import styled from "styled-components";
 
 const RichAirticleContent = ({ contents }: { contents: any }) => {
-  const content = contents?.content;
-  let content_json;
-
-  try {
-    content_json = JSON.parse(content);
-  } catch (error) {
-    console.error("Invalid JSON format:", error);
-    content_json = null; // エラーが発生した場合は null として扱う
-  }
-
   return (
     <div>
-      {content_json?.map(
+      {contents?.map(
         (data: {
           id: Key | null | undefined;
           text:
