@@ -1,4 +1,4 @@
-/* eslint-disable react/react-in-jsx-scope */
+import React from "react";
 import { GetServerSideProps } from "next";
 import client from "../../../libs/client";
 import { renderToc } from "../../../libs/render-toc";
@@ -31,6 +31,7 @@ type Article = {
 export default function Article({ article }: Props) {
   const toc = renderToc(article.content);
   const con = renderContent(article.content);
+
   return (
     <Container>
       <LeftColumn>

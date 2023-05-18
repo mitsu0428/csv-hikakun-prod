@@ -6,8 +6,9 @@ export const renderContent = (body: string) => {
   const con = contentTags.map((data: any) => {
     const text = $(data).text().trim();
     const id = $(data).attr("id");
-    return { text, id };
+    const tagName = $(data).prop("tagName")?.toLowerCase();
+    return { text, id, tagName };
   });
 
-  return con;
+  return JSON.stringify(con);
 };
