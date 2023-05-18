@@ -8,10 +8,11 @@ import React, {
 import styled from "styled-components";
 
 const RichAirticleContent = ({ contents }: { contents: any }) => {
-  const content = JSON.parse(contents);
+  const content = contents?.content;
+  const content_json = JSON.parse(content);
   return (
     <div>
-      {content?.map(
+      {content_json?.map(
         (data: {
           id: Key | null | undefined;
           text:
