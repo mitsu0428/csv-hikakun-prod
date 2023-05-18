@@ -10,6 +10,11 @@ import styled from "styled-components";
 const RichAirticleContent = ({ contents }: { contents: any }) => {
   const content = contents?.content;
   const content_json = JSON.parse(content);
+
+  if (!Array.isArray(content_json)) {
+    // JSONが配列でない場合のエラーハンドリング
+    return null;
+  }
   return (
     <div>
       {content_json?.map(
