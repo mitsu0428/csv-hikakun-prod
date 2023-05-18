@@ -169,15 +169,19 @@ const Home: NextPage = () => {
           <BasicSubTitle>1. 準備をする</BasicSubTitle>
         </BasicSubContainer>
 
-        {/* read master data */}
         <BasicSubContainer>
+          {/* read master data */}
           <BasicSubTitle>マスターとなるデータを選択</BasicSubTitle>
+          <BasicText>
+            今回選択したデータがマスターとなるので、比較したいデータが空の場合、出力されるデータはマスターデータ全件になります。
+          </BasicText>
           <BasicInputField
             title="マスターとなるデータを選択"
             type="file"
             accept="text/csv"
             onChange={getMasterFile}
           />
+
           {/* show master data */}
           <ShowDataWithTable
             text="データを表示する"
@@ -185,9 +189,12 @@ const Home: NextPage = () => {
           />
         </BasicSubContainer>
 
-        {/* read compare data */}
         <BasicSubContainer>
+          {/* read compare data */}
           <BasicSubTitle>比較するデータを選択</BasicSubTitle>
+          <BasicText>
+            今回選択したデータが比較対象となるので、マスターデータと比較して差分を抽出します。
+          </BasicText>
           <BasicInputField
             type="file"
             accept="text/csv"
@@ -311,6 +318,8 @@ const BasicSubContainer = styled.div`
 
 const BasicSubContainerComponent = styled.div`
   ${BasicContainer}
+  display: flex;
+  flex-direction: row;
 `;
 
 const BasicCard = styled.div`
@@ -385,7 +394,6 @@ const BasicButton = styled.div`
 
 const BasicInputField = styled.input`
   width: 100%;
-  max-width: 350px;
   padding: 0.5rem;
   border: 1px solid #e0e0e0;
   border-radius: 0.5rem;
