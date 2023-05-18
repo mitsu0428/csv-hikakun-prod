@@ -9,12 +9,15 @@ import styled from "styled-components";
 
 const RichAirticleContent = ({ contents }: { contents: any }) => {
   const content = contents?.content;
-  const content_json = JSON.parse(content);
+  let content_json;
 
-  if (!Array.isArray(content_json)) {
-    // JSONが配列でない場合のエラーハンドリング
-    return null;
+  try {
+    content_json = JSON.parse(content);
+  } catch (error) {
+    console.error("Invalid JSON format:", error);
+    content_json = null; // エラーが発生した場合は null として扱う
   }
+
   return (
     <div>
       {content_json?.map(
