@@ -76,28 +76,40 @@ const RichAirticleContent = ({ contents }: { contents: any }) => {
 export default RichAirticleContent;
 
 const StyledTitle = styled.h1`
-  font-size: 2rem;
+  font-size: 30px;
   font-weight: bold;
   color: #eea9a9;
   margin-bottom: 1.5rem;
+  @media screen and (max-width: 768px) {
+    font-size: 20px;
+  }
 `;
 
 const StyledH2 = styled.h2`
-  font-size: 1.5rem;
+  font-size: 28px;
   font-weight: bold;
   color: #eea9a9;
   margin-bottom: 1.5rem;
+  @media screen and (max-width: 768px) {
+    font-size: 18px;
+  }
 `;
 
 const StyledH3 = styled.h3`
-  font-size: 1.2rem;
+  font-size: 26px;
   font-weight: bold;
   color: #eea9a9;
   margin-bottom: 1.5rem;
+  @media screen and (max-width: 768px) {
+    font-size: 16px;
+  }
 `;
 
 const StyledText = styled.p`
-  font-size: 1rem;
+  font-size: 24px;
   color: #333333;
   margin-bottom: 1.5rem;
+  @media screen and (max-width: 768px) {
+    font-size: 16px;
+  }
 `;
