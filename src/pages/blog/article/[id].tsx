@@ -80,6 +80,9 @@ const LeftColumn = styled.div`
   width: 25%;
   max-width: 300px;
   margin-right: 2rem;
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const RightColumn = styled.div`
