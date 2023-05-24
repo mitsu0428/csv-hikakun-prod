@@ -1,19 +1,21 @@
-import { createTransport } from 'nodemailer';
+import { createTransport } from "nodemailer";
 
-const mailApi =  async (req: any, res: any) => {
+const mailApi = async (req: any, res: any) => {
   const transporter = createTransport({
-    service: 'gmail',
+    service: "gmail",
     port: 465,
     secure: true,
     auth: {
-      user: process.env.NEXT_PUBLIC_MAIL_USER,
-      pass: process.env.NEXT_PUBLIC_MAIL_PASS,
+      user: process.env.NEXT_PUBLIC_MAIL_USER || "okada031717@mail.com",
+      pass:
+        process.env.NEXT_PUBLIC_MAIL_PASS ||
+        "a91bf5ba4dc145ffb93411ea31b4ea747776",
     },
   });
   await transporter.sendMail({
     from: process.env.NEXT_PUBLIC_MAIL_USER,
     to: process.env.NEXT_PUBLIC_MAIL_USER,
-    subject: 'お問い合わせ',
+    subject: "お問い合わせ",
     text: req.body,
   });
 
@@ -22,4 +24,4 @@ const mailApi =  async (req: any, res: any) => {
   });
 };
 
-export default mailApi
+export default mailApi;
