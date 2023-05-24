@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import styled from "styled-components";
 
-function HowToUseDescription() {
+export default function Home() {
   return (
     <BasicContainer>
       <BasicSubTitle>比較ちゃん [hikakuchan]</BasicSubTitle>
@@ -21,12 +21,12 @@ function HowToUseDescription() {
         </BasicText>
         <BasicText>
           <BasicButton>
-            <Link href={"/"}>Excel比較 [coming soon...]</Link>
+            <Link href={"/excel"}>Excel比較 [coming soon...]</Link>
           </BasicButton>
         </BasicText>
         <BasicText>
           <BasicButton>
-            <Link href={"/"}>Text比較 [coming soon...]</Link>
+            <Link href={"/text"}>Text比較 [coming soon...]</Link>
           </BasicButton>
         </BasicText>
         <BasicText>
@@ -38,8 +38,6 @@ function HowToUseDescription() {
     </BasicContainer>
   );
 }
-
-export default HowToUseDescription;
 
 const BasicContainer = styled.div`
   width: 100%;
@@ -116,6 +114,6 @@ const BasicButton = styled.button`
   transition: 0.2s;
 
   &:hover {
-    background-color: #3d8c40;
+    background-color: #ff6f91;
   }
 `;
