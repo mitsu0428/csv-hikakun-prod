@@ -167,7 +167,7 @@ const ContactSubTitle = styled.h2`
   padding: 1.5rem 1rem;
   margin: 0;
   font-size: 2rem;
-  color: #fff;
+  color: #333132;
   font-weight: bold;
 `;
 
@@ -218,12 +218,12 @@ const BasicButton = styled.button`
   margin: 1rem 0;
   text-decoration: none;
   color: white;
-  background-color: gray;
+  background-color: #3c5e8b;
   border: none;
   border-radius: 0.5rem;
   transition: 0.4s;
   cursor: pointer;
   :hover {
-    background-color: #cc5757;
+    background-color: #557ea7;
   }
 `;
