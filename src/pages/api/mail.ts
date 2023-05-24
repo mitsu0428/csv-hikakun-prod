@@ -6,10 +6,8 @@ const mailApi = async (req: any, res: any) => {
     port: 465,
     secure: true,
     auth: {
-      user: process.env.NEXT_PUBLIC_MAIL_USER || "okada031717@mail.com",
-      pass:
-        process.env.NEXT_PUBLIC_MAIL_PASS ||
-        "a91bf5ba4dc145ffb93411ea31b4ea747776",
+      user: process.env.NEXT_PUBLIC_MAIL_USER,
+      pass: process.env.NEXT_PUBLIC_MAIL_PASS,
     },
   });
   await transporter.sendMail({
