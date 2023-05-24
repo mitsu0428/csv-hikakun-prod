@@ -6,7 +6,7 @@ import GoogleTagManager, {
   GoogleTagManagerId,
 } from "./components/utils/GoogleTagManager";
 import HeaderComponents from "./components/layout/HeaderNavigation";
-import { ToastProvider } from "./components/hooks/useToast";
+import { ToastProvider } from "../hooks/useToast";
 
 const App = ({ Component, pageProps }: AppProps): JSX.Element => (
   <ToastProvider>
