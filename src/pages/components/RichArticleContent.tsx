@@ -77,7 +77,7 @@ export default RichAirticleContent;
 const StyledTitle = styled.h1`
   font-size: 30px;
   font-weight: bold;
-  color: #eea9a9;
+  color: #c3d941;
   margin-bottom: 1.5rem;
   @media screen and (max-width: 768px) {
     font-size: 20px;
@@ -87,7 +87,7 @@ const StyledTitle = styled.h1`
 const StyledH2 = styled.h2`
   font-size: 28px;
   font-weight: bold;
-  color: #eea9a9;
+  color: #c3d941;
   margin-bottom: 1.5rem;
   @media screen and (max-width: 768px) {
     font-size: 18px;
@@ -97,7 +97,7 @@ const StyledH2 = styled.h2`
 const StyledH3 = styled.h3`
   font-size: 26px;
   font-weight: bold;
-  color: #eea9a9;
+  color: #c3d941;
   margin-bottom: 1.5rem;
   @media screen and (max-width: 768px) {
     font-size: 16px;
