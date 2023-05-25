@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import styled from "styled-components";
 import router from "next/router";
-import { useToast } from "../hooks/useToast";
+import { useToast } from "../../hooks/useToast";
 
 export default function Mail() {
   const [currentValues, setCurentValues] = React.useState({
@@ -92,7 +92,9 @@ export default function Mail() {
     <BasicContainer>
       <ContactContainer>
         <BasicSubContainer>
-          <ContactSubTitle>機能追加のお問い合わせ</ContactSubTitle>
+          <ContactSubTitle>
+            Excelファイル比較ツールに関するお問い合わせ
+          </ContactSubTitle>
         </BasicSubContainer>
         <BasicSubContainer>
           <BasicInputField
@@ -116,7 +118,7 @@ export default function Mail() {
         </BasicSubContainer>
         <BasicSubContainer>
           <ContactTextArea
-            placeholder="お問い合わせ&#13; 例）新規で〇〇の比較ツールが欲しい。"
+            placeholder="お問い合わせ&#13; 例）Excelファイル比較のツールについて聞きたい。"
             value={currentValues.message ?? ""}
             onChange={(e: { target: { value: any } }) => {
               setCurentValues({ ...currentValues, message: e.target.value });
