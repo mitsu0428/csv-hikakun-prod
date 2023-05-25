@@ -36,7 +36,16 @@ const Home: NextPage = () => {
 
   return (
     <BasicContainer>
-      <SeoSettings />
+      <SeoSettings
+        pageTitle={"テキスト比較ツール"}
+        pageDescription={
+          "テキスト比較ツールでは、入力欄に入れたテキストを比較することができます。"
+        }
+        pagePath={"https://hikakuchan.jp/text"}
+        pageImg={"https://hikakuchan.jp/text"}
+        pageImgWidth={1280}
+        pageImgHeight={960}
+      />
       <HeaderCsv />
       <main id="main">
         {/* ロゴ */}

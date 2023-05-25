@@ -131,7 +131,16 @@ const Home: NextPage = () => {
 
   return (
     <BasicContainer>
-      <SeoSettings />
+      <SeoSettings
+        pageTitle={"CSVファイル比較ツール"}
+        pageDescription={
+          "CSVファイル比較ツールでは、簡単に2つのファイルを比較することができます。"
+        }
+        pagePath={"https://hikakuchan.jp/csv"}
+        pageImg={"https://hikakuchan.jp/csv"}
+        pageImgWidth={1280}
+        pageImgHeight={960}
+      />
       <HeaderCsv />
       <main id="main">
         {/* ロゴ */}

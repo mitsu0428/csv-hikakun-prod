@@ -92,9 +92,9 @@ export default function Mail() {
   return (
     <BasicContainer>
       <SeoSettings
-        pageTitle={"Textファイル比較ツールへのお問い合わせ"}
+        pageTitle={"テキスト比較ツールへのお問い合わせ"}
         pageDescription={
-          "こんなTextファイルの比較の機能が欲しい！バグが出て利用できない！等、ご気軽にお問い合わせください。"
+          "こんなテキストの比較の機能が欲しい！バグが出て利用できない！等、ご気軽にお問い合わせください。"
         }
         pagePath={"https://hikakuchan.jp/text/mail"}
         pageImg={"https://hikakuchan.jp/text/mail"}

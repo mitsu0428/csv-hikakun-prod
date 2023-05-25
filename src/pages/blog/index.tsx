@@ -8,12 +8,10 @@ import React, {
 } from "react";
 import Link from "next/link";
 import styled from "styled-components";
-import Loading from "../../components/ui/Loading";
 
 export default function Home({ articles }: any) {
   return (
     <BasicContainer>
-      {articles === undefined && <Loading />}
       <BasicSubTitle>記事一覧</BasicSubTitle>
       <BasicSubContainer>
         {articles.map(
