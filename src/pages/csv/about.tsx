@@ -12,8 +12,8 @@ const About = () => {
         pageDescription={
           "CSVファイルを比較する具体的な使い方・事例などを紹介しています。簡単に差分を抽出し、結果を得ることができます。"
         }
-        pagePath={"https://csvhikakun.com/about"}
-        pageImg={"https://csvhikakun.com/about"}
+        pagePath={"https://hikakuchan.jp/csv/about"}
+        pageImg={"https://hikakuchan.jp/csv/about"}
         pageImgWidth={1280}
         pageImgHeight={960}
       />

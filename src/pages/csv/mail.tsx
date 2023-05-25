@@ -52,8 +52,8 @@ export default function Mail() {
         pageDescription={
           "こんなCSVファイルの差分比較の機能が欲しい!バグが出て利用できない!等、ご気軽にお問い合わせください。"
         }
-        pagePath={"https://csvhikakun.com/about"}
-        pageImg={"https://csvhikakun.com/about"}
+        pagePath={"https://hikakuchan.jp/mail"}
+        pageImg={"https://hikakuchan.jp/mail"}
         pageImgWidth={1280}
         pageImgHeight={960}
       />

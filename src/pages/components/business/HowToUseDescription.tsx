@@ -8,7 +8,7 @@ function HowToUseDescription() {
       <BasicSubTitle>具体的な利用事例</BasicSubTitle>
       <ShareButton
         text="csvファイルを比較するサイト「csvひかくん」"
-        url="http://csvhikakun.com"
+        url="https://hikakuchan.jp/csv"
       />
       <BasicSubContainer>
         <ChildTitle>

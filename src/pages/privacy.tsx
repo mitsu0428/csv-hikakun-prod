@@ -11,8 +11,8 @@ const Privacy = () => {
         pageDescription={
           "csvひかくんのプライバシーポリシーです。ご利用前にご確認ください。"
         }
-        pagePath={"https://csvhikakun.com/about"}
-        pageImg={"https://csvhikakun.com/about"}
+        pagePath={"https://hikakuchan.jp/privacy"}
+        pageImg={"https://hikakuchan.jp/privacy"}
         pageImgWidth={1280}
         pageImgHeight={960}
       />
