@@ -25,19 +25,20 @@ const BasicButton = styled.button`
   display: inline-block;
   width: 100%;
   max-width: 350px;
-  height: 2rem;
-  padding: 0.3em 1em;
-  margin: 0.5em 0.3em;
-  margin-left: 16px;
+  height: 3rem;
+  margin: 0.5rem 0;
+  padding: 0 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
   text-decoration: none;
-  color: #eea9a9;
-  background: none;
-  border: solid 1px #eea9a9;
+  color: #fff;
+  background-color: #eea9a9;
+  border: none;
   border-radius: 8px;
-  transition: 0.4s;
-  :hover {
-    background: #eea9a9;
-    color: white;
+  transition: 0.2s;
+
+  &:hover {
+    background-color: #ff6f91;
   }
 `;
 

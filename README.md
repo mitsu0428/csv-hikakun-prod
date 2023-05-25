@@ -5,8 +5,10 @@
 - button hover D3E173
 - text 333132
 
+- service
 - title #fffffe
-- ピンク EEA9A9
+- button EEA9A9
+- button hover ff6f91
 - グレー 909090
 
 # 技術

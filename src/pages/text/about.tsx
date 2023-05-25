@@ -91,6 +91,6 @@ const BasicButton = styled.button`
   transition: 0.2s;
 
   &:hover {
-    background-color: #3d8c40;
+    background-color: #ff6f91;
   }
 `;
