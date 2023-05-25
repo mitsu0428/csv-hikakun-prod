@@ -13,7 +13,7 @@ import Loading from "../../components/ui/Loading";
 export default function Home({ articles }: any) {
   return (
     <BasicContainer>
-      {articles.length === 0 && <Loading />}
+      {articles === undefined && <Loading />}
       <BasicSubTitle>記事一覧</BasicSubTitle>
       <BasicSubContainer>
         {articles.map(
