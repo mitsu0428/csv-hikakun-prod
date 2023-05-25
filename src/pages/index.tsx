@@ -18,17 +18,17 @@ export default function Home() {
       <BasicSubContainer>
         <BasicText>
           <BasicButton>
-            <Link href={"/csv"}>CSV比較 [Now released]</Link>
+            <Link href={"/csv"}>CSVファイル比較ツール</Link>
           </BasicButton>
         </BasicText>
         <BasicText>
           <BasicButton>
-            <Link href={"/excel"}>Excel比較 [coming soon...]</Link>
+            <Link href={"/excel"}>Excelファイル比較ツール</Link>
           </BasicButton>
         </BasicText>
         <BasicText>
           <BasicButton>
-            <Link href={"/text"}>Text比較 [coming soon...]</Link>
+            <Link href={"/text"}>Text比較ツール</Link>
           </BasicButton>
         </BasicText>
         <BasicText>
