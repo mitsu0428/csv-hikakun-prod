@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import Link from "next/link";
 import type { NextPage } from "next";
 import SeoSettings from "../components/utils/SeoSettings";
 import Logo from "../components/elements/Logo";
