@@ -1,5 +1,4 @@
-/* eslint-disable react/react-in-jsx-scope */
-
+import React from "react";
 import Link from "next/link";
 import styled from "styled-components";
 export default function Custom404(): JSX.Element {
@@ -7,9 +6,7 @@ export default function Custom404(): JSX.Element {
     <main>
       <BasicText>
         <BasicButton>
-          <Link href={"/"}>
-            <a>CSV比較ツールに戻る</a>
-          </Link>
+          <Link href={"/"}>ホーム画面に戻る</Link>
         </BasicButton>
       </BasicText>
       <NotificationText>ページがありません。</NotificationText>
@@ -22,22 +19,14 @@ const BasicText = styled.span`
 `;
 
 const BasicButton = styled.button`
-  display: inline-block;
   width: 100%;
   max-width: 350px;
   height: 2rem;
-  padding: 0.3em 1em;
-  margin: 0.5em 0.3em;
-  margin-left: 16px;
-  text-decoration: none;
-  color: #eea9a9;
-  background: none;
-  border: solid 1px #eea9a9;
-  border-radius: 3px;
-  transition: 0.4s;
+  color: #fff;
+  background: #3c5e8b;
+  border-radius: 8px;
   :hover {
-    background: #eea9a9;
-    color: white;
+    background: #557ea7;
   }
 `;
 
