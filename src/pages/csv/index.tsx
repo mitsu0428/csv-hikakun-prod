@@ -12,6 +12,7 @@ import Logo from "../components/elements/Logo";
 import BasicTitle from "../components/elements/BasicTitle";
 import UpdateInformation from "../components/business/UpdateInformation";
 import ShowDataWithTable from "../components/elements/ShowDataWithTable";
+import HeaderCsv from "./layout/layout";
 
 const Home: NextPage = () => {
   const [csvValues, setCsvValues] = React.useState({
@@ -138,7 +139,7 @@ const Home: NextPage = () => {
   return (
     <BasicContainer>
       <SeoSettings />
-
+      <HeaderCsv />
       <main id="main">
         {/* ロゴ */}
         <Logo />
@@ -312,7 +313,7 @@ const BasicSubContainer = styled.div`
   padding: 0 1rem;
   margin-top: 2rem; /* Update: Add border and padding */
   border: 1px solid #e0e0e0;
-  border-radius: 0.5rem;
+  border-radius: 8px;
   padding: 2rem;
 `;
 
@@ -327,7 +328,7 @@ const BasicCard = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border-radius: 0.5rem; /* Update: Change box-shadow */
+  border-radius: 8px;
   box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
   background-color: #ffffff; /* Update: Add margin and padding */
   margin: 2rem 0;
@@ -384,7 +385,7 @@ const BasicButton = styled.div`
   color: #ffffff;
   background-color: #eea9a9;
   border: none;
-  border-radius: 0.5rem;
+  border-radius: 8px;
   transition: 0.4s;
 
   :hover {

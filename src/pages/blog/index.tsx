@@ -116,7 +116,7 @@ const BasicButton = styled.button`
   background-color: #000;
   color: #fff;
   padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
+  border-radius: 8px;
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;

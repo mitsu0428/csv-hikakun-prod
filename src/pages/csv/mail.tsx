@@ -113,7 +113,7 @@ const ContactContainer = styled.div`
   margin: 2rem auto;
   padding: 2rem;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 8px;
 `;
 
 const ContactSubTitle = styled.h2`
@@ -174,7 +174,7 @@ const BasicButton = styled.button`
   color: white;
   background-color: #eea9a9;
   border: none;
-  border-radius: 0.5rem;
+  border-radius: 8px;
   transition: 0.4s;
   cursor: pointer;
   :hover {

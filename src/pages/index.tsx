@@ -110,7 +110,7 @@ const BasicButton = styled.button`
   color: #fff;
   background-color: #3c5e8b;
   border: none;
-  border-radius: 0.5rem;
+  border-radius: 8px;
   transition: 0.2s;
 
   &:hover {
