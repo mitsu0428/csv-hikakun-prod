@@ -2,16 +2,10 @@ import React from "react";
 import styled from "styled-components";
 import Link from "next/link";
 import type { NextPage } from "next";
-import HowToUseDescription from "../components/business/HowToUseDescription";
-import QuestionAnsewer from "../components/business/QuestionAnsewer";
-import CsvDownloadComponents from "../components/libs/CsvDownloader";
 import SeoSettings from "../components/utils/SeoSettings";
 import Logo from "../components/elements/Logo";
 import BasicTitle from "../components/elements/BasicTitle";
-import UpdateInformation from "../components/business/UpdateInformation";
-import ShowDataWithTable from "../components/elements/ShowDataWithTable";
 import HeaderCsv from "./layout/layout";
-import InputField from "./ui/InputField";
 
 const Home: NextPage = () => {
   const [textValues, setTextValues] = React.useState({
