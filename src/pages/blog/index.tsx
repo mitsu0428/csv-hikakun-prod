@@ -40,7 +40,7 @@ export default function Home({ articles }: any) {
             <div key={article.id}>
               <BasicButton>
                 <Link href={`/blog/article/${article.id}`} passHref>
-                  <a>{article.title}</a>
+                  {article.title}
                 </Link>
               </BasicButton>
               <div>{article.tag && <span>#{article.tag}</span>}</div>
@@ -108,19 +108,23 @@ const BasicSubTitle = styled.h2`
   }
 `;
 
-const BasicButton = styled.button`
+const BasicButton = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  max-width: 360px;
-  margin-top: 16px;
-  background-color: #000;
-  color: #fff;
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
+  max-width: 350px;
+  font-size: 1rem;
+  height: 3rem;
+  margin-top: 2rem;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #eea9a9;
   border: none;
-  cursor: pointer;
-  transition: all 0.3s ease;
+  border-radius: 8px;
+  transition: 0.4s;
+
   :hover {
-    background-color: #fff;
-    color: #000;
+    background-color: #ff6f91;
   }
 `;
