@@ -9,7 +9,27 @@ async function generateSitemapXml() {
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://hikakuchan.jp/blog</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hikakuchan.jp/privacy</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hikakuchan.jp/mail</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://hikakuchan.jp/csv</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hikakuchan.jp/csv/about</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hikakuchan.jp/csv/mail</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -21,20 +41,12 @@ async function generateSitemapXml() {
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://hikakuchan.jp/mail</loc>
+    <loc>https://hikakuchan.jp/text/about</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://hikakuchan.jp/about</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://hikakuchan.jp/privacy</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://hikakuchan.jp/text/mail</loc>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   
   </urlset>
