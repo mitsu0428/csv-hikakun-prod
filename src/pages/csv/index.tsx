@@ -23,12 +23,6 @@ const Home: NextPage = () => {
     resultWithoutIndex: Array<any>(),
   });
 
-  const [ModalSettings, setModalSettings] = React.useState({
-    isModalOpen: false,
-    isWithIndex: false,
-    isWithoutIndex: false,
-  });
-
   const getMasterFile = async (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!(e.target instanceof HTMLInputElement)) return;
     if (!e.target.files) return;
@@ -141,7 +135,7 @@ const Home: NextPage = () => {
       <HeaderCsv />
       <main id="main">
         {/* ロゴ */}
-        <Logo />
+        <Logo isCsvPage={true} />
 
         <BasicSubContainer>
           <BasicTitle title="CSV比較ツール" />

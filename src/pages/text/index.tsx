@@ -40,7 +40,7 @@ const Home: NextPage = () => {
       <HeaderCsv />
       <main id="main">
         {/* ロゴ */}
-        <Logo />
+        <Logo isTextPage={true} />
 
         <BasicSubContainer>
           <BasicTitle title="テキスト比較ツール(.txt）" />
