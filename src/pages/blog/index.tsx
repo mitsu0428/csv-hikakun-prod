@@ -1,6 +1,5 @@
-/* eslint-disable react/react-in-jsx-scope */
 import client from "../../libs/client";
-import {
+import React, {
   Key,
   ReactElement,
   JSXElementConstructor,
