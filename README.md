@@ -1,5 +1,10 @@
 # デザイン
 
+- /
+- button 3C5E8B
+- button hover 557EA7
+- text 333132
+
 - title #fffffe
 - ピンク EEA9A9
 - グレー 909090
