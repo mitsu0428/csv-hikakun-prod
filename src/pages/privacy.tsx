@@ -9,7 +9,7 @@ const Privacy = () => {
       <SeoSettings
         pageTitle={"プライバシーポリシー"}
         pageDescription={
-          "csvひかくんのプライバシーポリシーです。ご利用前にご確認ください。"
+          "比較ちゃんのプライバシーポリシーです。ご利用前にご確認ください。"
         }
         pagePath={"https://hikakuchan.jp/privacy"}
         pageImg={"https://hikakuchan.jp/privacy"}
@@ -20,15 +20,13 @@ const Privacy = () => {
         <BasicSubTitle>プライバシーポリシー</BasicSubTitle>
         <BasicText>
           <BasicButton>
-            <Link href={"/"}>
-              <a>CSV比較ツールに戻る</a>
-            </Link>
+            <Link href={"/"}>トップに戻る</Link>
           </BasicButton>
         </BasicText>
       </BasicSubContainer>
       <BasicSubContainer>
         <BasicText>
-          csvひかくんは、本ウェブサイト上で提供するサービス（以下、「本サービス」といいます。）における、ユーザーの個人情報の取扱いについて、以下のとおりプライバシーポリシー（以下、「本ポリシー」といいます。）を定めます。
+          比較ちゃんは、本ウェブサイト上で提供するサービス（以下、「本サービス」といいます。）における、ユーザーの個人情報の取扱いについて、以下のとおりプライバシーポリシー（以下、「本ポリシー」といいます。）を定めます。
         </BasicText>
       </BasicSubContainer>
       <BasicSubContainer>
@@ -181,7 +179,7 @@ const Privacy = () => {
         <BasicText>
           本ポリシーに関するお問い合わせは、下記の窓口までお願いいたします。
         </BasicText>
-        <BasicText>ツール名： CSVひかくん</BasicText>
+        <BasicText>比較ちゃん</BasicText>
         <BasicText>Eメールアドレス: okada031717@gmail.com</BasicText>
       </BasicSubContainer>
     </BasicContainer>
@@ -244,17 +242,19 @@ const BasicButton = styled.button`
   display: inline-block;
   width: 100%;
   max-width: 350px;
-  height: 2rem;
-  padding: 0.3em 1em;
-  margin: 0 0.3em 0.3em 0;
+  height: 3rem;
+  margin: 0.5rem 0;
+  padding: 0 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
   text-decoration: none;
-  color: #eea9a9;
-  background: none;
-  border: solid 1px #eea9a9;
+  color: #fff;
+  background-color: #3c5e8b;
+  border: none;
   border-radius: 8px;
-  transition: 0.4s;
-  :hover {
-    background: #eea9a9;
-    color: white;
+  transition: 0.2s;
+
+  &:hover {
+    background-color: #557ea7;
   }
 `;

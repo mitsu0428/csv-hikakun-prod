@@ -8,14 +8,11 @@ export default function HeaderTop() {
       <Link href="/">
         <HeaderMenuLink>Top</HeaderMenuLink>
       </Link>
-      <Link href="/csv">
-        <HeaderMenuLink>CSV比較ツール</HeaderMenuLink>
+      <Link href="/blog">
+        <HeaderMenuLink>ブログ</HeaderMenuLink>
       </Link>
-      <Link href="/excel">
-        <HeaderMenuLink>Excel比較ツール</HeaderMenuLink>
-      </Link>
-      <Link href="/text">
-        <HeaderMenuLink>Text比較ツール</HeaderMenuLink>
+      <Link href="/privacy">
+        <HeaderMenuLink>プライバシーポリシー</HeaderMenuLink>
       </Link>
       <Link href="/mail">
         <HeaderMenuLink>お問い合わせ</HeaderMenuLink>
