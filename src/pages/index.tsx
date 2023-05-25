@@ -115,12 +115,12 @@ const BasicButton = styled.button`
   font-weight: bold;
   text-decoration: none;
   color: #fff;
-  background-color: #3c5e8b;
+  background-color: #c3d941;
   border: none;
   border-radius: 8px;
   transition: 0.2s;
 
   &:hover {
-    background-color: #557ea7;
+    background-color: #d3e173;
   }
 `;

@@ -230,12 +230,12 @@ const BasicButton = styled.button`
   margin: 1rem 0;
   text-decoration: none;
   color: white;
-  background-color: #3c5e8b;
+  background-color: #c3d941;
   border: none;
   border-radius: 0.5rem;
   transition: 0.4s;
   cursor: pointer;
   :hover {
-    background-color: #557ea7;
+    background-color: #d3e173;
   }
 `;

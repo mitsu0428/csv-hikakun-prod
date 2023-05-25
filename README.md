@@ -1,8 +1,8 @@
 # デザイン
 
 - /
-- button 3C5E8B
-- button hover 557EA7
+- button C3D941
+- button hover D3E173
 - text 333132
 
 - title #fffffe
