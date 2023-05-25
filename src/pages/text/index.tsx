@@ -43,7 +43,7 @@ const Home: NextPage = () => {
         <Logo isTextPage={true} />
 
         <BasicSubContainer>
-          <BasicTitle title="テキスト比較ツール(.txt）" />
+          <BasicTitle title="テキスト比較ツール(.txt)" />
           <ExtraText>
             テキストファイル比較ツールでは入力欄に入れたテキストを比較することができます。
           </ExtraText>

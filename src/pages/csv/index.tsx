@@ -138,7 +138,7 @@ const Home: NextPage = () => {
         <Logo isCsvPage={true} />
 
         <BasicSubContainer>
-          <BasicTitle title="CSV比較ツール" />
+          <BasicTitle title="CSV比較ツール(.csv)" />
           <ExtraText>
             CSV比較ツールでは、簡単に2つのファイルを比較することができます。
           </ExtraText>
