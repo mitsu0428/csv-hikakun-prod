@@ -3,6 +3,7 @@ import Link from "next/link";
 import styled from "styled-components";
 import router from "next/router";
 import { useToast } from "../../hooks/useToast";
+import SeoSettings from "../components/utils/SeoSettings";
 
 export default function Mail() {
   const [currentValues, setCurentValues] = React.useState({
@@ -90,6 +91,16 @@ export default function Mail() {
 
   return (
     <BasicContainer>
+      <SeoSettings
+        pageTitle={"Textファイル比較ツールへのお問い合わせ"}
+        pageDescription={
+          "こんなTextファイルの比較の機能が欲しい！バグが出て利用できない！等、ご気軽にお問い合わせください。"
+        }
+        pagePath={"https://hikakuchan.jp/text/mail"}
+        pageImg={"https://hikakuchan.jp/text/mail"}
+        pageImgWidth={1280}
+        pageImgHeight={960}
+      />
       <ContactContainer>
         <BasicSubContainer>
           <ContactSubTitle>
@@ -118,7 +129,7 @@ export default function Mail() {
         </BasicSubContainer>
         <BasicSubContainer>
           <ContactTextArea
-            placeholder="お問い合わせ&#13; 例）Textファイル比較のツールについて聞きたい。"
+            placeholder="お問い合わせ&#13; 例）Text比較ツールがうまく機能していません。"
             value={currentValues.message ?? ""}
             onChange={(e: { target: { value: any } }) => {
               setCurentValues({ ...currentValues, message: e.target.value });
