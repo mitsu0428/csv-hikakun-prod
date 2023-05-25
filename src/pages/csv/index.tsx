@@ -144,13 +144,13 @@ const Home: NextPage = () => {
         <Logo />
 
         <BasicSubContainer>
-          <BasicTitle title="CSVひかくん - CSV比較ツール" />
+          <BasicTitle title="CSV比較ツール" />
           <ExtraText>
-            CSVひかくんでは、簡単に2つのファイルを比較することができます。
+            CSV比較ツールでは、簡単に2つのファイルを比較することができます。
           </ExtraText>
           <BasicButton>
             <Link href={"/about"}>
-              <a>CSVひかくんの具体的な使い方はこちら</a>
+              <a>CSV比較ツールの具体的な使い方はこちら</a>
             </Link>
           </BasicButton>
         </BasicSubContainer>
@@ -271,20 +271,6 @@ const Home: NextPage = () => {
 
         {/* よくある質問 */}
         <QuestionAnsewer />
-
-        {/* お問い合わせ */}
-        <BasicSubContainer>
-          <BasicText>
-            <BasicButton>
-              <Link href={"/mail"}>お問い合わせはこちら</Link>
-            </BasicButton>
-          </BasicText>
-          <BasicText>
-            <BasicButton>
-              <Link href={"/privacy"}>プライバシーポリシーはこちら</Link>
-            </BasicButton>
-          </BasicText>
-        </BasicSubContainer>
       </main>
       {/* フッター */}
       <BasicFooter>

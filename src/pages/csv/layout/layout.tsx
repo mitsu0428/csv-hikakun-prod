@@ -9,13 +9,13 @@ export default function HeaderCsv() {
         <HeaderMenuLink>Top</HeaderMenuLink>
       </Link>
       <Link href="/csv/about">
-        <HeaderMenuLink>CSV比較ツールについて</HeaderMenuLink>
+        <HeaderMenuLink>ツールについて</HeaderMenuLink>
       </Link>
       <Link href="/blog">
         <HeaderMenuLink>公式ブログ</HeaderMenuLink>
       </Link>
       <Link href="/csv/mail">
-        <HeaderMenuLink>CSV比較ツールに関するお問い合わせ</HeaderMenuLink>
+        <HeaderMenuLink>ツールに関するお問い合わせ</HeaderMenuLink>
       </Link>
       <Link href="/privacy">
         <HeaderMenuLink>プライバシーポリシー</HeaderMenuLink>
