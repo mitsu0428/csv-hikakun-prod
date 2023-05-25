@@ -99,20 +99,6 @@ const Home: NextPage = () => {
             <TextArea value={textValues.resultText} />
           </TextAreaContainer>
         )}
-
-        {/* お問い合わせ */}
-        <BasicSubContainer>
-          <BasicText>
-            <BasicButton>
-              <Link href={"/text/mail"}>お問い合わせはこちら</Link>
-            </BasicButton>
-          </BasicText>
-          <BasicText>
-            <BasicButton>
-              <Link href={"/privacy"}>プライバシーポリシーはこちら</Link>
-            </BasicButton>
-          </BasicText>
-        </BasicSubContainer>
       </main>
       {/* フッター */}
       <BasicFooter>
