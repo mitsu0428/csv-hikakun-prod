@@ -1,10 +1,12 @@
 import React from "react";
 import Link from "next/link";
 import styled from "styled-components";
+import HeaderTop from "./components/layout/HeaderTop";
 
 export default function Home() {
   return (
     <BasicContainer>
+      <HeaderTop />
       <BasicSubTitle>比較ちゃん [hikakuchan]</BasicSubTitle>
       <BasicSubContainer>
         <BasicText>・CSVファイル同士を比較したい</BasicText>
@@ -49,14 +51,14 @@ const BasicSubContainer = styled.div`
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1rem;
-  margin-top: 32px;
+  padding: 16px;
 `;
 
 const BasicSubTitle = styled.h2`
   position: relative;
-  padding: 1.5rem 1rem;
-  font-size: 20px;
+  padding: 16px;
+  font-size: 32px;
+  color: #333132;
 
   :after {
     position: absolute;
@@ -84,10 +86,15 @@ const BasicSubTitle = styled.h2`
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
   }
+
+  @media screen and (max-width: 768px) {
+    font-size: 24px;
+  }
 `;
 
 const BasicText = styled.p`
   font-size: 16px;
+  color: #333132;
 
   @media screen and (max-width: 768px) {
     font-size: 14px;
