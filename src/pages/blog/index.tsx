@@ -110,23 +110,23 @@ const BasicSubTitle = styled.h2`
   }
 `;
 
-const BasicButton = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+const BasicButton = styled.button`
+  display: inline-block;
   width: 100%;
   max-width: 350px;
-  font-size: 1rem;
   height: 3rem;
-  margin-top: 2rem;
+  margin: 0.5rem 0;
+  padding: 0 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
   text-decoration: none;
-  color: #ffffff;
-  background-color: #eea9a9;
+  color: #fff;
+  background-color: #3c5e8b;
   border: none;
   border-radius: 8px;
-  transition: 0.4s;
+  transition: 0.2s;
 
-  :hover {
-    background-color: #ff6f91;
+  &:hover {
+    background-color: #557ea7;
   }
 `;
