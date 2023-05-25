@@ -147,7 +147,7 @@ const BasicContainer = styled.div`
   width: 100%;
   max-width: 800px;
   margin: 0 auto;
-  padding: 16px;
+  padding: 8px;
 `;
 
 const BasicSubContainer = styled(BasicContainer)``;
