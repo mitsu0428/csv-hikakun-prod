@@ -6,16 +6,16 @@ export default function HeaderText() {
   return (
     <HeaderNav>
       <Link href="/">
-        <HeaderMenuLink>Top</HeaderMenuLink>
+        <HeaderMenuLink>ホーム</HeaderMenuLink>
       </Link>
       <Link href="/text/about">
-        <HeaderMenuLink>Text比較ツールについて</HeaderMenuLink>
+        <HeaderMenuLink>ツールについて</HeaderMenuLink>
       </Link>
       <Link href="/blog">
         <HeaderMenuLink>公式ブログ</HeaderMenuLink>
       </Link>
       <Link href="/text/mail">
-        <HeaderMenuLink>Text比較ツールに関するお問い合わせ</HeaderMenuLink>
+        <HeaderMenuLink>お問い合わせ</HeaderMenuLink>
       </Link>
       <Link href="/privacy">
         <HeaderMenuLink>プライバシーポリシー</HeaderMenuLink>

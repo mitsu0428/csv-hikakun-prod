@@ -1,4 +1,4 @@
-/* eslint-disable react/react-in-jsx-scope */
+import React from "react";
 import Head from "next/head";
 
 interface MetaData {
@@ -18,9 +18,9 @@ const SeoSettings = ({
   pageImgWidth,
   pageImgHeight,
 }: Partial<MetaData>) => {
-  const defaultTitle = "CSVひかくん - CSVファイル比較ツール";
+  const defaultTitle = "比較ちゃん";
   const defaultDescription =
-    "2つのcsvファイルを簡単に比較することができるツールです。行単位、値単位で比較することができます。";
+    "csvファイルやExcelファイル、Textファイルを比較するツールです。";
 
   const title = pageTitle ? `${pageTitle} | ${defaultTitle}` : defaultTitle;
   const description = pageDescription ? pageDescription : defaultDescription;

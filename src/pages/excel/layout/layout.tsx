@@ -6,16 +6,16 @@ export default function HeaderExcel() {
   return (
     <HeaderNav>
       <Link href="/">
-        <HeaderMenuLink>Top</HeaderMenuLink>
+        <HeaderMenuLink>ホーム</HeaderMenuLink>
       </Link>
       <Link href="/excel/about">
-        <HeaderMenuLink>Excel比較ツールについて</HeaderMenuLink>
+        <HeaderMenuLink>ツールについて</HeaderMenuLink>
       </Link>
       <Link href="/blog">
         <HeaderMenuLink>公式ブログ</HeaderMenuLink>
       </Link>
       <Link href="/excel/mail">
-        <HeaderMenuLink>Excel比較ツールに関するお問い合わせ</HeaderMenuLink>
+        <HeaderMenuLink>お問い合わせ</HeaderMenuLink>
       </Link>
       <Link href="/privacy">
         <HeaderMenuLink>プライバシーポリシー</HeaderMenuLink>
