@@ -15,13 +15,31 @@ import InputField from "./ui/InputField";
 
 const Home: NextPage = () => {
   const [textValues, setTextValues] = React.useState({
-    isMasterFileUploaded: false,
-    isCompareFileUploaded: false,
-    masterRecords: Array<any>(),
-    compareRecords: Array<any>(),
-    resultWithIndex: Array<any>(),
-    resultWithoutIndex: Array<any>(),
+    isFirstText: "",
+    isSecondText: "",
+    resultText: "",
   });
+
+  const [isShowResult, setIsShowResult] = React.useState(false);
+
+  const handleCompare = () => {
+    const firstText = textValues.isFirstText;
+    const secondText = textValues.isSecondText;
+
+    // 差分のテキストは、[]で囲んで表示する
+    const resultText = firstText
+      .split("")
+      .map((char, index) => {
+        if (char != secondText[index]) {
+          return `[${char}]`;
+        } else {
+          return char;
+        }
+      })
+      .join("");
+    setTextValues({ ...textValues, resultText: resultText });
+    setIsShowResult(true);
+  };
 
   return (
     <BasicContainer>
@@ -38,29 +56,55 @@ const Home: NextPage = () => {
           </ExtraText>
         </BasicSubContainer>
 
-        {/* サイトの更新情報 */}
-        <BasicCard>
-          <UpdateInformation />
-        </BasicCard>
-
-        {/* 具体的な使い方 */}
-        <BasicCard>
-          <HowToUseDescription />
-        </BasicCard>
-
         <BasicSubContainer>
           <BasicSubTitle>1. 準備をする</BasicSubTitle>
         </BasicSubContainer>
 
-        <InputField />
-        <InputField />
+        <TextAreaContainer>
+          <BasicSubTitle>1.1. 1つ目のテキストを入力する</BasicSubTitle>
+          <TextArea
+            value={textValues.isFirstText}
+            onChange={(e) =>
+              setTextValues({ ...textValues, isFirstText: e.target.value })
+            }
+          />
+        </TextAreaContainer>
+
+        <TextAreaContainer>
+          <BasicSubTitle>1.2. 2つ目のテキストを入力する</BasicSubTitle>
+          <TextArea
+            value={textValues.isSecondText}
+            onChange={(e) =>
+              setTextValues({ ...textValues, isSecondText: e.target.value })
+            }
+          />
+        </TextAreaContainer>
 
         <BasicSubContainer>
           <BasicSubTitle>2. 比較をする</BasicSubTitle>
         </BasicSubContainer>
 
-        {/* よくある質問 */}
-        <QuestionAnsewer />
+        <BasicButton
+          onClick={() => {
+            handleCompare();
+          }}
+        >
+          比較する
+        </BasicButton>
+        <BasicButton
+          onClick={() => {
+            setIsShowResult(false);
+          }}
+        >
+          非表示にする
+        </BasicButton>
+
+        {isShowResult && (
+          <TextAreaContainer>
+            <BasicSubTitle>3. 比較結果</BasicSubTitle>
+            <TextArea value={textValues.resultText} />
+          </TextAreaContainer>
+        )}
 
         {/* お問い合わせ */}
         <BasicSubContainer>
@@ -78,7 +122,7 @@ const Home: NextPage = () => {
       </main>
       {/* フッター */}
       <BasicFooter>
-        <BasicText>©2022 Mitsuhiro Okada</BasicText>
+        <BasicText>©2023 Mitsuhiro Okada</BasicText>
       </BasicFooter>
     </BasicContainer>
   );
@@ -182,17 +226,21 @@ const BasicButton = styled.div`
   }
 `;
 
-const BasicInputField = styled.input`
-  width: 100%;
-  padding: 0.5rem;
-  border: 1px solid #e0e0e0;
-  border-radius: 0.5rem;
-  box-sizing: border-box;
-  margin-top: 0.5rem;
-  resize: vertical;
-  font-size: 1rem;
-`;
-
 const BasicFooter = styled.footer`
   ${BasicContainer}
+`;
+
+const TextAreaContainer = styled.div`
+  width: 100%;
+  max-width: 1200px;
+  padding: 16px;
+`;
+
+const TextArea = styled.textarea`
+  width: 100%;
+  font-size: 16px;
+  height: 30vh;
+  border-radius: 8px;
+  padding: 8px;
+  border: none;
 `;

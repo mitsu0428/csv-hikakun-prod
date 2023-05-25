@@ -288,7 +288,7 @@ const Home: NextPage = () => {
       </main>
       {/* フッター */}
       <BasicFooter>
-        <BasicText>©2022 Mitsuhiro Okada</BasicText>
+        <BasicText>©2023 Mitsuhiro Okada</BasicText>
       </BasicFooter>
     </BasicContainer>
   );
