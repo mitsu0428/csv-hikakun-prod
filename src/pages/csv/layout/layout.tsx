@@ -5,20 +5,14 @@ import styled from "styled-components";
 export default function HeaderCsv() {
   return (
     <HeaderNav>
-      <Link href="/">
-        <HeaderMenuLink>Top</HeaderMenuLink>
+      <Link href="/csv">
+        <HeaderMenuLink>CSV比較ツール</HeaderMenuLink>
       </Link>
       <Link href="/csv/about">
         <HeaderMenuLink>ツールについて</HeaderMenuLink>
       </Link>
-      <Link href="/blog">
-        <HeaderMenuLink>公式ブログ</HeaderMenuLink>
-      </Link>
       <Link href="/csv/mail">
         <HeaderMenuLink>ツールに関するお問い合わせ</HeaderMenuLink>
-      </Link>
-      <Link href="/privacy">
-        <HeaderMenuLink>プライバシーポリシー</HeaderMenuLink>
       </Link>
     </HeaderNav>
   );

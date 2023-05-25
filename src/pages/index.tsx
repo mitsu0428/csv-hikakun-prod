@@ -1,12 +1,10 @@
 import React from "react";
 import Link from "next/link";
 import styled from "styled-components";
-import HeaderTop from "./components/layout/HeaderTop";
 
 export default function Home() {
   return (
     <BasicContainer>
-      <HeaderTop />
       <BasicSubTitle>比較ちゃん [hikakuchan]</BasicSubTitle>
       <BasicSubContainer>
         <BasicText>・CSVファイル同士を比較したい</BasicText>

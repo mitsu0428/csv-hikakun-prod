@@ -9,7 +9,7 @@ export default function HeaderTop() {
         <HeaderMenuLink>Top</HeaderMenuLink>
       </Link>
       <Link href="/blog">
-        <HeaderMenuLink>ブログ</HeaderMenuLink>
+        <HeaderMenuLink>公式ブログ</HeaderMenuLink>
       </Link>
       <Link href="/privacy">
         <HeaderMenuLink>プライバシーポリシー</HeaderMenuLink>
@@ -26,6 +26,7 @@ const HeaderNav = styled.header`
   display: flex;
   align-items: center;
   height: 4rem;
+  padding: 16px;
   background-color: #fff;
   box-sizing: border-box;
 `;

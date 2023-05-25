@@ -149,7 +149,7 @@ export default function Mail() {
       </ContactContainer>
       <BasicText>
         <BasicButton>
-          <Link href={"/"}>公式サイトに戻る</Link>
+          <Link href={"/text"}>Text比較ツールに戻る</Link>
         </BasicButton>
       </BasicText>
     </BasicContainer>

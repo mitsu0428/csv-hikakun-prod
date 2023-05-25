@@ -21,7 +21,7 @@ const About = () => {
         <BasicSubTitle>CSVファイル比較ツールの具体的な使い方</BasicSubTitle>
         <BasicText>
           <BasicButton>
-            <Link href={"/"}>
+            <Link href={"/csv"}>
               <a>CSV比較ツールに戻る</a>
             </Link>
           </BasicButton>

@@ -112,7 +112,7 @@ export default Home;
 const BasicContainer = styled.div`
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 16px;
   margin-top: 1rem; /* Update: Add box-shadow and background-color */
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
   background-color: #f9f9f9;

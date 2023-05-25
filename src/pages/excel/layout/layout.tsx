@@ -5,20 +5,14 @@ import styled from "styled-components";
 export default function HeaderExcel() {
   return (
     <HeaderNav>
-      <Link href="/">
-        <HeaderMenuLink>ホーム</HeaderMenuLink>
+      <Link href="/excel">
+        <HeaderMenuLink>Excel比較ツール</HeaderMenuLink>
       </Link>
       <Link href="/excel/about">
         <HeaderMenuLink>ツールについて</HeaderMenuLink>
       </Link>
-      <Link href="/blog">
-        <HeaderMenuLink>公式ブログ</HeaderMenuLink>
-      </Link>
       <Link href="/excel/mail">
-        <HeaderMenuLink>お問い合わせ</HeaderMenuLink>
-      </Link>
-      <Link href="/privacy">
-        <HeaderMenuLink>プライバシーポリシー</HeaderMenuLink>
+        <HeaderMenuLink>ツールに関するお問い合わせ</HeaderMenuLink>
       </Link>
     </HeaderNav>
   );
