@@ -8,13 +8,15 @@ export default function Home() {
     <BasicContainer>
       <Logo isTopPage={true} />
       <BasicSubTitle>比較ちゃん [hikakuchan]</BasicSubTitle>
-
+      <BasicText>「なんか比較したいなぁ」は全部このサイトへ。</BasicText>
       <BasicSubContainer>
-        <BasicText>・CSVファイル同士を比較したい</BasicText>
-        <BasicText>・Excelファイル同士を比較したい</BasicText>
-        <BasicText>・Textファイルや文章同士を比較したい</BasicText>
+        <BasicText>具体的なツール例</BasicText>
+        <BasicText>・CSVファイル同士を比較する</BasicText>
+        <BasicText>・Excelファイル同士を比較する</BasicText>
+        <BasicText>・Textファイルや文章同士を比較する</BasicText>
+        <BasicText>・今日の天気と明日の天気を比較する</BasicText>
         <BasicText>など</BasicText>
-        <BasicText>様々なファイルを比較することができるツールです。</BasicText>
+        <BasicText>様々なものを簡単に比較できます。</BasicText>
       </BasicSubContainer>
       <BasicSubContainer>
         <BasicText>
@@ -24,7 +26,7 @@ export default function Home() {
         </BasicText>
         <BasicText>
           <BasicButton>
-            <Link href={"/excel"}>Excelファイル比較ツール</Link>
+            <Link href={"/excel"}>Excelファイル比較ツール [Not released]</Link>
           </BasicButton>
         </BasicText>
         <BasicText>
