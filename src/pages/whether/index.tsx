@@ -1,48 +1,55 @@
-import React from "react";
-import Link from "next/link";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import styled from "styled-components";
 
-export default function Excel() {
+const WeatherContainer = styled.div`
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+`;
+
+const WeatherInfo = styled.div`
+  margin-top: 20px;
+`;
+
+const WeatherDescription = styled.p`
+  font-size: 18px;
+`;
+
+const IndexPage: React.FC = () => {
+  const [weather, setWeather] = useState<any>(null);
+  const city = "Tokyo"; // 取得する都市名
+  const apiKey = "9624dd5751a4d41b77bc8d4a92d93cd1"; // OpenWeatherMapのAPIキー
+
+  useEffect(() => {
+    const fetchWeather = async () => {
+      try {
+        const apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&lang=ja&units=metric`;
+        const response = await axios.get(apiUrl);
+        setWeather(response.data);
+      } catch (error) {
+        console.log("Error fetching weather data:", error);
+      }
+    };
+    fetchWeather();
+  }, []);
+
   return (
-    <main>
-      <BasicText>
-        <BasicButton>
-          <Link href={"/"}>
-            <a>ホーム画面に戻る</a>
-          </Link>
-        </BasicButton>
-      </BasicText>
-      <NotificationText>Coming soon...</NotificationText>
-    </main>
+    <WeatherContainer>
+      <h1>Weather Information</h1>
+      {weather ? (
+        <WeatherInfo>
+          <p>City: {weather.name}</p>
+          <p>Temperature: {weather.main?.temp}°C</p>
+          <WeatherDescription>
+            Description: {weather.weather[0]?.description}
+          </WeatherDescription>
+        </WeatherInfo>
+      ) : (
+        <p>Loading...</p>
+      )}
+    </WeatherContainer>
   );
-}
+};
 
-const BasicText = styled.span`
-  font-size: 1rem;
-`;
-
-const BasicButton = styled.button`
-  display: inline-block;
-  width: 100%;
-  max-width: 350px;
-  height: 3rem;
-  margin: 0.5rem 0;
-  padding: 0 1.5rem;
-  font-size: 1rem;
-  font-weight: bold;
-  text-decoration: none;
-  color: #fff;
-  background-color: #eea9a9;
-  border: none;
-  border-radius: 8px;
-  transition: 0.2s;
-
-  &:hover {
-    background-color: #ff6f91;
-  }
-`;
-
-const NotificationText = styled.p`
-  font-size: 16px;
-  margin-left: 16px;
-`;
+export default IndexPage;
