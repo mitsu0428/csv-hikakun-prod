@@ -2,16 +2,16 @@ import React from "react";
 import Link from "next/link";
 import styled from "styled-components";
 
-export default function HeaderText() {
+export default function HeaderWeather() {
   return (
     <HeaderNav>
-      <Link href="/whether">
+      <Link href="/weather">
         <HeaderMenuLink>天気比較ツール</HeaderMenuLink>
       </Link>
-      <Link href="/whether/about">
+      <Link href="/weather/about">
         <HeaderMenuLink>ツールについて</HeaderMenuLink>
       </Link>
-      <Link href="/whether/mail">
+      <Link href="/weather/mail">
         <HeaderMenuLink>ツールに関するお問い合わせ</HeaderMenuLink>
       </Link>
     </HeaderNav>

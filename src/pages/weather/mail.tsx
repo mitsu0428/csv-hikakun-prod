@@ -147,7 +147,7 @@ export default function Mail() {
       </ContactContainer>
       <BasicText>
         <BasicButton>
-          <Link href={"/whether"}>天気比較ツールに戻る</Link>
+          <Link href={"/weather"}>天気比較ツールに戻る</Link>
         </BasicButton>
       </BasicText>
     </BasicContainer>

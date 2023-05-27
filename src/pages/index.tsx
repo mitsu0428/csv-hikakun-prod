@@ -36,7 +36,7 @@ export default function Home() {
         </BasicText>
         <BasicText>
           <BasicButton>
-            <Link href={"/whether"}>天気比較ツール</Link>
+            <Link href={"/weather"}>天気比較ツール</Link>
           </BasicButton>
         </BasicText>
         <BasicText>

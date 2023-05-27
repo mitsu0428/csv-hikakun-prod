@@ -11,8 +11,8 @@ const About = () => {
         pageDescription={
           "天気を比較する具体的な使い方・事例などを紹介しています。簡単に差分を抽出し、結果を得ることができます。"
         }
-        pagePath={"https://hikakuchan.jp/whether/about"}
-        pageImg={"https://hikakuchan.jp/whether/about"}
+        pagePath={"https://hikakuchan.jp/weather/about"}
+        pageImg={"https://hikakuchan.jp/weather/about"}
         pageImgWidth={1280}
         pageImgHeight={960}
       />
@@ -20,7 +20,7 @@ const About = () => {
         <BasicSubTitle>天気比較ツールの具体的な使い方</BasicSubTitle>
         <BasicText>
           <BasicButton>
-            <Link href={"/whether"}>
+            <Link href={"/weather"}>
               <a>天気比較ツールに戻る</a>
             </Link>
           </BasicButton>

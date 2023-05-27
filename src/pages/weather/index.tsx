@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
+import HeaderWeather from "./layout/layout";
+import SeoSettings from "../components/utils/SeoSettings";
 
 const IndexPage: React.FC = () => {
   const [todayWeather, setTodayWeather] = useState<any>(null);
@@ -50,8 +52,18 @@ const IndexPage: React.FC = () => {
 
   return (
     <BasicContainer>
+      <SeoSettings
+        pageTitle={"天気比較ツール"}
+        pageDescription={
+          "天気を比較する具体的な使い方・事例などを紹介しています。簡単に差分を抽出し、結果を得ることができます。"
+        }
+        pagePath={"https://hikakuchan.jp/weather"}
+        pageImg={"https://hikakuchan.jp/weather"}
+        pageImgWidth={1280}
+        pageImgHeight={960}
+      />
+      <HeaderWeather />
       <h1>Weather Information</h1>
-
       {todayWeather ? (
         <>
           <BasicSubTitle>Weather Today</BasicSubTitle>
