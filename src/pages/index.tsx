@@ -2,11 +2,13 @@ import React from "react";
 import Link from "next/link";
 import styled from "styled-components";
 import Logo from "./components/elements/Logo";
+import SeoSettings from "./components/utils/SeoSettings";
 
 export default function Home() {
   return (
     <BasicContainer>
       <Logo isTopPage={true} />
+      <SeoSettings />
       <BasicSubTitle>比較ちゃん [hikakuchan]</BasicSubTitle>
       <BasicText>「なんか比較したいなぁ」は全部このサイトへ。</BasicText>
       <BasicSubContainer>
