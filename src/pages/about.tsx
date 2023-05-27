@@ -21,7 +21,7 @@ const About = () => {
         <BasicSubTitle>比較ちゃんの具体的な使い方</BasicSubTitle>
         <BasicText>
           <BasicButton>
-            <Link href={"/csv"}>Topに戻る</Link>
+            <Link href={"/"}>Topに戻る</Link>
           </BasicButton>
         </BasicText>
       </BasicSubContainer>
@@ -104,11 +104,9 @@ const BasicSubTitle = styled.h2`
   }
 `;
 
-const BasicText = styled.p`
-  font-size: 1.2rem;
+const BasicText = styled.span`
+  font-size: 1rem;
   line-height: 1.5;
-  margin-bottom: 2rem;
-  color: #333;
 `;
 
 const BasicButton = styled.button`
@@ -122,12 +120,12 @@ const BasicButton = styled.button`
   font-weight: bold;
   text-decoration: none;
   color: #fff;
-  background-color: #eea9a9;
+  background-color: #c3d941;
   border: none;
   border-radius: 8px;
   transition: 0.2s;
 
   &:hover {
-    background-color: #ff6f91;
+    background-color: #d3e173;
   }
 `;
