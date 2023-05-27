@@ -8,7 +8,7 @@ const IndexPage: React.FC = () => {
   const [todayWeather, setTodayWeather] = useState<any>(null);
   const [tomorrowWeather, setTomorrowWeather] = useState<any>(null);
   const city = "Tokyo"; // 取得する都市名
-  const apiKey = process.env.NEXT_PUBLIC_WEATHER_API_KEY;
+  const apiKey = process.env.NEXT_PUBLIC_WEATHER_API_KEY || "";
 
   useEffect(() => {
     const fetchWeather = async () => {
