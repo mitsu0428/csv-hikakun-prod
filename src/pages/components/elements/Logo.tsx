@@ -3,12 +3,16 @@ import styled from "styled-components";
 import Image from "next/image";
 
 type Props = {
+  isTopPage?: boolean;
   isCsvPage?: boolean;
   isExcelPage?: boolean;
   isTextPage?: boolean;
 };
-const Logo = ({ isCsvPage, isExcelPage, isTextPage }: Props) => {
+const Logo = ({ isTopPage, isCsvPage, isExcelPage, isTextPage }: Props) => {
   const srcPath = () => {
+    if (isTopPage) {
+      return "/images/hikakuchan.png";
+    }
     if (isCsvPage) {
       return "/images/csv-logo.png";
     }

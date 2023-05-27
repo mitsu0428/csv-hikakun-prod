@@ -1,11 +1,14 @@
 import React from "react";
 import Link from "next/link";
 import styled from "styled-components";
+import Logo from "./components/elements/Logo";
 
 export default function Home() {
   return (
     <BasicContainer>
+      <Logo isTopPage={true} />
       <BasicSubTitle>比較ちゃん [hikakuchan]</BasicSubTitle>
+
       <BasicSubContainer>
         <BasicText>・CSVファイル同士を比較したい</BasicText>
         <BasicText>・Excelファイル同士を比較したい</BasicText>
