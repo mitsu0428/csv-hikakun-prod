@@ -107,6 +107,7 @@ const StyledH3 = styled.h3`
 const StyledText = styled.p`
   font-size: 24px;
   color: #333333;
+  line-height: 1.25;
   margin-bottom: 1.5rem;
   @media screen and (max-width: 768px) {
     font-size: 16px;
