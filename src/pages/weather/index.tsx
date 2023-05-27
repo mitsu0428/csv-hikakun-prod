@@ -13,7 +13,7 @@ const IndexPage: React.FC = () => {
   useEffect(() => {
     const fetchWeather = async () => {
       try {
-        const apiUrl = `http://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&lang=ja&units=metric`;
+        const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&lang=ja&units=metric`;
         const response = await axios.get(apiUrl);
         const weatherData = response.data.list;
 
