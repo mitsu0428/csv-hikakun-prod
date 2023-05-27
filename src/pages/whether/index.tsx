@@ -2,20 +2,6 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
 
-const WeatherContainer = styled.div`
-  max-width: 400px;
-  margin: 0 auto;
-  text-align: center;
-`;
-
-const WeatherInfo = styled.div`
-  margin-top: 20px;
-`;
-
-const WeatherDescription = styled.p`
-  font-size: 18px;
-`;
-
 const IndexPage: React.FC = () => {
   const [todayWeather, setTodayWeather] = useState<any>(null);
   const [tomorrowWeather, setTomorrowWeather] = useState<any>(null);
@@ -63,40 +49,94 @@ const IndexPage: React.FC = () => {
   }, []);
 
   return (
-    <WeatherContainer>
+    <BasicContainer>
       <h1>Weather Information</h1>
 
       {todayWeather ? (
         <>
-          <h2>Weather Today</h2>
-          <WeatherInfo>
-            <p>City: {city}</p>
-            <p>Temperature: {todayWeather.main?.temp}°C</p>
-            <WeatherDescription>
+          <BasicSubTitle>Weather Today</BasicSubTitle>
+          <BasicSubContainer>
+            <BasicText>City: {city}</BasicText>
+            <BasicText>Temperature: {todayWeather.main?.temp}°C</BasicText>
+            <BasicText>
               Description: {todayWeather.weather[0]?.description}
-            </WeatherDescription>
-          </WeatherInfo>
+            </BasicText>
+          </BasicSubContainer>
         </>
       ) : (
-        <p>Loading weather... [today]</p>
+        <BasicText>Loading weather... [today]</BasicText>
       )}
 
       {tomorrowWeather ? (
         <>
-          <h2>Weather Tomorrow</h2>
-          <WeatherInfo>
-            <p>City: {city}</p>
-            <p>Temperature: {tomorrowWeather.main?.temp}°C</p>
-            <WeatherDescription>
+          <BasicSubTitle>Weather Tomorrow</BasicSubTitle>
+          <BasicSubContainer>
+            <BasicText>City: {city}</BasicText>
+            <BasicText>Temperature: {tomorrowWeather.main?.temp}°C</BasicText>
+            <BasicText>
               Description: {tomorrowWeather.weather[0]?.description}
-            </WeatherDescription>
-          </WeatherInfo>
+            </BasicText>
+          </BasicSubContainer>
         </>
       ) : (
-        <p>Loading weather... [tomorrow]</p>
+        <BasicText>Loading weather... [tomorrow]</BasicText>
       )}
-    </WeatherContainer>
+    </BasicContainer>
   );
 };
 
 export default IndexPage;
+
+const BasicContainer = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px;
+  margin-top: 1rem; /* Update: Add box-shadow and background-color */
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+`;
+
+const BasicSubContainer = styled.div`
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem; /* Update: Add border and padding */
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 2rem;
+`;
+
+const BasicSubTitle = styled.h2`
+  position: relative;
+  padding: 0.5rem 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #eea9a9;
+  margin-bottom: 1.5rem;
+
+  :after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    max-width: 600px;
+    height: 10px;
+    content: "";
+    background-image: repeating-linear-gradient(
+      -45deg,
+      #333333,
+      #333333 1px,
+      transparent 2px,
+      transparent 5px
+    );
+    background-size: 7px 7px;
+    transform: translateY(2px);
+  }
+`;
+
+const BasicText = styled.span`
+  font-size: 1rem;
+  line-height: 1.5;
+`;
