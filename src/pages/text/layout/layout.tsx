@@ -31,14 +31,16 @@ const HeaderNav = styled.header`
 const HeaderMenuLink = styled.a`
   margin: 0 1rem;
   text-decoration: none;
+  font-size: 14px;
+
   &:hover {
     text-decoration: underline;
   }
-  font-size: 16px;
+
   @media screen and (max-width: 768px) {
-    font-size: 14px;
+    font-size: 12px;
   }
   @media screen and (max-width: 480px) {
-    font-size: 12px;
+    font-size: 10px;
   }
 `;
