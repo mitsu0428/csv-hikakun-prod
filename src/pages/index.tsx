@@ -34,6 +34,11 @@ export default function Home() {
         </BasicText>
         <BasicText>
           <BasicButton>
+            <Link href={"/whether"}>天気比較ツール</Link>
+          </BasicButton>
+        </BasicText>
+        <BasicText>
+          <BasicButton>
             <Link href={"/mail"}>機能追加のお問い合わせ</Link>
           </BasicButton>
         </BasicText>
