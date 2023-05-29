@@ -24,42 +24,42 @@ const RichAirticleContent = ({ contents }: { contents: any }) => {
             | undefined;
           tagName: string;
         }) => {
-          if (data.tagName === "h1") {
+          if (data.tagName === "H1") {
             return (
               <StyledTitle key={data.id} id={data.id + "h1"}>
                 {data.text}
               </StyledTitle>
             );
           }
-          if (data.tagName === "h2") {
+          if (data.tagName === "H2") {
             return (
               <StyledH2 key={data.id} id={data.id + "h2"}>
                 {data.text}
               </StyledH2>
             );
           }
-          if (data.tagName === "h3") {
+          if (data.tagName === "H3") {
             return (
               <StyledH3 key={data.id} id={data.id + "h3"}>
                 {data.text}
               </StyledH3>
             );
           }
-          if (data.tagName === "p") {
+          if (data.tagName === "P") {
             return (
               <StyledText key={data.id} id={data.id + "p"}>
                 {data.text}
               </StyledText>
             );
           }
-          if (data.tagName === "ul") {
+          if (data.tagName === "UL") {
             return (
               <ul key={data.id} id={data.id + "ul"}>
                 {data.text}
               </ul>
             );
           }
-          if (data.tagName === "li") {
+          if (data.tagName === "LI") {
             return (
               <li key={data.id} id={data.id + "li"}>
                 {data.text}
