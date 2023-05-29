@@ -48,7 +48,19 @@ async function generateSitemapXml() {
     <loc>https://hikakuchan.jp/text/mail</loc>
     <priority>0.8</priority>
   </url>
-  
+  <url>
+    <loc>https://hikakuchan.jp/weather</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hikakuchan.jp/weather/about</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hikakuchan.jp/weather/mail</loc>
+    <priority>0.8</priority>
+  </url>
+
   </urlset>
     `;
   return xml;
