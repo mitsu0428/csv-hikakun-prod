@@ -81,6 +81,8 @@ const BasicContainer = styled.div`
 const BasicSubContainer = styled.div`
   width: 100%;
   max-width: 1200px;
+  display: flex;
+  flex-direction: column;
   margin: 0 auto;
   padding: 0 2rem;
 `;
