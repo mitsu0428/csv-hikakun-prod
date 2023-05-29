@@ -46,7 +46,7 @@ export default class CustomDocument extends Document {
             async
             src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2936938077561359"
             crossOrigin="anonymous"
-          ></script>
+          />
           <script src="https://unpkg.com/microcms-js-sdk@latest/dist/umd/microcms-js-sdk.js"></script>
         </Head>
         <body>
