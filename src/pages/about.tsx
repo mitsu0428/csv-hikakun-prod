@@ -89,20 +89,33 @@ const BasicSubContainer = styled.div`
 
 const BasicSubTitle = styled.h2`
   position: relative;
-  margin-top: 2rem;
-  margin-bottom: 1.5rem;
-  padding: 0.5rem 0;
-  font-size: 2rem;
-  font-weight: bold;
+  padding: 1.5rem 1rem;
 
-  ::before {
-    content: "";
+  :after {
     position: absolute;
-    bottom: -1px;
+    bottom: 0;
     left: 0;
-    width: 4rem;
-    height: 4px;
-    background: linear-gradient(to right, #111, #ccc);
+    width: 100%;
+    max-width: 600px;
+    height: 10px;
+    content: "";
+    background-image: -webkit-repeating-linear-gradient(
+      135deg,
+      #000,
+      #000 1px,
+      transparent 2px,
+      transparent 5px
+    );
+    background-image: repeating-linear-gradient(
+      -45deg,
+      #000,
+      #000 1px,
+      transparent 2px,
+      transparent 5px
+    );
+    background-size: 7px 7px;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
   }
 `;
 
