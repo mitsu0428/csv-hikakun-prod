@@ -34,3 +34,7 @@ https://zenn.dev/taichifukumoto/articles/how-to-use-react-icons
 ## デザインルール
 
 - margin-top: 1rem;
+
+## 参考資料
+- フリーアイコンここ
+- https://www.silhouette-illust.com
