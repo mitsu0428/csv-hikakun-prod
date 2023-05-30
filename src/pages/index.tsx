@@ -13,7 +13,7 @@ export default function Home() {
         <BasicSubTitle>比較ちゃん [hikakuchan]</BasicSubTitle>
         <BasicText>「なんか比較したいなぁ」は全部このサイトへ。</BasicText>
       </BasicSubContainer>
-　　　　<BasicSubContainer>
+      <BasicSubContainer>
         <BasicText>具体的なツール例</BasicText>
         <BasicText>・CSVファイル同士を比較する</BasicText>
         <BasicText>・Excelファイル同士を比較する</BasicText>
