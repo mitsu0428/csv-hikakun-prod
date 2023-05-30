@@ -3,6 +3,7 @@ import Link from "next/link";
 import styled from "styled-components";
 import Logo from "./components/elements/Logo";
 import SeoSettings from "./components/utils/SeoSettings";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -24,21 +25,25 @@ export default function Home() {
       </BasicSubContainer>
       <BasicSubContainer>
         <BasicText>
+          <Image src="/product-image/CSV.JPG" width={50} height={50} />
           <BasicButton>
             <Link href={"/csv"}>CSVファイル比較ツール</Link>
           </BasicButton>
         </BasicText>
         <BasicText>
+          <Image src="/product-image/EXCEL.JPG" width={50} height={50} />
           <BasicButton>
             <Link href={"/excel"}>Excelファイル比較ツール [Not released]</Link>
           </BasicButton>
         </BasicText>
         <BasicText>
+          <Image src="/product-image/TEXT.JPG" width={50} height={50} />
           <BasicButton>
             <Link href={"/text"}>Text比較ツール</Link>
           </BasicButton>
         </BasicText>
         <BasicText>
+          <Image src="/product-image/WEATHER.JPG" width={50} height={50} />
           <BasicButton>
             <Link href={"/weather"}>天気比較ツール</Link>
           </BasicButton>
