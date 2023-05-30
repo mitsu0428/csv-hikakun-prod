@@ -9,9 +9,11 @@ export default function Home() {
     <BasicContainer>
       <Logo isTopPage={true} />
       <SeoSettings />
-      <BasicSubTitle>比較ちゃん [hikakuchan]</BasicSubTitle>
-      <BasicText>「なんか比較したいなぁ」は全部このサイトへ。</BasicText>
       <BasicSubContainer>
+        <BasicSubTitle>比較ちゃん [hikakuchan]</BasicSubTitle>
+        <BasicText>「なんか比較したいなぁ」は全部このサイトへ。</BasicText>
+      <BasicSubContainer />
+　　　　<BasicSubContainer>
         <BasicText>具体的なツール例</BasicText>
         <BasicText>・CSVファイル同士を比較する</BasicText>
         <BasicText>・Excelファイル同士を比較する</BasicText>
@@ -105,6 +107,7 @@ const BasicSubTitle = styled.h2`
 const BasicText = styled.p`
   font-size: 16px;
   color: #333132;
+  margin-left: 8px;
 
   @media screen and (max-width: 768px) {
     font-size: 14px;
