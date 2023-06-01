@@ -26,6 +26,14 @@ const About = () => {
           </BasicButton>
         </BasicText>
       </BasicSubContainer>
+      <BasicSubContainer>
+        <BasicSubTitle>【今日の天気 01】</BasicSubTitle>
+        <BasicText>今日の天気の情報が表示されます。</BasicText>
+      </BasicSubContainer>
+      <BasicSubContainer>
+        <BasicSubTitle>【明日の天気 02】</BasicSubTitle>
+        <BasicText>明日の天気の情報が表示されます。</BasicText>
+      </BasicSubContainer>
     </BasicContainer>
   );
 };

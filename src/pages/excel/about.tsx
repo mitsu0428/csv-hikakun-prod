@@ -26,6 +26,42 @@ const About = () => {
           </BasicButton>
         </BasicText>
       </BasicSubContainer>
+      <BasicSubContainer>
+        <BasicSubTitle>【比較したいExcelファイルを準備 01】</BasicSubTitle>
+        <BasicText>
+          一つ目のファイルは、マスターになるExcelファイルを準備します。
+        </BasicText>
+      </BasicSubContainer>
+      <BasicSubContainer>
+        <BasicSubTitle>【比較したいファイルを準備 02】</BasicSubTitle>
+        <BasicText>
+          二つ目のファイルには、比較したいExcelファイルを準備します。
+        </BasicText>
+      </BasicSubContainer>
+      <BasicSubContainer>
+        <BasicSubTitle>【Excelファイルを操作する 01】</BasicSubTitle>
+        <BasicText>
+          オリジナルデータを選択にマスターとなるExcelファイルを選択してデータを読み込みます。
+        </BasicText>
+      </BasicSubContainer>
+      <BasicSubContainer>
+        <BasicSubTitle>【Excelファイルを操作する 02】</BasicSubTitle>
+        <BasicText>
+          比較したいデータを選択に比較したいExcelファイルを選択してデータを読み込みます。
+        </BasicText>
+      </BasicSubContainer>
+      <BasicSubContainer>
+        <BasicSubTitle>【結果を確認する 01】</BasicSubTitle>
+        <BasicText>
+          Excelファイルを比較し、結果を確認したい場合は「Excelを比較した結果をみる」ボタンを押下することで確認ができます。
+        </BasicText>
+      </BasicSubContainer>
+      <BasicSubContainer>
+        <BasicSubTitle>【結果を確認する 02】</BasicSubTitle>
+        <BasicText>
+          Excelファイルを比較し、結果をダウンロードしたい場合は「Excelをダウンロードする」ボタンを押下することで取得することができます。
+        </BasicText>
+      </BasicSubContainer>
     </BasicContainer>
   );
 };

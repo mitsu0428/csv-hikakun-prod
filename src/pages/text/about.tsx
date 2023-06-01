@@ -28,6 +28,20 @@ const About = () => {
           </BasicButton>
         </BasicText>
       </BasicSubContainer>
+      <BasicSubContainer>
+        <BasicSubTitle>【比較したいテキストを準備 01】</BasicSubTitle>
+        <BasicText>マスターになるテキストを準備します。</BasicText>
+      </BasicSubContainer>
+      <BasicSubContainer>
+        <BasicSubTitle>【比較したいテキストを準備 02】</BasicSubTitle>
+        <BasicText>比較したいテキストを準備します。</BasicText>
+      </BasicSubContainer>
+      <BasicSubContainer>
+        <BasicSubTitle>【結果を確認する 01】</BasicSubTitle>
+        <BasicText>
+          テキストを比較し、結果を確認したい場合は「比較する」ボタンを押下することで確認ができます。
+        </BasicText>
+      </BasicSubContainer>
     </BasicContainer>
   );
 };
