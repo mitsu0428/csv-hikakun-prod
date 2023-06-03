@@ -7,11 +7,21 @@ import SeoSettings from "../components/utils/SeoSettings";
 const IndexPage: React.FC = () => {
   const [todayWeather, setTodayWeather] = useState<any>(null);
   const [tomorrowWeather, setTomorrowWeather] = useState<any>(null);
+  const [today, setToday] = useState<any>(null);
+  const [tomorrow, setTomorrow] = useState<any>(null);
+
   const city = "Tokyo"; // 取得する都市名
-  const apiKey = process.env.NEXT_PUBLIC_WEATHER_API_KEY || "";
+  const apiKey =
+    process.env.NEXT_PUBLIC_WEATHER_API_KEY ||
+    "9624dd5751a4d41b77bc8d4a92d93cd1";
 
   useEffect(() => {
     const fetchWeather = async () => {
+      setToday(new Date().toLocaleDateString("ja-JP"));
+
+      const tomorrow = new Date();
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      setTomorrow(tomorrow.toLocaleDateString("ja-JP"));
       try {
         // ローカルストレージから天気データを取得
         const storedWeatherData = localStorage.getItem("weatherData");
@@ -28,6 +38,7 @@ const IndexPage: React.FC = () => {
           const today = new Date();
           const todayWeather = weatherData.find((data: any) => {
             const dataDate = new Date(data.dt_txt);
+
             return (
               dataDate.getFullYear() === today.getFullYear() &&
               dataDate.getMonth() === today.getMonth() &&
@@ -40,6 +51,7 @@ const IndexPage: React.FC = () => {
           tomorrow.setDate(today.getDate() + 1);
           const tomorrowWeather = weatherData.find((data: any) => {
             const dataDate = new Date(data.dt_txt);
+
             return (
               dataDate.getFullYear() === tomorrow.getFullYear() &&
               dataDate.getMonth() === tomorrow.getMonth() &&
@@ -85,11 +97,10 @@ const IndexPage: React.FC = () => {
         <>
           <BasicSubTitle>Weather Today</BasicSubTitle>
           <BasicSubContainer>
-            <BasicText>City: {city}</BasicText>
-            <BasicText>Temperature: {todayWeather.main?.temp}°C</BasicText>
-            <BasicText>
-              Description: {todayWeather.weather[0]?.description}
-            </BasicText>
+            <BasicText>今日の日付 {today}</BasicText>
+            <BasicText>エリア: {city}</BasicText>
+            <BasicText>気温: {todayWeather.main?.temp}°C</BasicText>
+            <BasicText>説明: {todayWeather.weather[0]?.description}</BasicText>
           </BasicSubContainer>
         </>
       ) : (
@@ -100,10 +111,11 @@ const IndexPage: React.FC = () => {
         <>
           <BasicSubTitle>Weather Tomorrow</BasicSubTitle>
           <BasicSubContainer>
-            <BasicText>City: {city}</BasicText>
-            <BasicText>Temperature: {tomorrowWeather.main?.temp}°C</BasicText>
+            <BasicText>明日の日付 {tomorrow}</BasicText>
+            <BasicText>エリア: {city}</BasicText>
+            <BasicText>気温: {tomorrowWeather.main?.temp}°C</BasicText>
             <BasicText>
-              Description: {tomorrowWeather.weather[0]?.description}
+              説明: {tomorrowWeather.weather[0]?.description}
             </BasicText>
           </BasicSubContainer>
         </>
