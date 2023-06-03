@@ -1,32 +1,40 @@
 import React from "react";
 import styled from "styled-components";
-import { useCSVDownloader } from "react-papaparse";
+import { writeXLSX } from "xlsx";
 
-type CsvDownloadComponentsProps = {
+type Props = {
   filenameprefix: string;
   data: any;
 };
 
-//CSVダウンロード関数呼び出されるときに、パラメータとしてファイル名prefix、ボタン名、JSONデータをもらう
-const CsvDownloadComponents = (props: CsvDownloadComponentsProps) => {
-  const { CSVDownloader, Type } = useCSVDownloader();
+const DownLoader = (props: Props) => {
   const filename = props.filenameprefix;
+  const records = props.data;
 
   return (
     <ExpandCsvDownloader>
-      <CSVDownloader
-        data={props.data}
-        filename={filename}
-        bom={true}
-        type={Type.Button}
+      <button
+        onClick={() => {
+          writeXLSX(
+            {
+              SheetNames: ["Sheet1"],
+              Sheets: {
+                Sheet1: {
+                  ...records,
+                },
+              },
+            },
+            { bookType: "xlsx", bookSST: false, type: "binary" }
+          );
+        }}
       >
         比較結果をダウンロード
-      </CSVDownloader>
+      </button>
     </ExpandCsvDownloader>
   );
 };
 
-export default CsvDownloadComponents;
+export default DownLoader;
 
 const ExpandCsvDownloader = styled.span`
   width: 100%;
