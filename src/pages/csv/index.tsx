@@ -328,42 +328,18 @@ const BasicCard = styled.div`
 const BasicSubTitle = styled.h2`
   position: relative;
   padding: 1.5rem 1rem;
-
-  :after {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    max-width: 600px;
-    height: 10px;
-    content: "";
-    background-image: -webkit-repeating-linear-gradient(
-      135deg,
-      #000,
-      #000 1px,
-      transparent 2px,
-      transparent 5px
-    );
-    background-image: repeating-linear-gradient(
-      -45deg,
-      #000,
-      #000 1px,
-      transparent 2px,
-      transparent 5px
-    );
-    background-size: 7px 7px;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-  }
+  color: #000;
 `;
 
 const BasicText = styled.span`
   font-size: 1rem;
   line-height: 1.5;
+  color: #000;
 `;
 
 const ExtraText = styled.span`
   font-weight: bold;
+  color: #000;
 `;
 
 const BasicButton = styled.div`
@@ -376,7 +352,6 @@ const BasicButton = styled.div`
   height: 3rem;
   margin-top: 2rem;
   text-decoration: none;
-  color: #ffffff;
   background-color: #eea9a9;
   border: none;
   border-radius: 8px;
@@ -396,6 +371,7 @@ const BasicInputField = styled.input`
   margin-top: 0.5rem;
   resize: vertical;
   font-size: 1rem;
+  color: #000;
 `;
 
 const BasicFooter = styled.footer`

@@ -57,42 +57,18 @@ const BasicSubContainer = styled.div`
 const BasicSubTitle = styled.h2`
   position: relative;
   padding: 1.5rem 1rem;
-
-  :after {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    max-width: 600px;
-    height: 10px;
-    content: "";
-    background-image: -webkit-repeating-linear-gradient(
-      135deg,
-      #000,
-      #000 1px,
-      transparent 2px,
-      transparent 5px
-    );
-    background-image: repeating-linear-gradient(
-      -45deg,
-      #000,
-      #000 1px,
-      transparent 2px,
-      transparent 5px
-    );
-    background-size: 7px 7px;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-  }
+  color: #000;
 `;
 
 const ChildTitle = styled.h3`
   position: relative;
   font-size: 16px;
+  color: #000;
 `;
 
 const BasicText = styled.p`
   font-size: 16px;
+  color: #000;
 
   @media screen and (max-width: 768px) {
     font-size: 14px;

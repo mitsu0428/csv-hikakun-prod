@@ -81,22 +81,13 @@ const Subtitle = styled.h2`
   border-radius: 8px;
   background: #eea9a9;
   box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.2);
-  :after {
-    position: absolute;
-    bottom: -9px;
-    left: 16px;
-    width: 0;
-    height: 0;
-    border-width: 10px 10px 0 10px;
-    border-style: solid;
-    border-color: #fe6b8b transparent transparent transparent;
-  }
 `;
 
 const BoldText = styled.h3`
   font-size: 16px;
   font-weight: bold;
   margin-left: 24px;
+  color: #000;
   @media screen and (max-width: 768px) {
     margin-left: 22px;
     font-size: 14px;
@@ -110,6 +101,7 @@ const BoldText = styled.h3`
 const StyledText = styled.p`
   font-size: 16px;
   margin-left: 24px;
+  color: #000;
   @media screen and (max-width: 768px) {
     margin-left: 22px;
     font-size: 14px;

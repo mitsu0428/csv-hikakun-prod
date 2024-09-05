@@ -27,23 +27,19 @@ export default function Home() {
       </BasicSubContainer>
       <ButtonContainer>
         <ButtonItem>
-          <Image src="/product-image/CSV.JPG" width={50} height={50} />
           <StyledButton>
+            <Image src="/product-image/CSV.JPG" width={50} height={50} />
             <Link href={"/csv"}>CSVファイル比較ツール</Link>
           </StyledButton>
         </ButtonItem>
+
         <ButtonItem>
-          <Image src="/product-image/EXCEL.JPG" width={50} height={50} />
           <StyledButton>
-            <Link href={"/excel"}>Excelファイル比較ツール [Not released]</Link>
-          </StyledButton>
-        </ButtonItem>
-        <ButtonItem>
-          <Image src="/product-image/TEXT.JPG" width={50} height={50} />
-          <StyledButton>
+            <Image src="/product-image/TEXT.JPG" width={50} height={50} />
             <Link href={"/text"}>Text比較ツール</Link>
           </StyledButton>
         </ButtonItem>
+
         <ButtonItem>
           <StyledButton>
             <Link href={"/mail"}>機能追加のお問い合わせ</Link>
@@ -111,12 +107,9 @@ const ButtonContainer = styled.div`
 
 const ButtonItem = styled.div`
   width: 100%;
-  height: 33vh;
+  height: 100px;
   margin-top: 36px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+  border-radius: 8px;
 `;
 
 const StyledButton = styled.div`
@@ -128,10 +121,9 @@ const StyledButton = styled.div`
   font-size: 2rem;
   font-weight: bold;
   text-decoration: none;
-  color: #fff;
-  background-color: #c3d941;
-  transition: 0.2s;
+  background-color: #909090;
   text-align: center;
+  border-radius: 8px;
 
   &:hover {
     background-color: #d3e173;

@@ -138,63 +138,21 @@ const BasicSubContainer = styled.div`
   padding: 2rem;
 `;
 
-const BasicSubContainerComponent = styled.div`
-  ${BasicContainer}
-  display: flex;
-  flex-direction: row;
-`;
-
-const BasicCard = styled.div`
-  ${BasicContainer} display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  border-radius: 8px;
-  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
-  background-color: #ffffff; /* Update: Add margin and padding */
-  margin: 2rem 0;
-  padding: 2rem;
-`;
-
 const BasicSubTitle = styled.h2`
   position: relative;
   padding: 1.5rem 1rem;
-
-  :after {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    max-width: 600px;
-    height: 10px;
-    content: "";
-    background-image: -webkit-repeating-linear-gradient(
-      135deg,
-      #000,
-      #000 1px,
-      transparent 2px,
-      transparent 5px
-    );
-    background-image: repeating-linear-gradient(
-      -45deg,
-      #000,
-      #000 1px,
-      transparent 2px,
-      transparent 5px
-    );
-    background-size: 7px 7px;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-  }
+  color: #000;
 `;
 
 const BasicText = styled.span`
   font-size: 1rem;
   line-height: 1.5;
+  color: #000;
 `;
 
 const ExtraText = styled.span`
   font-weight: bold;
+  color: #000;
 `;
 
 const BasicButton = styled.div`
@@ -207,7 +165,7 @@ const BasicButton = styled.div`
   height: 3rem;
   margin-top: 2rem;
   text-decoration: none;
-  color: #ffffff;
+  color: #fff;
   background-color: #eea9a9;
   border: none;
   border-radius: 8px;
