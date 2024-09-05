@@ -32,6 +32,7 @@ const HeaderNav = styled.header`
   padding: 16px;
   background-color: #fff;
   box-sizing: border-box;
+  cursor: pointer;
 `;
 
 const HeaderMenuLink = styled.a`

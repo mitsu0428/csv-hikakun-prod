@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import type { NextPage } from "next";
-import SeoSettings from "../components/utils/SeoSettings";
+import SeoSettings from "../components/SeoSettings";
 import Logo from "../components/elements/Logo";
 import BasicTitle from "../components/elements/BasicTitle";
 import HeaderCsv from "./layout/layout";

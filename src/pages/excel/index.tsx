@@ -1,7 +1,7 @@
 import React, { ChangeEvent } from "react";
 import Link from "next/link";
 import styled from "styled-components";
-import SeoSettings from "../components/utils/SeoSettings";
+import SeoSettings from "../components/SeoSettings";
 import HeaderExcel from "./layout/layout";
 import Logo from "../components/elements/Logo";
 import BasicTitle from "../components/elements/BasicTitle";

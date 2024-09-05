@@ -3,7 +3,7 @@ import Link from "next/link";
 import styled from "styled-components";
 import router from "next/router";
 import { useToast } from "../../hooks/useToast";
-import SeoSettings from "../components/utils/SeoSettings";
+import SeoSettings from "../components/SeoSettings";
 
 export default function Mail() {
   const [currentValues, setCurentValues] = React.useState({

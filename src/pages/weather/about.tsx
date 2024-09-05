@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import styled from "styled-components";
-import SeoSettings from "../components/utils/SeoSettings";
+import SeoSettings from "../components/SeoSettings";
 
 const About = () => {
   return (

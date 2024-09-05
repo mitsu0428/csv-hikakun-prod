@@ -18,9 +18,10 @@ const SeoSettings = ({
   pageImgWidth,
   pageImgHeight,
 }: Partial<MetaData>) => {
-  const defaultTitle = "比較ちゃん";
+  const defaultTitle =
+    "比較ちゃん | チェッカー | 何かを比較して差分を抽出する。";
   const defaultDescription =
-    "csvファイルやExcelファイル、Textファイルを比較するツールです。";
+    "CSVファイルやテキストファイルを比較して差分を抽出するツールです。";
 
   const title = pageTitle ? `${pageTitle} | ${defaultTitle}` : defaultTitle;
   const description = pageDescription ? pageDescription : defaultDescription;

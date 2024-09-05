@@ -6,7 +6,7 @@ import { readString } from "react-papaparse";
 import HowToUseDescription from "../components/business/HowToUseDescription";
 import QuestionAnsewer from "../components/business/QuestionAnsewer";
 import CsvDownloadComponents from "../components/libs/CsvDownloader";
-import SeoSettings from "../components/utils/SeoSettings";
+import SeoSettings from "../components/SeoSettings";
 import Logo from "../components/elements/Logo";
 import BasicTitle from "../components/elements/BasicTitle";
 import UpdateInformation from "../components/business/UpdateInformation";
@@ -132,9 +132,11 @@ const Home: NextPage = () => {
   return (
     <BasicContainer>
       <SeoSettings
-        pageTitle={"CSVファイル比較ツール"}
+        pageTitle={
+          "CSV比較ちゃん | CSVチェッカー | CSVを比較して差分を抽出する。"
+        }
         pageDescription={
-          "CSVファイル比較ツールでは、簡単に2つのファイルを比較することができます。"
+          "CSVファイル比較ツールでは、簡単に2つのファイルを比較し、差分を抽出することができます。"
         }
         pagePath={"https://hikakuchan.jp/csv"}
         pageImg={"https://hikakuchan.jp/csv"}

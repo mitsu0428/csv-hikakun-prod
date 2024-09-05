@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import HeaderWeather from "./layout/layout";
-import SeoSettings from "../components/utils/SeoSettings";
+import SeoSettings from "../components/SeoSettings";
 
 const IndexPage: React.FC = () => {
   const [todayWeather, setTodayWeather] = useState<any>(null);

@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import styled from "styled-components";
 import Logo from "./components/elements/Logo";
-import SeoSettings from "./components/utils/SeoSettings";
+import SeoSettings from "./components/SeoSettings";
 import Image from "next/image";
 
 export default function Home() {
