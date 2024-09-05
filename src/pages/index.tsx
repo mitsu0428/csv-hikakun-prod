@@ -63,7 +63,6 @@ const BasicSubContainer = styled.div`
 
 const BasicSubTitle = styled.h2`
   position: relative;
-  padding: 16px;
   font-size: 32px;
   color: #fff;
 
