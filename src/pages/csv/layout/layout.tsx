@@ -23,8 +23,8 @@ const HeaderNav = styled.header`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 4rem;
-  background-color: #fff;
+  height: 70px;
+  background-color: #808080;
   border-radius: 8px;
   box-sizing: border-box;
   cursor: pointer;

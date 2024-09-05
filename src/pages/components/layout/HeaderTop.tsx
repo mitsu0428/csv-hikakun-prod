@@ -28,9 +28,9 @@ const HeaderNav = styled.header`
   width: 100%;
   display: flex;
   align-items: center;
-  height: 4rem;
+  height: 70px;
   padding: 16px;
-  background-color: #fff;
+  background-color: #808080;
   box-sizing: border-box;
   cursor: pointer;
 `;
