@@ -12,14 +12,16 @@ export default function Home() {
       <SeoSettings />
       <BasicSubContainer>
         <BasicSubTitle>比較ちゃん [hikakuchan]</BasicSubTitle>
-        <BasicText>「なんか比較したいなぁ」は全部このサイトへ。</BasicText>
+        <BoldBasicText>
+          「なんか比較したいなぁ」は全部このサイトへ。
+        </BoldBasicText>
       </BasicSubContainer>
       <BasicSubContainer>
-        <BasicText>具体的なツール例</BasicText>
-        <BasicText>・CSVファイル同士を比較する</BasicText>
-        <BasicText>・Excelファイル同士を比較する</BasicText>
-        <BasicText>・Textファイルや文章同士を比較する</BasicText>
-        <BasicText>・今日の天気と明日の天気を比較する</BasicText>
+        <BoldBasicText>具体的なツール例</BoldBasicText>
+        <BasicText>CSVファイル同士を比較する</BasicText>
+        <BasicText>Excelファイル同士を比較する</BasicText>
+        <BasicText>Textファイルや文章同士を比較する</BasicText>
+        <BasicText>今日の天気と明日の天気を比較する</BasicText>
         <BasicText>など</BasicText>
         <BasicText>様々なものを簡単に比較できます。</BasicText>
       </BasicSubContainer>
@@ -83,6 +85,20 @@ const BasicSubTitle = styled.h2`
 const BasicText = styled.p`
   font-size: 16px;
   color: #333132;
+  margin-left: 8px;
+
+  @media screen and (max-width: 768px) {
+    font-size: 14px;
+  }
+  @media screen and (max-width: 480px) {
+    font-size: 12px;
+  }
+`;
+
+const BoldBasicText = styled.p`
+  font-size: 16px;
+  color: #333132;
+  font-weight: bold;
   margin-left: 8px;
 
   @media screen and (max-width: 768px) {
