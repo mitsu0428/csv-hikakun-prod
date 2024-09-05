@@ -26,6 +26,7 @@ const HeaderNav = styled.header`
   height: 4rem;
   background-color: #fff;
   box-sizing: border-box;
+  cursor: pointer;
 `;
 
 const HeaderMenuLink = styled.a`
