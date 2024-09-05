@@ -45,12 +45,6 @@ export default function Home() {
           </StyledButton>
         </ButtonItem>
         <ButtonItem>
-          <Image src="/product-image/WEATHER.JPG" width={50} height={50} />
-          <StyledButton>
-            <Link href={"/weather"}>天気比較ツール</Link>
-          </StyledButton>
-        </ButtonItem>
-        <ButtonItem>
           <StyledButton>
             <Link href={"/mail"}>機能追加のお問い合わせ</Link>
           </StyledButton>
@@ -75,7 +69,7 @@ const BasicSubTitle = styled.h2`
   position: relative;
   padding: 16px;
   font-size: 32px;
-  color: #333132;
+  color: #fff;
 
   @media screen and (max-width: 768px) {
     font-size: 24px;
@@ -84,7 +78,7 @@ const BasicSubTitle = styled.h2`
 
 const BasicText = styled.p`
   font-size: 16px;
-  color: #333132;
+  color: #fff;
   margin-left: 8px;
 
   @media screen and (max-width: 768px) {
@@ -97,7 +91,7 @@ const BasicText = styled.p`
 
 const BoldBasicText = styled.p`
   font-size: 16px;
-  color: #333132;
+  color: #fff;
   font-weight: bold;
   margin-left: 8px;
 
