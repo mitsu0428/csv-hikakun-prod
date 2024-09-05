@@ -27,6 +27,7 @@ const HeaderNav = styled.header`
   background-color: #808080;
   box-sizing: border-box;
   cursor: pointer;
+  border-radius: 8px;
 `;
 
 const HeaderMenuLink = styled.a`
