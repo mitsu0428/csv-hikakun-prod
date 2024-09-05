@@ -23,37 +23,37 @@ export default function Home() {
         <BasicText>など</BasicText>
         <BasicText>様々なものを簡単に比較できます。</BasicText>
       </BasicSubContainer>
-      <BasicSubContainer>
-        <BasicText>
+      <ButtonContainer>
+        <ButtonItem>
           <Image src="/product-image/CSV.JPG" width={50} height={50} />
-          <BasicButton>
+          <StyledButton>
             <Link href={"/csv"}>CSVファイル比較ツール</Link>
-          </BasicButton>
-        </BasicText>
-        <BasicText>
+          </StyledButton>
+        </ButtonItem>
+        <ButtonItem>
           <Image src="/product-image/EXCEL.JPG" width={50} height={50} />
-          <BasicButton>
+          <StyledButton>
             <Link href={"/excel"}>Excelファイル比較ツール [Not released]</Link>
-          </BasicButton>
-        </BasicText>
-        <BasicText>
+          </StyledButton>
+        </ButtonItem>
+        <ButtonItem>
           <Image src="/product-image/TEXT.JPG" width={50} height={50} />
-          <BasicButton>
+          <StyledButton>
             <Link href={"/text"}>Text比較ツール</Link>
-          </BasicButton>
-        </BasicText>
-        <BasicText>
+          </StyledButton>
+        </ButtonItem>
+        <ButtonItem>
           <Image src="/product-image/WEATHER.JPG" width={50} height={50} />
-          <BasicButton>
+          <StyledButton>
             <Link href={"/weather"}>天気比較ツール</Link>
-          </BasicButton>
-        </BasicText>
-        <BasicText>
-          <BasicButton>
+          </StyledButton>
+        </ButtonItem>
+        <ButtonItem>
+          <StyledButton>
             <Link href={"/mail"}>機能追加のお問い合わせ</Link>
-          </BasicButton>
-        </BasicText>
-      </BasicSubContainer>
+          </StyledButton>
+        </ButtonItem>
+      </ButtonContainer>
     </BasicContainer>
   );
 }
@@ -66,8 +66,6 @@ const BasicContainer = styled.div`
 
 const BasicSubContainer = styled.div`
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
   padding: 16px;
 `;
 
@@ -76,33 +74,6 @@ const BasicSubTitle = styled.h2`
   padding: 16px;
   font-size: 32px;
   color: #333132;
-
-  :after {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    max-width: 600px;
-    height: 10px;
-    content: "";
-    background-image: -webkit-repeating-linear-gradient(
-      135deg,
-      #000,
-      #000 1px,
-      transparent 2px,
-      transparent 5px
-    );
-    background-image: repeating-linear-gradient(
-      -45deg,
-      #000,
-      #000 1px,
-      transparent 2px,
-      transparent 5px
-    );
-    background-size: 7px 7px;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-  }
 
   @media screen and (max-width: 768px) {
     font-size: 24px;
@@ -122,23 +93,55 @@ const BasicText = styled.p`
   }
 `;
 
-const BasicButton = styled.button`
-  display: inline-block;
+const ButtonContainer = styled.div`
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  max-width: 350px;
-  height: 3rem;
-  margin: 0.5rem 0;
-  padding: 0 1.5rem;
-  font-size: 1rem;
+`;
+
+const ButtonItem = styled.div`
+  width: 100%;
+  height: 33vh;
+  margin-top: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+`;
+
+const StyledButton = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  font-size: 2rem;
   font-weight: bold;
   text-decoration: none;
   color: #fff;
   background-color: #c3d941;
-  border: none;
-  border-radius: 8px;
   transition: 0.2s;
+  text-align: center;
 
   &:hover {
     background-color: #d3e173;
+  }
+
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    text-decoration: none;
+  }
+
+  @media screen and (max-width: 768px) {
+    font-size: 1.5rem;
+  }
+
+  @media screen and (max-width: 480px) {
+    font-size: 1.2rem;
   }
 `;
