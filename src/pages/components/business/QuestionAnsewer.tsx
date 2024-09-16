@@ -79,7 +79,7 @@ const Subtitle = styled.h2`
   padding: 8px 16px 8px 16px;
   color: #fff;
   border-radius: 8px;
-  background: #eea9a9;
+  background: #909090;
   box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.2);
 `;
 
