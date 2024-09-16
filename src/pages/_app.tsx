@@ -4,9 +4,9 @@ import { AppProps } from "next/app";
 import { googleTagManagerId } from "../utils/gtm";
 import GoogleTagManager, {
   GoogleTagManagerId,
-} from "./components/utils/GoogleTagManager";
+} from "./components/GoogleTagManager";
 import { ToastProvider } from "./components/useToast";
-import HeaderTop from "./components/layout/HeaderTop";
+import HeaderTop from "./components/HeaderTop";
 
 const App = ({ Component, pageProps }: AppProps): JSX.Element => (
   <ToastProvider>
