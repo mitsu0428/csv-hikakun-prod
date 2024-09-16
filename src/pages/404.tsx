@@ -23,7 +23,7 @@ const BasicButton = styled.button`
   max-width: 350px;
   height: 2rem;
   color: #fff;
-  background: #c3d941;
+  background: #909090;
   border-radius: 8px;
   :hover {
     background: #d3e173;
