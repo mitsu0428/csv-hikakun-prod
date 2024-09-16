@@ -6,7 +6,7 @@ export default function HeaderTop() {
   return (
     <HeaderNav>
       <Link href="/">
-        <HeaderMenuLink>Top</HeaderMenuLink>
+        <HeaderMenuLink>トップ</HeaderMenuLink>
       </Link>
 
       <Link href="/about">

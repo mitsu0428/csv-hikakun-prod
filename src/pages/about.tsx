@@ -21,7 +21,7 @@ const About = () => {
         <BasicSubTitle>比較ちゃんの具体的な使い方</BasicSubTitle>
         <BasicText>
           <BasicButton>
-            <Link href={"/"}>Topに戻る</Link>
+            <Link href={"/"}>トップに戻る</Link>
           </BasicButton>
         </BasicText>
       </BasicSubContainer>
