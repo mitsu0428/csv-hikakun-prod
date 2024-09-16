@@ -34,17 +34,7 @@ const About = () => {
           </BasicButton>
         </BasicText>
       </BasicSubContainer>
-      <BasicSubContainer>
-        <BasicSubTitle>Excelファイルを比較する</BasicSubTitle>
-        <BasicText>
-          2つのExcelファイルを比較することができます。Excelファイルを比較する場合は、CSVファイルに変換してから比較してください。
-        </BasicText>
-        <BasicText>
-          <BasicButton>
-            <Link href={"/excel"}>Excelファイル比較ツール</Link>
-          </BasicButton>
-        </BasicText>
-      </BasicSubContainer>
+
       <BasicSubContainer>
         <BasicSubTitle>Textを比較する</BasicSubTitle>
         <BasicText>
@@ -53,15 +43,6 @@ const About = () => {
         <BasicText>
           <BasicButton>
             <Link href={"/text"}>Text比較ツール</Link>
-          </BasicButton>
-        </BasicText>
-      </BasicSubContainer>
-      <BasicSubContainer>
-        <BasicSubTitle>今日と明日の天気を比較する</BasicSubTitle>
-        <BasicText>今日と明日の天気を比較することができます。</BasicText>
-        <BasicText>
-          <BasicButton>
-            <Link href={"/weather"}>天気比較ツール</Link>
           </BasicButton>
         </BasicText>
       </BasicSubContainer>
