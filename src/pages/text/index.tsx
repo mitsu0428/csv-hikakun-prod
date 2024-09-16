@@ -48,7 +48,6 @@ const Home: NextPage = () => {
       />
       <HeaderCsv />
       <main id="main">
-        {/* ロゴ */}
         <Logo isTextPage={true} />
 
         <BasicSubContainer>

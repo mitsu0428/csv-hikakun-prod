@@ -145,7 +145,6 @@ const Home: NextPage = () => {
       />
       <HeaderCsv />
       <main id="main">
-        {/* ロゴ */}
         <Logo isCsvPage={true} />
 
         <BasicSubContainer>
