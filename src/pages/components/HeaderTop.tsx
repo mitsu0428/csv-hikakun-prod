@@ -10,7 +10,7 @@ export default function HeaderTop() {
       </Link>
 
       <Link href="/about">
-        <HeaderMenuLink>このサイトについて</HeaderMenuLink>
+        <HeaderMenuLink>サイトについて</HeaderMenuLink>
       </Link>
 
       <Link href="/privacy">
