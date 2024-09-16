@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import styled from "styled-components";
 import router from "next/router";
-import { useToast } from "../components/useToast";
+import { useToast } from "./components/useToast";
 
 export default function Mail() {
   const [currentValues, setCurentValues] = React.useState({
