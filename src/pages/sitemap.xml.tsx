@@ -9,10 +9,6 @@ async function generateSitemapXml() {
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://hikakuchan.jp/blog</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://hikakuchan.jp/privacy</loc>
     <priority>0.8</priority>
   </url>

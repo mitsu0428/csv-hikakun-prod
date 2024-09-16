@@ -8,15 +8,15 @@ export default function HeaderTop() {
       <Link href="/">
         <HeaderMenuLink>Top</HeaderMenuLink>
       </Link>
+
       <Link href="/about">
         <HeaderMenuLink>このサイトについて</HeaderMenuLink>
       </Link>
-      <Link href="/blog">
-        <HeaderMenuLink>公式ブログ</HeaderMenuLink>
-      </Link>
+
       <Link href="/privacy">
         <HeaderMenuLink>プライバシーポリシー</HeaderMenuLink>
       </Link>
+
       <Link href="/mail">
         <HeaderMenuLink>お問い合わせ</HeaderMenuLink>
       </Link>

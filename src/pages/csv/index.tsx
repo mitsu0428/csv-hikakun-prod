@@ -5,7 +5,7 @@ import type { NextPage } from "next";
 import { readString } from "react-papaparse";
 import HowToUseDescription from "../components/business/HowToUseDescription";
 import QuestionAnsewer from "../components/business/QuestionAnsewer";
-import CsvDownloadComponents from "../components/libs/CsvDownloader";
+import CsvDownloadComponents from "../components/CsvDownloader";
 import SeoSettings from "../components/SeoSettings";
 import Logo from "../components/elements/Logo";
 import BasicTitle from "../components/elements/BasicTitle";
