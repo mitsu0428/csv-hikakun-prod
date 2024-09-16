@@ -11,20 +11,19 @@ export default function Home() {
       <Logo isTopPage={true} />
       <SeoSettings />
       <BasicSubContainer>
-        <BasicSubTitle>比較ちゃん [hikakuchan]</BasicSubTitle>
+        <BasicSubTitle>比較ちゃん | hikakuchan</BasicSubTitle>
         <BoldBasicText>
           「なんか比較したいなぁ」は全部このサイトへ。
         </BoldBasicText>
       </BasicSubContainer>
+
       <BasicSubContainer>
         <BoldBasicText>具体的なツール例</BoldBasicText>
-        <BasicText>CSVファイル同士を比較する</BasicText>
-        <BasicText>Excelファイル同士を比較する</BasicText>
-        <BasicText>Textファイルや文章同士を比較する</BasicText>
-        <BasicText>今日の天気と明日の天気を比較する</BasicText>
-        <BasicText>など</BasicText>
+        <BasicText>・CSVファイル同士を比較する</BasicText>
+        <BasicText>・Textファイルや文章同士を比較する</BasicText>
         <BasicText>様々なものを簡単に比較できます。</BasicText>
       </BasicSubContainer>
+
       <ButtonContainer>
         <ButtonItem>
           <StyledButton>
@@ -54,6 +53,7 @@ const BasicContainer = styled.div`
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
+  padding: 2rem 2rem;
 `;
 
 const BasicSubContainer = styled.div`
@@ -117,15 +117,15 @@ const StyledButton = styled.div`
   align-items: center;
   width: 100%;
   height: 100%;
-  font-size: 2rem;
-  font-weight: bold;
+  font-size: 1.5rem;
+  padding: 1rem;
   text-decoration: none;
   background-color: #909090;
   text-align: center;
   border-radius: 8px;
 
   &:hover {
-    background-color: #d3e173;
+    background-color: #707070;
   }
 
   a {
