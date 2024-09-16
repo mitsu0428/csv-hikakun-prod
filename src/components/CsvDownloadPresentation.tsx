@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import CsvDownloadUseCase from "../../usecase/CsvDownloadUseCase";
+import CsvDownloadUseCase from "../usecase/CsvDownloadUseCase";
 
 type CsvDownloadComponentsProps = {
   filenameprefix: string;
