@@ -232,12 +232,12 @@ const BasicButton = styled.button`
   font-weight: bold;
   text-decoration: none;
   color: #fff;
-  background-color: #eea9a9;
+  background-color: #909090;
   border: none;
   border-radius: 8px;
   transition: 0.2s;
 
   &:hover {
-    background-color: #ff6f91;
+    background-color: #707070;
   }
 `;

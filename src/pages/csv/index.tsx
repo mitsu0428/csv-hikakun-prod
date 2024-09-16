@@ -350,13 +350,13 @@ const BasicButton = styled.div`
   height: 3rem;
   margin-top: 2rem;
   text-decoration: none;
-  background-color: #eea9a9;
+  background-color: #909090;
   border: none;
   border-radius: 8px;
   transition: 0.4s;
 
   :hover {
-    background-color: #ff6f91;
+    background-color: #707070;
   }
 `;
 
